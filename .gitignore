@@ -2,3 +2,7 @@
 /CarControlUnit/target/
 /Common/target/
 /Server/target/
+/CarControlUnit/CarControlUnit.iml
+/Common/Common.iml
+/Server/Server.iml
+/bachelorthesis-java.iml
