@@ -1,0 +1,4 @@
+# Project exclude paths
+/CarControlUnit/target/
+/Common/target/
+/Server/target/
