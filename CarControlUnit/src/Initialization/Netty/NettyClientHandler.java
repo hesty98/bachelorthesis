@@ -32,9 +32,7 @@ public class NettyClientHandler extends ChannelHandlerAdapter {
      * @param ctx connection-context
      */
     @Override
-    public void channelActive(ChannelHandlerContext ctx) {
-
-    }
+    public void channelActive(ChannelHandlerContext ctx) { }
 
     /**
      * Method which handles incoming messages.

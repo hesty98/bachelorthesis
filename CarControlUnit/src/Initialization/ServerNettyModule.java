@@ -9,8 +9,7 @@ import com.google.inject.Singleton;
 public class ServerNettyModule extends AbstractModule
 {
     @Override
-    protected void configure()
-    {
+    protected void configure() {
         bind(NettyClientInitializer.class).in(Singleton.class);
         bind(INettyClient.class).to(NettyClient.class);
     }
