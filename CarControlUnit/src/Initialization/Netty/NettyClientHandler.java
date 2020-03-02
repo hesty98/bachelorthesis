@@ -55,6 +55,7 @@ public class NettyClientHandler extends ChannelHandlerAdapter {
      */
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
+        System.out.println("Read Complete");
         ctx.flush();
     }
 

@@ -14,7 +14,6 @@ import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import javafx.application.Platform;
 
 import java.util.Properties;
 
@@ -120,7 +119,7 @@ public class NettyClient implements INettyClient {
      */
     public void connectionInterrupted()
     {
-        Platform.runLater(() -> this.eventBus.post(new NoConnectionEvent()));
+        this.eventBus.post(new NoConnectionEvent());
     }
 
 
@@ -131,7 +130,7 @@ public class NettyClient implements INettyClient {
      */
     public void receivedMessage(IMessage in)
     {
-        Platform.runLater(() -> this.eventBus.post(in));
+        this.eventBus.post(in);
     }
 
 

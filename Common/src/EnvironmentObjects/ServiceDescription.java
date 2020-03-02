@@ -17,13 +17,23 @@ public class ServiceDescription {
     private String serviceTitle;
     private ArrayList<ActionEnums> actionTypes;
     private Angebot angebot;
+    private String serviceVerificationURL;
 
-    public ServiceDescription(String serviceTypeID, String servceDescription, String serviceTitle, ArrayList<ActionEnums> actionTypes, Angebot angebot) {
+    public ServiceDescription(String serviceTypeID, String servceDescription, String serviceTitle, ArrayList<ActionEnums> actionTypes, Angebot angebot, String serviceVerificationURL) {
         this.serviceTypeID = serviceTypeID;
         this.servceDescription = servceDescription;
         this.serviceTitle = serviceTitle;
         this.actionTypes = actionTypes;
         this.angebot = angebot;
+        this.serviceVerificationURL = serviceVerificationURL;
+    }
+
+    public String getServiceVerificationURL() {
+        return serviceVerificationURL;
+    }
+
+    public void setServiceVerificationURL(String serviceVerificationURL) {
+        this.serviceVerificationURL = serviceVerificationURL;
     }
 
     public String getServiceTypeID() {

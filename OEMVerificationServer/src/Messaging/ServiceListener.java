@@ -24,7 +24,8 @@ public class ServiceListener {
         System.out.println("ServiceProvider: "+msg.getActorID());
         ChannelHandlerContext ctx =(ChannelHandlerContext) msg.getCtx();
         try {
-            ctx.writeAndFlush(new ServiceRegistrationMessage(new ServiceDescription(msg.getActorType(), "I am a cool service", "Parkplatz", null, null), 1234));
+            ctx.writeAndFlush(msg);
+            System.out.println(ctx);
         }catch (Exception e){
             e.printStackTrace();
         } finally {

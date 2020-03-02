@@ -25,9 +25,6 @@ public class CarControlUnitMain {
         } else {
             mainDependencies.init();
         }
-        while (true){
-
-        }
 
     }
 }
