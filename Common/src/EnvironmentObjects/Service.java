@@ -1,11 +1,13 @@
 package EnvironmentObjects;
 
+import java.io.Serializable;
+
 /**
  * @author Linus Hestermeyer
  *
  * Wrapper for a ServiceTypeID and the ServiceProvider.
  */
-public class Service {
+public class Service implements Serializable {
     private String serviceTypeID;
     private String serviceProviderID;
 

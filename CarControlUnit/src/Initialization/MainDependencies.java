@@ -3,8 +3,7 @@ package Initialization;
 import Events.NoConnectionEvent;
 import Initialization.Netty.NettyClient;
 import Initialization.Netty.NettyClientInitializer;
-import Messages.ServicePerceptionMessage;
-import Messaging.ServiceListener;
+import MessageManager.ServiceListener;
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 import com.airhacks.afterburner.injection.Injector;
@@ -50,7 +49,7 @@ public class MainDependencies {
      *    3. connect to Server
      */
     public void init() {
-        nettyClient.sendMessage(new ServicePerceptionMessage("automated_parking", "stadt-oldenburg"));
+
     }
 
     /**

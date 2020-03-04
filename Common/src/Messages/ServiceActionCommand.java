@@ -4,16 +4,11 @@ import Actions.ActionEnums;
 import Actions.IAction;
 import EnvironmentObjects.Service;
 
-/**
- * @author Linus Hestermeyer
- *
- * Message which contains the action the car is supposed to do.
- */
-public class ServiceActionMessage extends Message {
+public class ServiceActionCommand extends Message {
     private ActionEnums action;
     private Service communicatingService;
 
-    public ServiceActionMessage(ActionEnums action, Service communicatingService) {
+    public ServiceActionCommand(ActionEnums action, Service communicatingService) {
         this.action = action;
         this.communicatingService = communicatingService;
     }

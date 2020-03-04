@@ -3,7 +3,6 @@ package Initialization.Netty;
 import Messages.IMessage;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
 
 
 /**

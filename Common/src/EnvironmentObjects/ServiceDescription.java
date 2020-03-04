@@ -2,6 +2,7 @@ package EnvironmentObjects;
 
 import Actions.ActionEnums;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  *
  * Description of a Service.
  */
-public class ServiceDescription {
+public class ServiceDescription implements Serializable {
     private String serviceTypeID;
     private String servceDescription;
     //private ArrayList<Image> images;
@@ -18,14 +19,24 @@ public class ServiceDescription {
     private ArrayList<ActionEnums> actionTypes;
     private Angebot angebot;
     private String serviceVerificationURL;
+    private String serviceProvider;
 
-    public ServiceDescription(String serviceTypeID, String servceDescription, String serviceTitle, ArrayList<ActionEnums> actionTypes, Angebot angebot, String serviceVerificationURL) {
+    public ServiceDescription(String serviceTypeID, String servceDescription, String serviceTitle, ArrayList<ActionEnums> actionTypes, Angebot angebot, String serviceVerificationURL, String serviceProvider) {
         this.serviceTypeID = serviceTypeID;
         this.servceDescription = servceDescription;
         this.serviceTitle = serviceTitle;
         this.actionTypes = actionTypes;
         this.angebot = angebot;
         this.serviceVerificationURL = serviceVerificationURL;
+        this.serviceProvider=serviceProvider;
+    }
+
+    public String getServiceProvider() {
+        return serviceProvider;
+    }
+
+    public void setServiceProvider(String serviceProvider) {
+        this.serviceProvider = serviceProvider;
     }
 
     public String getServiceVerificationURL() {

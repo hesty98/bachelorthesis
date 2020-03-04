@@ -5,7 +5,7 @@ import init.MainDependencies;
 import network.NettyServerModule;
 
 /**
- * Injector der MainDependencies für die Main Klasse
+ * Injector der MainDependencies für die View.Main Klasse
  * @author Markus Reinke
  */
 

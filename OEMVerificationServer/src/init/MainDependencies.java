@@ -1,6 +1,6 @@
 package init;
 
-import Messaging.ServiceListener;
+import MessageManager.ServiceListener;
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 import network.NettyServer;

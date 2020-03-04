@@ -4,7 +4,6 @@ import Messages.IMessage;
 import com.google.common.eventbus.EventBus;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
  * Netty Handler der read and write Operationen durchführt.
@@ -29,6 +28,7 @@ public class NettyServerHandler extends ChannelHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         //Alles was kein IMessage ist muss geblockt werden!
+        System.err.println("Received: "+msg);
         if(msg instanceof IMessage){
             ((IMessage) msg).setCtx(ctx);
             this.eb.post(msg);
@@ -38,6 +38,7 @@ public class NettyServerHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
+        System.out.println("Schon Fertig! :)");
         ctx.flush();
     }
 
