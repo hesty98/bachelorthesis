@@ -1,0 +1,1 @@
+Hier sind viele Grafiken zu sehen. Sämtliche wurden mit dem Tool DrawIO erstellt.
