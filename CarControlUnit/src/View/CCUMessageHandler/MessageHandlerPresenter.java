@@ -2,8 +2,10 @@ package View.CCUMessageHandler;
 
 import Initialization.Netty.NettyClient;
 import Messages.*;
+import View.LogPrinter;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -46,29 +48,30 @@ public class MessageHandlerPresenter implements Initializable {
     @Subscribe
     public void registerService(ServiceRegistrationMessage msg){
         registeredServices.add(msg);
-        logReceivedMessages.setText(
+
+        LogPrinter.displayInView(logReceivedMessages,
                 "Received new ServiceRegistrationService. InquiryID: "+ msg.getInquiryID()
-                +"\n     Type: "+msg.getDescription().getServiceTypeID()
-                +"\n     Titel: "+msg.getDescription().getServiceTitle()
-                +"\n     Description:"+msg.getDescription().getServceDescription()
-                +"\n... verifying ..."
-        );
+                        +"\n     Type: "+msg.getDescription().getServiceTypeID()
+                        +"\n     Titel: "+msg.getDescription().getServiceTitle()
+                        +"\n     Description:"+msg.getDescription().getServceDescription()
+                        +"\n... verifying ...");
         ServiceVerificationCommand cmd = new ServiceVerificationCommand("eins cooles auto manifesto", msg.getDescription(), msg.getInquiryID());
         nettyClient.sendMessage(cmd);
-        logForwardedMessages.setText(
+        LogPrinter.displayInView(logForwardedMessages,
                 "Sent ServiceVerificationCommand to OEM Verification Server."
         );
     }
 
     @Subscribe
     public void waitForVerification(ServiceVerificationMessage serviceVerificationMessage){
-        logReceivedMessages.setText(
-                logReceivedMessages.getText()
-                + "\nReceived ServiceVerificationMessage. " +
-                        "\n     Providor: "+ serviceVerificationMessage.getDesc().getServiceProvider()+
-                        "\n     Description: "+serviceVerificationMessage.getDesc().getServceDescription()+
-                        "\n\nIn future, we need to Forward to MMS. Currently, Service always gets accepted and pushed to the intern eventbus right away."
-        );
+        LogPrinter.displayInView(logReceivedMessages,
+                        logReceivedMessages.getText()
+                                + "\nReceived ServiceVerificationMessage. " +
+                                "\n     Providor: "+ serviceVerificationMessage.getDesc().getServiceProvider()+
+                                "\n     Description: "+serviceVerificationMessage.getDesc().getServceDescription()+
+                                "\n\nIn future, we need to Forward to MMS. Currently, Service always gets accepted and pushed to the intern eventbus right away."
+                );
+
         for(ServiceRegistrationMessage registrationMessage : registeredServices){
             if(registrationMessage.getInquiryID()== serviceVerificationMessage.getInquiryID()){
                 //future: send(registrationMessage); -> to MMS, log this in forwardedMessagesLog
@@ -79,16 +82,13 @@ public class MessageHandlerPresenter implements Initializable {
     }
 
     @Subscribe
-    public void handleActionMessage(ServiceActionMessage msg){
-        //check if serviceProvider is registered
-    }
-
-    @Subscribe
     public void handleActionCommand(ServiceActionCommand cmd){
         //TODO future: send to MMS
-        logReceivedMessages.setText(logReceivedMessages.getText()+"\n"
-                + "Received ServiceActionCommand. Creating verified Message and forwarding to carla."
+        LogPrinter.displayInView(logReceivedMessages, logReceivedMessages.getText()+"\n"
+                        + "Received ServiceActionCommand. Creating verified Message and forwarding to carla."
                 );
+
+
         ServiceActionMessage msg = new ServiceActionMessage(cmd.getAction(), cmd.getCommunicatingService());
         eventBus.post(msg);
     }
@@ -96,8 +96,10 @@ public class MessageHandlerPresenter implements Initializable {
     @Subscribe
     public void waitForDecisions(ServiceDecisionMessage serviceDecisionMessage){
         if(serviceDecisionMessage.isAccepted()){
-            logReceivedMessages.setText(logReceivedMessages.getText()+
-                    "\nDriver accepted to use the Service! Forwarding message to Carla-Environment.");
+            LogPrinter.displayInView(logReceivedMessages,
+                logReceivedMessages.getText()+
+                        "\nDriver accepted to use the Service! Forwarding message to Carla-Environment."
+            );
         }
     }
 

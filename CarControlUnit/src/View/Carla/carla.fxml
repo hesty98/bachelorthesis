@@ -4,25 +4,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Carla.CarlaPresenter">
+<AnchorPane prefHeight="456.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Carla.CarlaPresenter">
    <children>
       <Label layoutX="14.0" layoutY="6.0" text="Car">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="17.0" layoutY="200.0" prefHeight="28.0" prefWidth="100.0" text="Environment">
+      <Label layoutX="17.0" layoutY="217.0" prefHeight="25.0" prefWidth="89.0" text="Environment">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="sendServiceRegistrationMessage" disable="true" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Send ServiceRegistrationMessage" />
-      <Button fx:id="sendServiceActionButton" layoutX="14.0" layoutY="327.0" mnemonicParsing="false" text="Send ServiceActionMessage" />
+      <Button fx:id="sendServiceRegistrationMessage" disable="true" layoutX="14.0" layoutY="417.0" mnemonicParsing="false" text="Send ServiceRegistrationMessage" />
+      <Button fx:id="sendServiceActionButton" layoutX="333.0" layoutY="417.0" mnemonicParsing="false" text="Send ServiceActionMessage" />
       <Label layoutX="14.0" layoutY="31.0" text="Log:" />
-      <Label fx:id="carLog" alignment="TOP_LEFT" layoutX="14.0" layoutY="48.0" prefHeight="72.0" prefWidth="328.0" text="12:28  Drive into perception area&#10;12:28  Waiting for DecisionMessage&#10;12:28  Waiting for ServiceAction" />
-      <Button fx:id="driveIntoPerceptionAreaButton" disable="true" layoutX="14.0" layoutY="140.0" mnemonicParsing="false" text="Drive into perception area" />
-      <Label layoutX="15.0" layoutY="228.0" text="Log:" />
-      <Label fx:id="environmentlog" alignment="TOP_LEFT" layoutX="14.0" layoutY="250.0" prefHeight="72.0" prefWidth="316.0" text="12:28  Percepted a vehicle&#10;12:28  Sending a ServiceRegistrationMessage ... done!&#10;12:28  Waiting vor DecisionMessage&#10;12:29  Received DecisionMessage: use Service!" />
-      <Button layoutX="251.0" layoutY="10.0" mnemonicParsing="false" text="Activate Carla" />
+      <Label fx:id="carLog" alignment="TOP_LEFT" layoutX="14.0" layoutY="48.0" prefHeight="165.0" prefWidth="328.0" />
+      <Button fx:id="driveIntoPerceptionAreaButton" disable="true" layoutX="358.0" layoutY="191.0" mnemonicParsing="false" text="Drive into perception area" />
+      <Label layoutX="14.0" layoutY="239.0" text="Log:" />
+      <Label fx:id="environmentlog" alignment="TOP_LEFT" layoutX="16.0" layoutY="256.0" prefHeight="158.0" prefWidth="492.0" />
+      <Button layoutX="395.0" layoutY="157.0" mnemonicParsing="false" text="Activate Carla" />
    </children>
 </AnchorPane>

@@ -9,8 +9,10 @@ import Messages.ServiceActionCommand;
 import Messages.ServiceActionMessage;
 import Messages.ServiceDecisionMessage;
 import Messages.ServiceRegistrationMessage;
+import View.LogPrinter;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -55,6 +57,8 @@ public class CarlaPresenter implements Initializable {
     @FXML
     public Button driveIntoPerceptionAreaButton;
 
+    private boolean happened =false;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         eventBus.register(this);
@@ -62,31 +66,35 @@ public class CarlaPresenter implements Initializable {
         sendServiceRegistrationMessage.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                ArrayList<ActionEnums> list = new ArrayList<>();
-                list.add(ActionEnums.TARGET);
-                Angebot angebot=new Angebot(19.99);
-                ServiceDescription desc = new ServiceDescription("automated_parking",
-                        "Eine lange Beschreibung des Service.",
-                        "Parken am Schloßplatz",
-                        list,
-                        angebot,
-                        "parken.stadt-oldenburg.de",
-                        "Stadt Oldenburg"
-                        );
-                //TODO: von Carla aus tun.
-                ServiceRegistrationMessage msg = new ServiceRegistrationMessage(desc,992120);
-                eventBus.post(msg);
+                if(!happened) {
+                    ArrayList<ActionEnums> list = new ArrayList<>();
+                    list.add(ActionEnums.TARGET);
+                    Angebot angebot = new Angebot(19.99);
+                    ServiceDescription desc = new ServiceDescription("automated_parking",
+                            "Eine lange Beschreibung des Service.",
+                            "Parken am Schloßplatz",
+                            list,
+                            angebot,
+                            "parken.stadt-oldenburg.de",
+                            "Stadt Oldenburg"
+                    );
+                    //TODO: von Carla aus tun.
+                    ServiceRegistrationMessage msg = new ServiceRegistrationMessage(desc, 992120);
+                    eventBus.post(msg);
+                    happened=true;
+                }
             }
         });
     }
 
     @Subscribe
     public void waitForDecisions(ServiceDecisionMessage serviceDecisionMessage){
-        if(serviceDecisionMessage.isAccepted()){
-            environmentlog.setText(environmentlog.getText()+
+        if(serviceDecisionMessage.isAccepted()) {
+            LogPrinter.displayInView(environmentlog, environmentlog.getText() +
                     "\nDriver accepted to use the Service! Preparing the ServiceActionCommand");
+
             Service service = new Service("automated_parking", "Stadt Oldenburg");
-            ServiceActionCommand serviceActionCommand= new ServiceActionCommand(ActionEnums.MOVEMENT, service);
+            ServiceActionCommand serviceActionCommand = new ServiceActionCommand(ActionEnums.MOVEMENT, service);
             eventBus.post(serviceActionCommand);
             //TODO future: an CarlaPython zusätzlich schicken
         }
@@ -94,6 +102,6 @@ public class CarlaPresenter implements Initializable {
 
     @Subscribe
     public void readyForAction(ServiceActionMessage serviceActionMessage){
-        carLog.setText("Received a new Action, yeeeey!");
+        LogPrinter.displayInView(carLog ,"Received a new Action, yeeeey!");
     }
 }

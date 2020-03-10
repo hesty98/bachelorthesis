@@ -3,7 +3,6 @@ package Initialization;
 import Events.NoConnectionEvent;
 import Initialization.Netty.NettyClient;
 import Initialization.Netty.NettyClientInitializer;
-import MessageManager.ServiceListener;
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 import com.airhacks.afterburner.injection.Injector;
@@ -30,16 +29,8 @@ public class MainDependencies {
         Injector.setConfigurationSource( context::get );
 
         this.nettyConnectionSuccess = this.nettyClient.isConnectionSuccess();
-        registerListeners();
     }
 
-    /**
-     * Registers all Listeners on the EventBus. Called
-     */
-    private void registerListeners(){
-        ServiceListener serviceListener = new ServiceListener(this.eventBus);
-        eventBus.register(serviceListener);
-    }
 
     /**
      * Called if Connection to Server was successful. Listeners are already Subscribed.

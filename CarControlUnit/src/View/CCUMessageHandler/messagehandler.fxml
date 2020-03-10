@@ -4,20 +4,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CCUMessageHandler.MessageHandlerPresenter">
+<AnchorPane prefHeight="464.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CCUMessageHandler.MessageHandlerPresenter">
    <children>
-      <Slider layoutX="329.0" layoutY="31.0" orientation="VERTICAL" prefHeight="158.0" prefWidth="14.0" />
-      <Slider layoutX="329.0" layoutY="229.0" orientation="VERTICAL" prefHeight="158.0" prefWidth="14.0" />
-      <Separator layoutY="201.0" prefHeight="0.0" prefWidth="350.0" />
+      <Slider layoutX="460.0" layoutY="31.0" orientation="VERTICAL" prefHeight="158.0" prefWidth="14.0" />
+      <Slider layoutX="460.0" layoutY="250.0" orientation="VERTICAL" prefHeight="158.0" prefWidth="14.0" />
       <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="113.0" text="Reveived Messages">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="212.0" prefHeight="17.0" prefWidth="125.0" text="Forwarded Messages">
+      <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="250.0" prefHeight="17.0" prefWidth="125.0" text="Forwarded Messages">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="logReceivedMessages" alignment="TOP_LEFT" layoutX="14.0" layoutY="31.0" prefHeight="158.0" prefWidth="312.0" text="12:28   ServiceRegistrationMessage (processID: 8231)&#10;&#9;from:  EnvironmentActor&#10;12:28   ServiceVerificationMessage (processID: 8232)&#10;&#9;from:  OEMVerificationServer&#10;12:30   ServiceDecisionMessage (processID: 8233)&#10;&#9;from:  MMS" />
-      <Label fx:id="logForwardedMessages" alignment="TOP_LEFT" layoutX="14.0" layoutY="229.0" prefHeight="158.0" prefWidth="312.0" text="12:28   ServiceVerificationCommand (processID: 8231)&#10;&#9;to: OEMVerificationServer&#10;12:28   ServiceVerificationMessage (processID: 8232)&#10;&#9;to:  MMS&#10;12:30   ServiceDecisionMessage (processID: 8233)&#10;&#9;to:  EnvironmentActor" />
+      <Label fx:id="logReceivedMessages" alignment="TOP_LEFT" layoutX="14.0" layoutY="31.0" prefHeight="208.0" prefWidth="441.0" />
+      <Label fx:id="logForwardedMessages" alignment="TOP_LEFT" layoutX="14.0" layoutY="279.0" prefHeight="174.0" prefWidth="441.0" />
    </children>
 </AnchorPane>
