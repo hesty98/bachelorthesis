@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-03-23T11:07:20.939Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36" etag="d27vGslfDcDDnaykaHai" version="12.8.5" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2020-03-23T12:30:59.533Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36" etag="5Gi40I1PACSIXB3PJeso" version="12.8.5" type="github" pages="3">
   <diagram id="eALc7AUzEJJWJKkvV8aj" name="carla activated">
     <mxGraphModel dx="1422" dy="745" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -184,7 +184,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="CTll0aaPehaiN8D_1RyN" name="Communication">
-    <mxGraphModel dx="3197" dy="1242" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3197" dy="1323" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="EcscJswSL9P7-V4hF_OK-0" />
         <mxCell id="EcscJswSL9P7-V4hF_OK-1" parent="EcscJswSL9P7-V4hF_OK-0" />
@@ -313,12 +313,6 @@
         <mxCell id="XPwFUA-V33j8iolf1T0j-40" value="install sw:&#xa;true" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=center;verticalAlign=middle;rounded=0;fontSize=14;" parent="EcscJswSL9P7-V4hF_OK-1" vertex="1">
           <mxGeometry x="710" y="533" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="XPwFUA-V33j8iolf1T0j-41" value="Job" style="shape=actor;labelBackgroundColor=#ffffff;fontSize=14;verticalAlign=bottom;" parent="EcscJswSL9P7-V4hF_OK-1" vertex="1">
-          <mxGeometry x="527" y="710" width="40" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="XPwFUA-V33j8iolf1T0j-42" value="install Software from &#xa;ServiceRegistrationMessage" style="text;strokeColor=#0e8088;fillColor=#b0e3e6;align=center;verticalAlign=middle;rounded=0;fontSize=14;" parent="EcscJswSL9P7-V4hF_OK-1" vertex="1">
-          <mxGeometry x="609" y="744" width="200" height="40" as="geometry" />
-        </mxCell>
         <mxCell id="XPwFUA-V33j8iolf1T0j-45" value="3. ServiceDecisionMessage" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" parent="EcscJswSL9P7-V4hF_OK-1" source="XPwFUA-V33j8iolf1T0j-46" target="XPwFUA-V33j8iolf1T0j-47" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -416,6 +410,21 @@
         </mxCell>
         <mxCell id="NGWgHV3OGSJ8z40MP_bs-4" value="END" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=19;fontColor=#FF0000;fontStyle=1" vertex="1" parent="EcscJswSL9P7-V4hF_OK-1">
           <mxGeometry x="747" y="362" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="NGWgHV3OGSJ8z40MP_bs-10" value="SW-Manager" style="rounded=1;fillColor=#FFFFFF;gradientColor=none;fontStyle=1;fontSize=24;" vertex="1" parent="EcscJswSL9P7-V4hF_OK-1">
+          <mxGeometry x="638.25" y="800" width="151.75" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NGWgHV3OGSJ8z40MP_bs-11" value="Mensch entscheidet" style="text;strokeColor=#0e8088;fillColor=#b0e3e6;align=center;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="EcscJswSL9P7-V4hF_OK-1">
+          <mxGeometry x="56" y="417" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="NGWgHV3OGSJ8z40MP_bs-12" value="Mensch entscheidet" style="text;strokeColor=#0e8088;fillColor=#b0e3e6;align=center;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="EcscJswSL9P7-V4hF_OK-1">
+          <mxGeometry x="634" y="600" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XPwFUA-V33j8iolf1T0j-42" value="install Software from &#xa;ServiceRegistrationMessage" style="text;strokeColor=#0e8088;fillColor=#b0e3e6;align=center;verticalAlign=middle;rounded=0;fontSize=14;" parent="EcscJswSL9P7-V4hF_OK-1" vertex="1">
+          <mxGeometry x="700" y="848" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XPwFUA-V33j8iolf1T0j-41" value="Job" style="shape=actor;labelBackgroundColor=#ffffff;fontSize=14;verticalAlign=bottom;" parent="EcscJswSL9P7-V4hF_OK-1" vertex="1">
+          <mxGeometry x="648" y="845" width="40" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
