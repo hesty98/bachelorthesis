@@ -1,16 +1,17 @@
 package Messages;
 
 import Actions.ActionEnums;
-import Actions.IAction;
 import EnvironmentObjects.Service;
 
-public class ServiceActionCommand extends Message {
+public class ServiceActionCommand extends ServiceMessage {
     private ActionEnums action;
     private Service communicatingService;
 
-    public ServiceActionCommand(ActionEnums action, Service communicatingService) {
+    public ServiceActionCommand(ActionEnums action, Service communicatingService, String serviceSoftwareID) {
+        super(serviceSoftwareID);
         this.action = action;
         this.communicatingService = communicatingService;
+
     }
 
     public ActionEnums getAction() {

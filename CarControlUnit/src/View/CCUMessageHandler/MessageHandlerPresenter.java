@@ -1,11 +1,12 @@
 package View.CCUMessageHandler;
 
-import Initialization.Netty.NettyClient;
+import Car.SoftwareManager;
+import EnvironmentObjects.Software;
+import Initialization.OEMVerificationServerConnection.NettyConnectionClient;
 import Messages.*;
 import View.LogPrinter;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -23,6 +24,11 @@ import java.util.ResourceBundle;
  */
 public class MessageHandlerPresenter implements Initializable {
 
+    private ArrayList<String> serviceSoftwares = new ArrayList<>();
+
+    //TODO @Inject
+    private SoftwareManager mgr;
+
     @FXML
     public BorderPane mainPane;
 
@@ -30,7 +36,7 @@ public class MessageHandlerPresenter implements Initializable {
     private EventBus eventBus;
 
     @Inject
-    private NettyClient nettyClient;
+    private NettyConnectionClient nettyClient;
 
     @FXML
     public Label logReceivedMessages;
@@ -41,65 +47,120 @@ public class MessageHandlerPresenter implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         eventBus.register(this);
+        this.mgr = new SoftwareManager();
+
     }
 
-    private ArrayList<ServiceRegistrationMessage> registeredServices = new ArrayList<>();
+    private ArrayList<ServiceRegistrationMessage> registeringServices = new ArrayList<>();
 
+    /**
+     * Reads ServiceRegistrationMessages and passes them to the software being able to handle this Message.
+     *
+     * @param msg
+     */
     @Subscribe
     public void registerService(ServiceRegistrationMessage msg){
-        registeredServices.add(msg);
 
         LogPrinter.displayInView(logReceivedMessages,
                 "Received new ServiceRegistrationService. InquiryID: "+ msg.getInquiryID()
-                        +"\n     Type: "+msg.getDescription().getServiceTypeID()
+                        +"\n     Type: "+msg.getDescription().getSoftwareID()
                         +"\n     Titel: "+msg.getDescription().getServiceTitle()
-                        +"\n     Description:"+msg.getDescription().getServceDescription()
-                        +"\n... verifying ...");
-        ServiceVerificationCommand cmd = new ServiceVerificationCommand("eins cooles auto manifesto", msg.getDescription(), msg.getInquiryID());
-        nettyClient.sendMessage(cmd);
-        LogPrinter.displayInView(logForwardedMessages,
-                "Sent ServiceVerificationCommand to OEM Verification Server."
-        );
+                        +"\n     Description:"+msg.getDescription().getServceDescription());
+
+        final String serviceSoftwareID= msg.getDescription().getSoftwareID();
+        Software handlingSW = mgr.getSoftware(serviceSoftwareID);
+
+        if(handlingSW != null){
+            handlingSW.handleMessage(msg);
+        } else{
+            registeringServices.add(msg);
+            ServiceVerificationCommand cmd = new ServiceVerificationCommand("eins cooles auto manifesto", msg.getDescription(), msg.getInquiryID(), msg.getServiceSoftwareID());
+            nettyClient.sendMessage(cmd);
+            LogPrinter.displayInView(logForwardedMessages,
+                    "Sent ServiceVerificationCommand to OEM Verification Server."
+            );
+        }
     }
 
     @Subscribe
     public void waitForVerification(ServiceVerificationMessage serviceVerificationMessage){
         LogPrinter.displayInView(logReceivedMessages,
-                        logReceivedMessages.getText()
-                                + "\nReceived ServiceVerificationMessage. " +
-                                "\n     Providor: "+ serviceVerificationMessage.getDesc().getServiceProvider()+
-                                "\n     Description: "+serviceVerificationMessage.getDesc().getServceDescription()+
-                                "\n\nIn future, we need to Forward to MMS. Currently, Service always gets accepted and pushed to the intern eventbus right away."
-                );
+                logReceivedMessages.getText()
+                        + "\nReceived ServiceVerificationMessage. " +
+                        "\n     Providor: "+ serviceVerificationMessage.getDesc().getServiceProvider()+
+                        "\n     Description: "+serviceVerificationMessage.getDesc().getServceDescription()+
+                        "\n\nIn future, we need to Forward to MMS. Currently, Service always gets accepted and pushed to the intern eventbus right away."
+        );
 
-        for(ServiceRegistrationMessage registrationMessage : registeredServices){
-            if(registrationMessage.getInquiryID()== serviceVerificationMessage.getInquiryID()){
-                //future: send(registrationMessage); -> to MMS, log this in forwardedMessagesLog
-                ServiceDecisionMessage decisionMessage = new ServiceDecisionMessage(serviceVerificationMessage.getInquiryID(), true);
-                eventBus.post(decisionMessage);
+        if(serviceVerificationMessage.isVerified()){
+            for(ServiceRegistrationMessage msg : registeringServices){
+                if(serviceVerificationMessage.getServiceSoftwareID() == msg.getServiceSoftwareID()){
+                    mgr.submitSoftware(msg);
+                }
             }
+        } else{
+            System.err.println("Unverified SW got recommended!");
         }
     }
 
     @Subscribe
     public void handleActionCommand(ServiceActionCommand cmd){
-        //TODO future: send to MMS
         LogPrinter.displayInView(logReceivedMessages, logReceivedMessages.getText()+"\n"
-                        + "Received ServiceActionCommand. Creating verified Message and forwarding to carla."
-                );
-
-
-        ServiceActionMessage msg = new ServiceActionMessage(cmd.getAction(), cmd.getCommunicatingService());
-        eventBus.post(msg);
+                + "Received ServiceActionCommand. Creating verified Message and forwarding to carla."
+        );
+        final String serviceSWID =cmd.getServiceSoftwareID();
+        Software handlingSW = mgr.getSoftware(serviceSWID);
+        handlingSW.handleMessage(cmd);
+        ServiceActionMessage sam = new ServiceActionMessage(cmd.getAction(), cmd.getCommunicatingService(), cmd.getServiceSoftwareID());
+        eventBus.post(sam);
     }
 
     @Subscribe
     public void waitForDecisions(ServiceDecisionMessage serviceDecisionMessage){
-        if(serviceDecisionMessage.isAccepted()){
+        final String serviceSoftwareID= serviceDecisionMessage.getSoftwareID();
+        Software handlingSW = mgr.getSoftware(serviceSoftwareID);
+        if(handlingSW!=null) {
+            handlingSW.handleMessage(serviceDecisionMessage);
+        }else{
+            System.err.println("No Software handling the message. -> MessageHandlerPresenter");
+        }
+        if(serviceDecisionMessage.isAccepted()) {
             LogPrinter.displayInView(logReceivedMessages,
-                logReceivedMessages.getText()+
-                        "\nDriver accepted to use the Service! Forwarding message to Carla-Environment."
+                    logReceivedMessages.getText()+
+                            "\nDriver accepted to use the Service! Forwarding message to Carla-Environment."
             );
+        }else{
+            LogPrinter.displayInView(logReceivedMessages,
+                    logReceivedMessages.getText()+
+                            "\nDriver did not accept to use the Service! Forwarding message to Carla-Environment (TODO)."
+            );
+        }
+    }
+
+
+    /**
+     * Sends a SWInstallRequest to the OEMVerificationServer. Return expected form server: SoftwareInstallationMessage
+     * @param softwareDecisionMessage
+     */
+    @Subscribe
+    public void waitForSoftwareDecisions(SoftwareDecisionMessage softwareDecisionMessage){
+        if(softwareDecisionMessage.isAccepted()){
+            //forward InstallRequest to the OEMServer
+            SoftwareInstallRequest req = new SoftwareInstallRequest(softwareDecisionMessage.getSoftwareID());
+            eventBus.post(req);
+        } else{
+            System.err.println("Driver doesnt want to install Software!");
+        }
+    }
+
+    @Subscribe
+    public void waitForSoftwarePackage(SoftwareInstallationPackage installationPackage){
+        Software toBeInstalled = installationPackage.getSoftware();
+        mgr.installSoftware(toBeInstalled);
+        for(ServiceRegistrationMessage msg : registeringServices){
+            if(installationPackage.getSoftwareID() == msg.getServiceSoftwareID()){
+                eventBus.post(msg);
+            }
         }
     }
 

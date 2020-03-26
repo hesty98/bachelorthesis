@@ -1,4 +1,4 @@
-package Initialization;
+package Initialization.EventBus;
 
 
 import com.google.common.eventbus.EventBus;

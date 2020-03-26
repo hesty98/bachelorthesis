@@ -7,11 +7,12 @@ import EnvironmentObjects.Service;
  *
  * Message, which is sent if the driver unsubscribes the service.
  */
-public class ServiceDeleteMessage extends Message{
+public class ServiceDeleteMessage extends ServiceMessage{
     private long carID;
     private Service service;
 
-    public ServiceDeleteMessage(long carID, Service service) {
+    public ServiceDeleteMessage(long carID, Service service, String serviceSoftwareID) {
+        super(serviceSoftwareID);
         this.carID = carID;
         this.service = service;
     }

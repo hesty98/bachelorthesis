@@ -1,14 +1,10 @@
 package Messages;
 
-/**
- * @author Linus Hestermeyer
- *
- * Tells if driver accepted to use the inquiried service or not.
- */
-public class ServiceDecisionMessage extends DecisionMessage {
+public class SoftwareDecisionMessage extends DecisionMessage {
+
     private String softwareID;
 
-    public ServiceDecisionMessage(long inquiryID, boolean accepted, String softwareID) {
+    public SoftwareDecisionMessage(long inquiryID, boolean accepted, String softwareID) {
         super(inquiryID, accepted);
         this.softwareID=softwareID;
     }

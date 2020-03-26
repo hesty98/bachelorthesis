@@ -11,24 +11,39 @@ import java.util.ArrayList;
  * Description of a Service.
  */
 public class ServiceDescription implements Serializable {
-    private String serviceTypeID;
+    private String softwareID;
     private String servceDescription;
     //private ArrayList<Image> images;
     //private ArrayList<String> imageDescriptions
     private String serviceTitle;
     private ArrayList<ActionEnums> actionTypes;
-    private Angebot angebot;
+    private Angebot softwareAngebot;
     private String serviceVerificationURL;
     private String serviceProvider;
+    private float pricePerHour;
 
-    public ServiceDescription(String serviceTypeID, String servceDescription, String serviceTitle, ArrayList<ActionEnums> actionTypes, Angebot angebot, String serviceVerificationURL, String serviceProvider) {
-        this.serviceTypeID = serviceTypeID;
+    /**
+     *
+     * @param softwareID if it is contained in installed softwareIDs
+     * @param servceDescription
+     * @param serviceTitle
+     * @param actionTypes
+     * @param softwareAngebot
+     * @param serviceVerificationURL
+     * @param serviceProvider
+     * @param pricePerHour
+     */
+    public ServiceDescription(String softwareID, String servceDescription, String serviceTitle, ArrayList<ActionEnums> actionTypes, Angebot softwareAngebot, String serviceVerificationURL, String serviceProvider, float pricePerHour) {
+        this.softwareID = softwareID;
         this.servceDescription = servceDescription;
         this.serviceTitle = serviceTitle;
         this.actionTypes = actionTypes;
-        this.angebot = angebot;
+        this.softwareAngebot = softwareAngebot;
         this.serviceVerificationURL = serviceVerificationURL;
         this.serviceProvider=serviceProvider;
+
+        //TODO: auslagern in ParkingServiceDescription(extends ServiceDescription)
+        this.pricePerHour=pricePerHour;
     }
 
     public String getServiceProvider() {
@@ -47,12 +62,12 @@ public class ServiceDescription implements Serializable {
         this.serviceVerificationURL = serviceVerificationURL;
     }
 
-    public String getServiceTypeID() {
-        return serviceTypeID;
+    public String getSoftwareID() {
+        return softwareID;
     }
 
-    public void setServiceTypeID(String serviceTypeID) {
-        this.serviceTypeID = serviceTypeID;
+    public void setSoftwareID(String softwareID) {
+        this.softwareID = softwareID;
     }
 
     public String getServceDescription() {
@@ -79,11 +94,11 @@ public class ServiceDescription implements Serializable {
         this.actionTypes = actionTypes;
     }
 
-    public Angebot getAngebot() {
-        return angebot;
+    public Angebot getSoftwareAngebot() {
+        return softwareAngebot;
     }
 
-    public void setAngebot(Angebot angebot) {
-        this.angebot = angebot;
+    public void setSoftwareAngebot(Angebot softwareAngebot) {
+        this.softwareAngebot = softwareAngebot;
     }
 }

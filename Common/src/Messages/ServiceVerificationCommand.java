@@ -2,12 +2,13 @@ package Messages;
 
 import EnvironmentObjects.ServiceDescription;
 
-public class ServiceVerificationCommand extends Message{
+public class ServiceVerificationCommand extends ServiceMessage{
     private String car_manifest;
     private ServiceDescription serviceDescription;
     private long inquiryID;
 
-    public ServiceVerificationCommand(String car_manifest,ServiceDescription serviceDescription, long inquiryID) {
+    public ServiceVerificationCommand(String car_manifest,ServiceDescription serviceDescription, long inquiryID, String serviceSoftwareID) {
+        super(serviceSoftwareID);
         this.car_manifest = car_manifest;
         this.serviceDescription=serviceDescription;
         this.inquiryID=inquiryID;
