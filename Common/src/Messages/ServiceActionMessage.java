@@ -11,11 +11,11 @@ import EnvironmentObjects.Service;
  */
 public class ServiceActionMessage extends ServiceMessage {
     private ActionEnums action;
-    private Service communicatingService;
+    private String serviceID;
 
-    public ServiceActionMessage(ActionEnums action, Service communicatingService, String serviceSoftwareID) {
+    public ServiceActionMessage(ActionEnums action, String serviceID, String serviceSoftwareID) {
         super(serviceSoftwareID);
-        this.communicatingService = communicatingService;
+        this.serviceID = serviceID;
     }
 
     public ActionEnums getAction() {
@@ -26,11 +26,11 @@ public class ServiceActionMessage extends ServiceMessage {
         this.action = action;
     }
 
-    public Service getCommunicatingService() {
-        return communicatingService;
+    public String getCommunicatingService() {
+        return serviceID;
     }
 
-    public void setCommunicatingService(Service communicatingService) {
-        this.communicatingService = communicatingService;
+    public void setCommunicatingService(String serviceID) {
+        this.serviceID = serviceID;
     }
 }

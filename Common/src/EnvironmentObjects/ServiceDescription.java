@@ -11,71 +11,22 @@ import java.util.ArrayList;
  * Description of a Service.
  */
 public class ServiceDescription implements Serializable {
-    private String softwareID;
-    private String servceDescription;
-    //private ArrayList<Image> images;
-    //private ArrayList<String> imageDescriptions
     private String serviceTitle;
+    private String serviceDescription;
+    private ServiceProvider serviceProvider;
+    private String requiredSWID;
+    private ArrayList<String> serviceBuzzwords;
+    private Angebot angebot;
     private ArrayList<ActionEnums> actionTypes;
-    private Angebot softwareAngebot;
-    private String serviceVerificationURL;
-    private String serviceProvider;
-    private float pricePerHour;
 
-    /**
-     *
-     * @param softwareID if it is contained in installed softwareIDs
-     * @param servceDescription
-     * @param serviceTitle
-     * @param actionTypes
-     * @param softwareAngebot
-     * @param serviceVerificationURL
-     * @param serviceProvider
-     * @param pricePerHour
-     */
-    public ServiceDescription(String softwareID, String servceDescription, String serviceTitle, ArrayList<ActionEnums> actionTypes, Angebot softwareAngebot, String serviceVerificationURL, String serviceProvider, float pricePerHour) {
-        this.softwareID = softwareID;
-        this.servceDescription = servceDescription;
+    public ServiceDescription(String serviceTitle, String serviceDescription, ServiceProvider serviceProvider, String requiredSWID, ArrayList<String> serviceBuzzwords, Angebot angebot, ArrayList<ActionEnums> actionTypes) {
         this.serviceTitle = serviceTitle;
-        this.actionTypes = actionTypes;
-        this.softwareAngebot = softwareAngebot;
-        this.serviceVerificationURL = serviceVerificationURL;
-        this.serviceProvider=serviceProvider;
-
-        //TODO: auslagern in ParkingServiceDescription(extends ServiceDescription)
-        this.pricePerHour=pricePerHour;
-    }
-
-    public String getServiceProvider() {
-        return serviceProvider;
-    }
-
-    public void setServiceProvider(String serviceProvider) {
+        this.serviceDescription = serviceDescription;
         this.serviceProvider = serviceProvider;
-    }
-
-    public String getServiceVerificationURL() {
-        return serviceVerificationURL;
-    }
-
-    public void setServiceVerificationURL(String serviceVerificationURL) {
-        this.serviceVerificationURL = serviceVerificationURL;
-    }
-
-    public String getSoftwareID() {
-        return softwareID;
-    }
-
-    public void setSoftwareID(String softwareID) {
-        this.softwareID = softwareID;
-    }
-
-    public String getServceDescription() {
-        return servceDescription;
-    }
-
-    public void setServceDescription(String servceDescription) {
-        this.servceDescription = servceDescription;
+        this.requiredSWID = requiredSWID;
+        this.serviceBuzzwords = serviceBuzzwords;
+        this.angebot = angebot;
+        this.actionTypes = actionTypes;
     }
 
     public String getServiceTitle() {
@@ -86,19 +37,51 @@ public class ServiceDescription implements Serializable {
         this.serviceTitle = serviceTitle;
     }
 
+    public String getServiceDescription() {
+        return serviceDescription;
+    }
+
+    public void setServiceDescription(String serviceDescription) {
+        this.serviceDescription = serviceDescription;
+    }
+
+    public ServiceProvider getServiceProvider() {
+        return serviceProvider;
+    }
+
+    public void setServiceProvider(ServiceProvider serviceProvider) {
+        this.serviceProvider = serviceProvider;
+    }
+
+    public String getRequiredSWID() {
+        return requiredSWID;
+    }
+
+    public void setRequiredSWID(String requiredSWID) {
+        this.requiredSWID = requiredSWID;
+    }
+
+    public ArrayList<String> getServiceBuzzwords() {
+        return serviceBuzzwords;
+    }
+
+    public void setServiceBuzzwords(ArrayList<String> serviceBuzzwords) {
+        this.serviceBuzzwords = serviceBuzzwords;
+    }
+
+    public Angebot getAngebot() {
+        return angebot;
+    }
+
+    public void setAngebot(Angebot angebot) {
+        this.angebot = angebot;
+    }
+
     public ArrayList<ActionEnums> getActionTypes() {
         return actionTypes;
     }
 
     public void setActionTypes(ArrayList<ActionEnums> actionTypes) {
         this.actionTypes = actionTypes;
-    }
-
-    public Angebot getSoftwareAngebot() {
-        return softwareAngebot;
-    }
-
-    public void setSoftwareAngebot(Angebot softwareAngebot) {
-        this.softwareAngebot = softwareAngebot;
     }
 }

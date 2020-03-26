@@ -1,17 +1,20 @@
 package Messages;
 
 public class ServiceMessage extends Message {
-    private String serviceSoftwareID;
+    /**
+     * Gets used from the Software so that this knows what to do.
+     */
+    private String serviceID;
 
-    public ServiceMessage(String serviceSoftwareID) {
-        this.serviceSoftwareID = serviceSoftwareID;
+    public ServiceMessage(String serviceID) {
+        this.serviceID = serviceID;
     }
 
-    public String getServiceSoftwareID() {
-        return serviceSoftwareID;
+    public String getServiceID() {
+        return serviceID;
     }
 
-    public void setServiceSoftwareID(String serviceSoftwareID) {
-        this.serviceSoftwareID = serviceSoftwareID;
+    public void setServiceID(String serviceID) {
+        this.serviceID = serviceID;
     }
 }

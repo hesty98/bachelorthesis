@@ -1,17 +1,16 @@
 package EnvironmentObjects;
 
-import java.util.ArrayList;
-
 public abstract class Software implements ISoftware {
-
     private String softwareID;
     private String swName;
     private String swDescription;
+    private String swProviderID;
 
-    public Software(String softwareID, String swName, String swDescription) {
+    public Software(String softwareID, String swName, String swDescription, String swProviderID) {
         this.softwareID = softwareID;
         this.swName = swName;
         this.swDescription = swDescription;
+        this.swProviderID = swProviderID;
     }
 
     public String getSoftwareID() {
@@ -36,5 +35,13 @@ public abstract class Software implements ISoftware {
 
     public void setSwDescription(String swDescription) {
         this.swDescription = swDescription;
+    }
+
+    public String getSwProviderID() {
+        return swProviderID;
+    }
+
+    public void setSwProviderID(String swProviderID) {
+        this.swProviderID = swProviderID;
     }
 }

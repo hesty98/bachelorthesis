@@ -63,18 +63,22 @@ public class MessageHandlerPresenter implements Initializable {
 
         LogPrinter.displayInView(logReceivedMessages,
                 "Received new ServiceRegistrationService. InquiryID: "+ msg.getInquiryID()
-                        +"\n     Type: "+msg.getDescription().getSoftwareID()
+                        +"\n     Type: "+msg.getDescription().getRequiredSWID()
                         +"\n     Titel: "+msg.getDescription().getServiceTitle()
-                        +"\n     Description:"+msg.getDescription().getServceDescription());
+                        +"\n     Description:"+msg.getDescription().getServiceDescription());
 
-        final String serviceSoftwareID= msg.getDescription().getSoftwareID();
+        final String serviceSoftwareID= msg.getDescription().getRequiredSWID();
         Software handlingSW = mgr.getSoftware(serviceSoftwareID);
 
         if(handlingSW != null){
-            handlingSW.handleMessage(msg);
+            /*handlingSW.handleMessage(msg);
+              TODO: delete this and get SDMessage from MMS
+             */
+            ServiceDecisionMessage sdMSG = new ServiceDecisionMessage(msg.getInquiryID(), true,msg.getDescription().getRequiredSWID(), msg.getServiceID());
+            eventBus.post(sdMSG);
         } else{
             registeringServices.add(msg);
-            ServiceVerificationCommand cmd = new ServiceVerificationCommand("eins cooles auto manifesto", msg.getDescription(), msg.getInquiryID(), msg.getServiceSoftwareID());
+            ServiceVerificationCommand cmd = new ServiceVerificationCommand("eins cooles auto manifesto", msg.getDescription(), msg.getInquiryID(), msg.getServiceID());
             nettyClient.sendMessage(cmd);
             LogPrinter.displayInView(logForwardedMessages,
                     "Sent ServiceVerificationCommand to OEM Verification Server."
@@ -88,14 +92,16 @@ public class MessageHandlerPresenter implements Initializable {
                 logReceivedMessages.getText()
                         + "\nReceived ServiceVerificationMessage. " +
                         "\n     Providor: "+ serviceVerificationMessage.getDesc().getServiceProvider()+
-                        "\n     Description: "+serviceVerificationMessage.getDesc().getServceDescription()+
+                        "\n     Description: "+serviceVerificationMessage.getDesc().getServiceDescription()+
                         "\n\nIn future, we need to Forward to MMS. Currently, Service always gets accepted and pushed to the intern eventbus right away."
         );
 
         if(serviceVerificationMessage.isVerified()){
             for(ServiceRegistrationMessage msg : registeringServices){
-                if(serviceVerificationMessage.getServiceSoftwareID() == msg.getServiceSoftwareID()){
-                    mgr.submitSoftware(msg);
+                if(serviceVerificationMessage.getServiceID() == msg.getServiceID()){
+                    //mgr.submitSoftware(msg);
+                    //TODO: get SoftwareDecisionMessage from MMS
+                    SoftwareDecisionMessage sdMSG = new SoftwareDecisionMessage(msg.getInquiryID(),true ,msg.getDescription().getRequiredSWID());
                 }
             }
         } else{
@@ -108,10 +114,10 @@ public class MessageHandlerPresenter implements Initializable {
         LogPrinter.displayInView(logReceivedMessages, logReceivedMessages.getText()+"\n"
                 + "Received ServiceActionCommand. Creating verified Message and forwarding to carla."
         );
-        final String serviceSWID =cmd.getServiceSoftwareID();
+        final String serviceSWID =cmd.getServiceID();
         Software handlingSW = mgr.getSoftware(serviceSWID);
         handlingSW.handleMessage(cmd);
-        ServiceActionMessage sam = new ServiceActionMessage(cmd.getAction(), cmd.getCommunicatingService(), cmd.getServiceSoftwareID());
+        ServiceActionMessage sam = new ServiceActionMessage(cmd.getAction(), cmd.getCommunicatingService(), cmd.getServiceID());
         eventBus.post(sam);
     }
 
@@ -158,7 +164,7 @@ public class MessageHandlerPresenter implements Initializable {
         Software toBeInstalled = installationPackage.getSoftware();
         mgr.installSoftware(toBeInstalled);
         for(ServiceRegistrationMessage msg : registeringServices){
-            if(installationPackage.getSoftwareID() == msg.getServiceSoftwareID()){
+            if(installationPackage.getSoftwareID() == msg.getServiceID()){
                 eventBus.post(msg);
             }
         }

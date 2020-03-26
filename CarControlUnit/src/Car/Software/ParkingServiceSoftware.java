@@ -24,7 +24,7 @@ public class ParkingServiceSoftware extends Software {
 
     @Inject
     public ParkingServiceSoftware(String swName, String swDescription) {
-        super(SOFTWARE_ID, swName, swDescription);
+        super(SOFTWARE_ID, swName, swDescription, SOFTWARE_ID);
     }
 
     @Override

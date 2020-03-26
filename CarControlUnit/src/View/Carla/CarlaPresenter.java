@@ -5,6 +5,7 @@ import Car.Software.ParkingServiceSoftware;
 import EnvironmentObjects.Angebot;
 import EnvironmentObjects.Service;
 import EnvironmentObjects.ServiceDescription;
+import EnvironmentObjects.ServiceProvider;
 import Initialization.OEMVerificationServerConnection.NettyConnectionClient;
 import Messages.*;
 import View.LogPrinter;
@@ -73,17 +74,25 @@ public class CarlaPresenter implements Initializable {
                     ArrayList<ActionEnums> list = new ArrayList<>();
                     list.add(ActionEnums.TARGET);
                     Angebot angebot = new Angebot(0);
-                    ServiceDescription desc = new ServiceDescription("automated_parking",
-                            "Eine lange Beschreibung des Service.",
-                            "Parken am Schloßplatz",
-                            list,
-                            angebot,
-                            "parken.stadt-oldenburg.de",
-                            "Stadt Oldenburg",
-                            19.99f
+                    ServiceProvider serviceProvider = new ServiceProvider(
+                            "hestermeyer_parken",
+                            "Hestermeyer parken",
+                            "verify.parking_in_germany.de/hestermeyer_parken"
+
+                    );
+                    ServiceDescription desc = new ServiceDescription(
+                            "Parken in der Innenstadt",
+                            "Parken Sie in nächster Nähe zur Oldenburger Innenstadt!\r\n Preis pro angefangene Stunde: 70cent",
+                            serviceProvider,
+                            "PARKING_SERVICE_GERMAN_CITIES",
+                            new ArrayList<>(),
+                            new Angebot(0.70),
+                            new ArrayList<ActionEnums>()
                     );
                     //TODO: von Carla aus tun.
                     ServiceRegistrationMessage msg = new ServiceRegistrationMessage(desc, 992120, ParkingServiceSoftware.SOFTWARE_ID);
+                    //ID of the Service, used by Software to know what to do
+                    msg.setServiceID("park_lh228");
                     eventBus.post(msg);
                     happened=true;
                 }
@@ -114,8 +123,7 @@ public class CarlaPresenter implements Initializable {
             LogPrinter.displayInView(environmentlog, environmentlog.getText() +
                     "\nDriver accepted to use the Service! Preparing the ServiceActionCommand");
 
-            Service service = new Service("automated_parking", "Stadt Oldenburg");
-            ServiceActionCommand serviceActionCommand = new ServiceActionCommand(ActionEnums.MOVEMENT, service, serviceDecisionMessage.getSoftwareID());
+            ServiceActionCommand serviceActionCommand = new ServiceActionCommand(ActionEnums.MOVEMENT, serviceDecisionMessage.getServiceID(), serviceDecisionMessage.getSoftwareID());
             eventBus.post(serviceActionCommand);
         }
     }
