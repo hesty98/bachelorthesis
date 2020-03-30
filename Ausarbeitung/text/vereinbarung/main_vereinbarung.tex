@@ -1,0 +1,152 @@
+%\documentclass{IEEEtran}
+\documentclass{article}
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
+\renewcommand{\refname}{Quellenverzeichnis}
+\renewcommand{\listfigurename}{Abbildungen}
+
+%\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{capt-of}
+\usepackage{cite}
+\usepackage[hyphens]{url}
+\usepackage[table]{xcolor}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{longtable}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{setspace}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage{subfigure}
+\usepackage[german]{babel}
+\usepackage{svg}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{tabularx}
+%\usepackage{subfig}
+%% Rechtecke um Text %%
+\usepackage{mdframed}
+%% eigene packages
+\usepackage{float}
+\usepackage{subfiles}
+\usepackage[T1]{fontenc}
+
+\geometry{
+	left=3.6cm,
+	right=3.6cm,
+	top=2cm,
+	bottom=4cm,
+	bindingoffset=5mm
+}
+
+
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+\begin{titlepage}
+    \begin{figure}[H]
+    	\centering
+    	\subfigure{
+    		\includegraphics[width=.4\textwidth]{uol_logo.png}
+    	}        
+    \end{figure}
+ 
+    \begin{center}
+        \large{\textbf{Konzept und Ansatz einer Wertschöpfungskette für die Erkennung und Bereitstellung neuer Fahrumfänge intelligenter Fahrzeuge}}\\
+        \large Vereinbarung zur Bachelorarbeit
+    \end{center}
+    \vfill
+    \large{
+        An der\\
+        Carl von Ossietzky Universität Oldenburg\\
+        Studiengang Wirtschaftsinformatik\\
+        
+	    \noindent
+	    Vorgelegt von Linus Hestermeyer\\ 
+        \textit{linus.hestermeyer@gmail.com}\\
+        Matr.Nr.: 4087097
+        \\\\\\\\\\\\
+        Erstprüfer: Prof. Dr. Frank Köster\\
+        Zweitprüfer: Dipl.-Inform. Gerald Sauter\\
+        \vfill
+        \noindent
+        Oldenburg, den \today
+    }
+\end{titlepage}
+\thispagestyle{empty}
+\clearpage
+\pagenumbering{arabic}
+\section{Motivation / Beschreibung des Themas}
+Die Zukunft des Automobils liegt bei autonomen Fahrzeugen. Allerdings ist es unklar, wann vollständige Autonomie (Stufe 5) von Fahrzeugen erreicht wird (Vgl. \footnote{Automatisierung – Von Fahrassistenzsystemen zum automatisierten Fahren S. 14}). Damit die autonomem Fahrfunktionen von Neuwagen nicht bereits nach kurzer Zeit als veraltet gelten ist es nötig, diese über eine kabellose Schnittstelle aktualisieren und erweitern zu können.\\
+Wie VW-Chef Herbert Diess warnt, sei die Zeit klassischer Automobilhersteller bald vorbei (Vgl.\footnote{ \url{https://www.manager-magazin.de/unternehmen/autoindustrie/volkswagen-wortlaut-rede-herbert-diess-16-01-2020-radikal-umsteuern-a-1304169-3.html}}). Das Kerngeschäft jetziger OEMs, die Produktion von Neuwagen, wird zurückgehen und es werden neue Seitenmärkte entstehen (Vgl. \footnote{Juergen Daunis, \url{https://www.ericsson.com/en/blog/2017/11/the-automotive-industry-in-transformation--business-model-disruption} (abgerufen am 14.11.2019)}). Eines dieser Seitenmärkte kann das Erkennen und Bereitstellen von Software-Updates sein.\\
+Neben kommenden wirtschaftlichen Änderungen, wird sich auch die Rolle des Automobils in unserer Gesellschaft ändern. Menschen \glqq verbringen im Automobil der Zukunft mehr Zeit als heute [...]. Deshalb wird es nicht zur grauen Büchse, sondern noch viel komfortabler, wohnlicher und vor allem vernetzter, multifunktionaler als heute.\grqq{}  \footnote{\url{https://www.manager-magazin.de/unternehmen/autoindustrie/volkswagen-wortlaut-rede-herbert-diess-16-01-2020-radikal-umsteuern-a-1304169-2.html}}
+
+\section{Ziele der Arbeit}
+Im Rahmen der Bachelorarbeit soll die folgende Forschungsfrage beantwortet werden:
+\begin{center}
+	\textit{„Was können relevanten Bausteine einer Wertschöpfungskette\footnote{ Michael Eugene Porter: Wettbewerbsvorteile (Competitive Advantage). Spitzenleistungen erreichen und behaupten. Aus dem Englischen übers. von Angelika Jaeger. Campus Verlag, Frankfurt am Main 1986, ISBN 3-593-33542-5.} zur Erkennung und Bereitstellung neuer Fahrumfänge für intelligente Fahrzeuge sein und wie könnten diese von Automobilherstellern umgesetzt werden?“}
+\end{center}
+Die Bachelorarbeit soll die Forschungsfrage in vollem Umfang beantworten. Die Wertschöpfungskette soll in der Bachelorarbeit erstellt und erläutert werden. Die Aktivitäten dieser sind kundenzentriert zu gestalten, da im Zeitalter einer eher angebotsorientierten Wirtschaft Kriterien wie Qualität, Usability(von Software) und User-Experience entscheiden, ob der Kunde ein Produkt kauft.\\
+Es soll ein Prototyp erstellt werden, welcher einen kompletten Absatzprozess von Software darstellt. Der Prototyp wird die Simulation eines Fahrzeugs umfassen sowie einer Android AutomotiveOS-Nutzeroberfläche, welche als Mensch-Maschine-Schnittstelle des Fahrzeugs fungiert. 
+
+Eine mögliche Abfolge des Absatzprozesses wäre:
+\begin{itemize}
+	\item[1.] Das Fahrzeug fährt selbstständig und erkennt eine nicht zu bewältigende Verkehrssituation.
+	\item[2.] Übergabe der Fahraufgabe vom Fahrzeug an den Fahrer und simultan dazu die nicht bewältigbare Situation bspw. in OpenScenario speichern und an Server schicken.
+	\item[3.] Der Server sucht anhand der beschriebenen Situation eine passende Software.
+	\item[4.] Der Server schickt (bei erfolgreicher Suche) Angebot an Fahrzeug.
+	\item[5.] Das Fahrzeug identifiziert anhand von Nutzerdaten, Verkehrs- und Wetterlage geeigneten Moment, dem Fahrer das Angebot zu unterbreiten.
+	\item[6.] Der Fahrer bestätigt Angebot, Software wird installiert.
+	\item[7.] Bei erneutem auftreten der Situation kann das Fahrzeug die Situation alleine bewältigen.
+\end{itemize}
+Durch die Nutzung von OpenSource-Frameworks und Standards sollen dessen Vorteile für die Automobilentwicklung verdeutlicht werden.
+
+
+\section{Voraussichtlich genutzte Tools}
+Die Bachelorarbeit wird mit Latex erfasst - den Editor hierfür bestimmt der Student selber. Für den Prototypen sind diverse Entwicklungsumgebungen notwendig, da dieser aus mehreren Teilsystemen besteht. Als Simulator wird die OpenSource Simulationssoftware \glqq Carla\grqq{} genutzt. Der Python-basierte Simulator bietet eine Schnittstelle an das OpenScenario-Speicherformat, welches als offener Standard zur Beschreibung von Straßenumgebungen gilt\footnote{http://www.openscenario.org/project.html}.\\
+Für die Entwicklung der Python Skripte und der Java Komponenten werden voraussichtlich die Entwicklungsumgebungen \glqq PyCharm\grqq{} und \glqq IntelliJ IDEA\grqq{} von Jetbrains genutzt. Die Nutzeroberfläche wird in Android Studio erstellt.
+
+\section{Organisation}
+Während der Bearbeitungszeit des Forschungsseminars und der Bachelorarbeit finden wöchentlich einstündige Treffen statt, bei denen mindestens einer der Prüfer anwesend ist sowie Herr Hestermeyer.\\
+Der am 7. Februar 2020 gehaltene Zwischenvortrag sowie der Abschlussvortrag finden jeweils am DLR in Braunschweig statt und stellen das Oberseminar dar.
+\clearpage
+\section{Vorläufige Gliederung}
+\begin{itemize}
+	\item[1.] Motivation
+	\item[2.] Vorstellung des Themas
+	\item[3.] Theoretischer Rahmen (Forschungsseminar)
+	\item[4.] Konzeptionierung der Wertschöpfungskette\\
+	\textit{Die einzelnen Aktivitäten werden erläutert und auf den Anwendungsfall übertragen. Anhand der erläuterten Aktivitäten werden Systembausteine des Prototypen abgeleitet.}
+	\item[5.] Entwurf und Erstellung des Prototypen\\
+	\textit{
+	Eine Systemarchitektur aufstellen und beschreiben.\\
+	Die Aufgaben der einzelnen Systembausteine ausführlich beschreiben;\\
+	}
+	\item[6.] Vorstellung des Prototypen\\
+	\textit{Der zuvor beschriebene Absatzprozess wird anhand der einzelnen Systembausteine des Prototypen demonstriert. Dabei sind Handlungsentscheidungen des Fahrzeugs sowie des Servers nachvollziehbar dargestellt.}
+	\item[7.] Reflexion der Ergebnisse
+	\subitem 7.1 Reflexion der Wertschöpfungskette\\
+	\textit{Kritische Analyse \& Reflexion}\\
+	\textit{Ggf. Iterative Anpassung an die Ergebnisse des erstellten Prototypen}
+	\subitem 7.2 Reflexion des Prototypen\\
+	\textit{Den Prototypen erstellen und Schwierigkeiten dokumentieren als auch entstehende Fragen}
+	\item[8.] Ausblick\\\\\\\\\\\\
+\end{itemize}
+
+\begin{center}
+	\begin{tabularx}{\linewidth}{X X X}
+		
+	    \hrulefill&  \hrulefill & \hrulefill\\
+		
+		Prof. Dr. Frank Köster & Dipl.-Inf. Gerald Sauter & Linus Hestermeyer\\
+		
+		Erstprüfer & Zweitprüfer & Student\\
+		
+	\end{tabularx}
+\end{center}
+\end{document}

@@ -1,0 +1,19 @@
+\BOOKMARK [1][-]{section.1}{Einf\374hrung}{}% 1
+\BOOKMARK [1][-]{section.2}{Bedarfserkennung von Software}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Relevante Systeme eines autonomen Fahrzeugs in der Bedarfserkennung}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Eine geeignete Kommunikationsgrundlage: OpenSCENARIO}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Software-User-Pattern-Recognizer [SUPR] im Rahmen der Bedarfserkennung}{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.3.1}{1. Gezielte Suchanfragen}{subsection.2.3}% 6
+\BOOKMARK [3][-]{subsubsection.2.3.2}{2. Ortsbezogene Erkennung eines Softwarebedarfs}{subsection.2.3}% 7
+\BOOKMARK [1][-]{section.3}{Bereitstellung von Software}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{OTA-Aktualisierungen mit UPTANE}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Anpassung von UPTANE Architektur}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{SUPR im Rahmen der Softwarebereitstellung}{section.3}% 11
+\BOOKMARK [3][-]{subsubsection.3.3.1}{SUPR im Director Repository}{subsection.3.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.3.2}{SUPR im Fahrzeug}{subsection.3.3}% 13
+\BOOKMARK [2][-]{subsection.3.4}{Die Mensch-Maschine-Schnittstelle}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Technologie- und Methodik-Scouting}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Arbeitsmethodik: User-Centered-Design}{section.4}% 16
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Personas}{subsection.4.1}% 17
+\BOOKMARK [2][-]{subsection.4.2}{Tech-Scouting}{section.4}% 18
+\BOOKMARK [1][-]{section.5}{Ausblick und erstes Konzept der praktischen Umsetzung}{}% 19

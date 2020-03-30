@@ -1,0 +1,13 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: main_fs.aux
+The style file: plain.bst
+Database file #1: library.bib
+I was expecting a `,' or a `}'---line 108 of file library.bib
+ :  
+ :  howpublished="\url{https://www.seobility.net/de/wiki/User_Centered_Design}",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Too many commas in name 1 of "S. Debernard, C. Chauvin, R. Pokam, S. Langlois" for entry b16
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "S. Debernard, C. Chauvin, R. Pokam, S. Langlois" for entry b16
+while executing---line 1090 of file plain.bst
+(There were 3 error messages)

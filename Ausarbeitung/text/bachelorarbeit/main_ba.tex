@@ -1,0 +1,49 @@
+%\documentclass{IEEEtran}
+\documentclass{article}
+
+\input{../xcode.tex}	
+\geometry{
+	left=2.5cm,
+	right=2cm,
+	top=2cm,
+	bottom=4cm,
+	bindingoffset=5mm
+}
+
+\newsavebox{\fminipagebox}
+\NewDocumentEnvironment{fminipage}{m O{\fboxsep}}
+{\par\kern#2\noindent\begin{lrbox}{\fminipagebox}
+		\begin{minipage}{#1}\ignorespaces}
+		{\end{minipage}\end{lrbox}%
+	\makebox[#1]{%
+		\kern\dimexpr-\fboxsep-\fboxrule\relax
+		\fbox{\usebox{\fminipagebox}}%
+		\kern\dimexpr-\fboxsep-\fboxrule\relax
+	}\par\kern#2
+}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Konzeptionierung und Anaylse eines Ansatzes für die Erkennung und Bereitstellung neuer Fahrumfänge ür intelligente Fahrzeuge\\
+{\small Ein Einblick in die Zukunft der Automobilbranche}
+}
+
+\author{Hestermeyer, Linus}
+\textit{Universität Oldenburg} \\
+\textit{Bachelorarbeitsmodul}\\
+Oldenburg, Deutschland \\
+linus\underline{ }hestermeyer@equee.com
+
+
+\maketitle
+\tableofcontents
+\clearpage
+\begin{abstract}
+
+
+\end{abstract}
+\input{../bachelorarbeit/text/bachelorarbeit.tex}
+\input{../bachelorarbeit/text/quellen.tex}
+\end{document}

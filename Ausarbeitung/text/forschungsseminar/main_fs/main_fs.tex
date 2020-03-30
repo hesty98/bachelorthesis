@@ -1,0 +1,67 @@
+%\documentclass{IEEEtran}
+\documentclass{article}
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
+\renewcommand{\refname}{Quellenverzeichnis}
+\renewcommand{\listfigurename}{Abbildungen}
+
+\input{../xcode.tex}
+\geometry{
+	left=3.6cm,
+	right=3.6cm,
+	top=2cm,
+	bottom=4cm,
+	bindingoffset=5mm
+}
+
+
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\begin{titlepage}
+    \begin{figure}[H]
+    	\centering
+    	\subfigure{
+    		\includegraphics[width=.4\textwidth]{../pictures/uol_logo.png}
+    	}        
+    \end{figure}
+ 
+    \begin{center}
+        \large{\textbf{Konzept und Ansatz einer Wertschöpfungskette für die Erkennung und Bereitstellung neuer Fahrumfänge intelligenter Fahrzeuge}}\\
+        \large Forschungsseminar zur gleichnamigen Bachelorarbeit
+    \end{center}
+    \vfill
+    \large{
+        An der\\
+        Carl von Ossietzky Universität Oldenburg\\
+        Studiengang Wirtschaftsinformatik\\
+        
+	    \noindent
+	    Vorgelegt von Linus Hestermeyer\\ 
+        \textit{linus.hestermeyer@gmail.com}\\
+        Matr.Nr.: 4087097
+        \\\\\\\\\\\\
+        Erstprüfer: Prof. Dr. Frank Köster\\
+        Zweitprüfer: Dipl.-Inform. Gerald Sauter\\
+        \vfill
+        \noindent
+        Oldenburg, den \today
+    }
+\end{titlepage}
+\thispagestyle{empty}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\subfile{../text/forschungsseminar/einleitung_neu.tex}
+\subfile{../text/forschungsseminar/bedarfserkennung.tex}
+\subfile{../text/forschungsseminar/bereitstellung.tex}
+\subfile{../text/forschungsseminar/technologie_scouting_und_methodik.tex}
+\subfile{../text/forschungsseminar/konzept_praxis.tex}
+
+\listoffigures
+\bibliographystyle{plain}
+\bibliography{library}
+\subfile{../text/forschungsseminar/eides_statt.tex}
+\end{document}
