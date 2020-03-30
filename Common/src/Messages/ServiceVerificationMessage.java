@@ -32,7 +32,7 @@ public class ServiceVerificationMessage extends Message {
         this.verified = verified;
     }
 
-    public String getUpdated_car_manifest() {
+    public String getCarManifest() {
         return updated_car_manifest;
     }
 
