@@ -21,20 +21,23 @@ public class ServiceListener {
                 + "\nManifest:\n"+serviceVerificationCommand.getCar_manifest()
                 + "\nProvider: "+serviceVerificationCommand.getServiceDescription().getServiceProvider()
         );
-        if(verified(serviceVerificationCommand.getServiceDescription().getServiceVerificationURL())){
+        if(verified(serviceVerificationCommand.getServiceDescription().getServiceProvider().getPublicProviderID())){
             ServiceVerificationMessage msg = new ServiceVerificationMessage(
                     serviceVerificationCommand.getServiceDescription(),
                     true,
                     serviceVerificationCommand.getCar_manifest()+" updated",
-                    serviceVerificationCommand.getInquiryID()
+                    serviceVerificationCommand.getInquiryID(),
+                    serviceVerificationCommand.getServiceID()
             );
             serviceVerificationCommand.getCtx().writeAndFlush(msg);
         }
 
     }
 
-    private boolean verified(String serviceVerificationURL) {
-        //TODO future: check, rather or not Service is verified
+    private boolean verified(String publicProviderID) {
+        /*TODO future: check, rather or not Service is verified by SoftwareProvider
+            OEMs can unVerify a ServiceProvider if its handlings are illegal
+         */
         return true;
     }
 

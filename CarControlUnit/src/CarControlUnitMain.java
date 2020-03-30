@@ -1,6 +1,8 @@
-import Initialization.EventBusModule;
+import Initialization.EventBus.CarlaPortModule;
+import Initialization.EventBus.EventBusModule;
+import Initialization.EventBus.MMSPortModule;
 import Initialization.MainDependencies;
-import Initialization.ServerNettyModule;
+import Initialization.EventBus.ServerNettyModule;
 import View.Main.MainPresenter;
 import View.Main.MainView;
 import com.google.inject.Guice;
@@ -21,7 +23,9 @@ public class CarControlUnitMain extends Application {
 
     private static final com.google.inject.Injector injector = Guice.createInjector(
             new EventBusModule(),
-            new ServerNettyModule()
+            new ServerNettyModule(),
+            new CarlaPortModule(),
+            new MMSPortModule()
     );
 
     private static final MainDependencies mainDependencies = injector.getInstance(MainDependencies.class);

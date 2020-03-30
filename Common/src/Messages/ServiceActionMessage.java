@@ -9,13 +9,13 @@ import EnvironmentObjects.Service;
  *
  * Message which contains the action the car is supposed to do.
  */
-public class ServiceActionMessage extends Message {
+public class ServiceActionMessage extends ServiceMessage {
     private ActionEnums action;
-    private Service communicatingService;
+    private String serviceID;
 
-    public ServiceActionMessage(ActionEnums action, Service communicatingService) {
-        this.action = action;
-        this.communicatingService = communicatingService;
+    public ServiceActionMessage(ActionEnums action, String serviceID, String serviceSoftwareID) {
+        super(serviceSoftwareID);
+        this.serviceID = serviceID;
     }
 
     public ActionEnums getAction() {
@@ -26,11 +26,11 @@ public class ServiceActionMessage extends Message {
         this.action = action;
     }
 
-    public Service getCommunicatingService() {
-        return communicatingService;
+    public String getCommunicatingService() {
+        return serviceID;
     }
 
-    public void setCommunicatingService(Service communicatingService) {
-        this.communicatingService = communicatingService;
+    public void setCommunicatingService(String serviceID) {
+        this.serviceID = serviceID;
     }
 }

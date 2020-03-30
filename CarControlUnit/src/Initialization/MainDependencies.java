@@ -1,8 +1,12 @@
 package Initialization;
 
 import Events.NoConnectionEvent;
-import Initialization.Netty.NettyClient;
-import Initialization.Netty.NettyClientInitializer;
+import Initialization.CarlaConnection.CarlaClientConnection;
+import Initialization.EventBus.CarlaPortModule;
+import Initialization.EventBus.MMSPortModule;
+import Initialization.MMSConnection.MMSClientConnection;
+import Initialization.OEMVerificationServerConnection.NettyConnectionClient;
+import Initialization.OEMVerificationServerConnection.NettyClientInitializer;
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 import com.airhacks.afterburner.injection.Injector;
@@ -13,16 +17,26 @@ import java.util.Map;
 public class MainDependencies {
     private final NettyClientInitializer nettyClientInitializer;
     private final EventBus eventBus;
-    private final NettyClient nettyClient;
+    private final NettyConnectionClient nettyClient;
+
+    //private final CarlaClientConnection carlaClientConnection;
+    //private final MMSClientConnection mmsClientConnection;
 
     private boolean nettyConnectionSuccess;
 
     @Inject
-    public MainDependencies(NettyClientInitializer nettyClientInitializer,EventBus eventBus){
+    public MainDependencies(NettyClientInitializer nettyClientInitializer,EventBus eventBus, CarlaClientConnection carlaClientConnection, MMSClientConnection mmsClientConnection){
         this.eventBus=eventBus;
-        this.nettyClientInitializer = nettyClientInitializer;
-        this.nettyClient = (NettyClient)nettyClientInitializer.createNettyClientConnection(NetworkConfig.serverUrl,NetworkConfig.serverPort);
 
+        this.nettyClientInitializer = nettyClientInitializer;
+        this.nettyClient = (NettyConnectionClient)nettyClientInitializer.createNettyClientConnection(NetworkConfig.serverUrl,NetworkConfig.serverPort);
+/*
+        this.carlaClientConnection=carlaClientConnection;
+        this.carlaClientConnection.initBootstrap("127.0.0.1", 22898);
+
+        this.mmsClientConnection=mmsClientConnection;
+        this.mmsClientConnection.initBootstrap("127.0.0.1",28620);
+*/
         Map<Object, Object> context = new HashMap<>();
         context.put( "eventBus", this.eventBus);
         context.put( "nettyClient", this.nettyClient);
@@ -31,16 +45,11 @@ public class MainDependencies {
         this.nettyConnectionSuccess = this.nettyClient.isConnectionSuccess();
     }
 
-
-    /**
-     * Called if Connection to Server was successful. Listeners are already Subscribed.
-     *    0. initialize intern communication
-     *    1. start Carla Simulation (call .exe file)
-     *    2. start MMS (launch APK in VirtualDevice)
-     *    3. connect to Server
-     */
     public void init() {
+        /*
+        Softwareliste setzen
 
+         */
     }
 
     /**

@@ -6,9 +6,9 @@ import java.io.Serializable;
  *
  */
 public class Angebot implements Serializable {
-    private double price;
+    private double pricePerUnit;
 
-    public Angebot(double price) {
-        this.price = price;
+    public Angebot(double pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
     }
 }

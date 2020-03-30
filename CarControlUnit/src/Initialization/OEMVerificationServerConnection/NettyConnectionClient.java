@@ -1,6 +1,7 @@
-package Initialization.Netty;
+package Initialization.OEMVerificationServerConnection;
 
 import Events.NoConnectionEvent;
+import Initialization.IConnectionClient;
 import Messages.IMessage;
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
@@ -23,7 +24,7 @@ import java.util.Properties;
  *
  * @author Linus Hestermeyer
  */
-public class NettyClient implements INettyClient {
+public class NettyConnectionClient implements INettyClient {
     static String HOST;
     static int PORT;
 
@@ -42,7 +43,7 @@ public class NettyClient implements INettyClient {
      * @param eventBus bus
      */
     @Inject
-    public NettyClient(EventBus eventBus) {
+    public NettyConnectionClient(EventBus eventBus) {
         this.eventLoopGroup = new NioEventLoopGroup();
         this.bootstrap = new Bootstrap();
         this.eventBus= eventBus;
@@ -70,7 +71,7 @@ public class NettyClient implements INettyClient {
                             ChannelPipeline p = ch.pipeline();
                             p.addLast(new ObjectEncoder());
                             p.addLast(new ObjectDecoder(9048576 ,ClassResolvers.cacheDisabled(null)));
-                            p.addLast(new NettyClientHandler(NettyClient.this));
+                            p.addLast(new NettyClientHandler(NettyConnectionClient.this));
                         }
                     });
         }
@@ -106,7 +107,6 @@ public class NettyClient implements INettyClient {
      * Stopt die Verbindung zum Server
      *
      */
-    @Override
     public void stopConnection()
     {
         this.eventLoopGroup.shutdownGracefully();

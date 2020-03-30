@@ -1,5 +1,6 @@
-package Initialization.Netty;
+package Initialization.OEMVerificationServerConnection;
 
+import Initialization.IConnectionClient;
 import com.google.inject.Inject;
 
 /**

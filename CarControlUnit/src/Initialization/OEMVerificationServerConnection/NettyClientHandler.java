@@ -1,4 +1,4 @@
-package Initialization.Netty;
+package Initialization.OEMVerificationServerConnection;
 
 import Messages.IMessage;
 import io.netty.channel.ChannelHandlerAdapter;
@@ -12,14 +12,14 @@ import io.netty.channel.ChannelHandlerContext;
  */
 
 public class NettyClientHandler extends ChannelHandlerAdapter {
-    private NettyClient nettyClient;
+    private NettyConnectionClient nettyClient;
 
     /**
      * Constructor, which injects the nettyclient.
      *
      * @param nettyClient NettyClient-Instance
      */
-    public NettyClientHandler(NettyClient nettyClient)
+    public NettyClientHandler(NettyConnectionClient nettyClient)
     {
         this.nettyClient = nettyClient;
     }

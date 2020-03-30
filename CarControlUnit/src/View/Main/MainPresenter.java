@@ -1,6 +1,6 @@
 package View.Main;
 
-import Initialization.Netty.NettyClient;
+import Initialization.OEMVerificationServerConnection.NettyConnectionClient;
 import View.Carla.CarlaView;
 import View.CCUMessageHandler.MessageHandlerView;
 
@@ -30,7 +30,7 @@ public class MainPresenter implements Initializable {
     private EventBus eventBus;
 
     @Inject
-    private NettyClient nettyClient;
+    private NettyConnectionClient nettyClient;
 
     private Stage primaryStage;
     private CarlaView carlaView = new CarlaView();

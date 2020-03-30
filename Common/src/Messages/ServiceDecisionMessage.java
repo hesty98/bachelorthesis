@@ -5,28 +5,29 @@ package Messages;
  *
  * Tells if driver accepted to use the inquiried service or not.
  */
-public class ServiceDecisionMessage extends Message {
-    private long inquiryID;
-    private boolean accepted;
+public class ServiceDecisionMessage extends DecisionMessage {
+    private String softwareID;
+    private String serviceID;
 
-    public ServiceDecisionMessage(long inquiryID, boolean accepted) {
-        this.inquiryID = inquiryID;
-        this.accepted = accepted;
+    public ServiceDecisionMessage(long inquiryID, boolean accepted, String softwareID, String serviceID) {
+        super(inquiryID, accepted);
+        this.softwareID=softwareID;
+        this.serviceID=serviceID;
     }
 
-    public long getInquiryID() {
-        return inquiryID;
+    public String getSoftwareID() {
+        return softwareID;
     }
 
-    public void setInquiryID(long inquiryID) {
-        this.inquiryID = inquiryID;
+    public void setSoftwareID(String softwareID) {
+        this.softwareID = softwareID;
     }
 
-    public boolean isAccepted() {
-        return accepted;
+    public String getServiceID() {
+        return serviceID;
     }
 
-    public void setAccepted(boolean accepted) {
-        this.accepted = accepted;
+    public void setServiceID(String serviceID) {
+        this.serviceID = serviceID;
     }
 }

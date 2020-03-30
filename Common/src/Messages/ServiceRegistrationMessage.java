@@ -5,13 +5,20 @@ import EnvironmentObjects.ServiceDescription;
 /**
  * @author Linus Hestermeyer
  *
+ *
+ * Muss:
+ *   Software für Service vorstellen
+ *   Kosten des ServiceProviders aufzeigen -> elternklasse: Angebot
+ *
  * The request the actor(i.e. parking-validator / traffic light) sends to the car in order to propose the use of its service.
  */
-public class ServiceRegistrationMessage extends Message{
+public class ServiceRegistrationMessage extends ServiceMessage{
     private ServiceDescription description;
     private long inquiryID;
+    private boolean installSW;
 
-    public ServiceRegistrationMessage(ServiceDescription description, long inquiryID) {
+    public ServiceRegistrationMessage(ServiceDescription description, long inquiryID, String serviceSoftwareID) {
+        super(serviceSoftwareID);
         this.description = description;
         this.inquiryID = inquiryID;
     }
@@ -30,5 +37,13 @@ public class ServiceRegistrationMessage extends Message{
 
     public void setInquiryID(long inquiryID) {
         this.inquiryID = inquiryID;
+    }
+
+    public boolean isInstallSW() {
+        return installSW;
+    }
+
+    public void setInstallSW(boolean installSW) {
+        this.installSW = installSW;
     }
 }

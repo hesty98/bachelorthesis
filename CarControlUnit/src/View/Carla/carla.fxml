@@ -23,6 +23,6 @@
       <Button fx:id="driveIntoPerceptionAreaButton" disable="true" layoutX="358.0" layoutY="191.0" mnemonicParsing="false" text="Drive into perception area" />
       <Label layoutX="14.0" layoutY="239.0" text="Log:" />
       <Label fx:id="environmentlog" alignment="TOP_LEFT" layoutX="16.0" layoutY="256.0" prefHeight="158.0" prefWidth="492.0" />
-      <Button layoutX="395.0" layoutY="157.0" mnemonicParsing="false" text="Activate Carla" />
+      <Button fx:id="useCarla" layoutX="395.0" layoutY="157.0" mnemonicParsing="false" text="Activate Carla" />
    </children>
 </AnchorPane>
