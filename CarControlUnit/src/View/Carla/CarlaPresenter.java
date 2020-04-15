@@ -145,7 +145,8 @@ public class CarlaPresenter implements Initializable {
      */
     @Subscribe
     public void handleInstallRequest(SoftwareInstallRequest msg){
-        SoftwareInstallationPackage sw= new SoftwareInstallationPackage(msg.getSoftwareID(), new ParkingServiceSoftware("Parken in Deutschalnds Städten", "Hier steht üblicherweise eine ausführliche Beschreibung der Software"));
+        SoftwareInstallationPackage sw= new SoftwareInstallationPackage(msg.getSoftwareID(), new ParkingServiceSoftware("Parken in Deutschalnds Städten",
+                "Hier steht üblicherweise eine ausführliche Beschreibung der Software"));
         eventBus.post(sw);
     }
 }
