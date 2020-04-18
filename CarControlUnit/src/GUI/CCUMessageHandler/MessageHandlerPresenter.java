@@ -1,10 +1,10 @@
-package View.CCUMessageHandler;
+package GUI.CCUMessageHandler;
 
 import Car.SoftwareManager;
 import EnvironmentObjects.Software;
-import Initialization.OEMVerificationServerConnection.NettyConnectionClient;
+import Initialization.Network.OEMVerificationServerConnection.NettyConnectionClient;
 import Messages.*;
-import View.LogPrinter;
+import GUI.LogPrinter;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;

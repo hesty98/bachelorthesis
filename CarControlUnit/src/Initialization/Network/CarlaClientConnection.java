@@ -1,15 +1,12 @@
-package Initialization.MMSConnection;
+package Initialization.Network;
 
-import Initialization.IConnectionClient;
 import Messages.IMessage;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class MMSClientConnection implements IConnectionClient {
+public class CarlaClientConnection implements IConnectionClient {
     private static String HOST;
     private static int PORT;
     private Socket socket;
@@ -55,7 +52,7 @@ public class MMSClientConnection implements IConnectionClient {
             out = new ObjectOutputStream(socket.getOutputStream()); // get the output stream of client.
             in = new ObjectInputStream(socket.getInputStream());    // get the input stream of client.
             this.startConnection();
-            System.err.println("MMS connection successful!");
+            System.err.println("Carla connection successful!");
         } catch (IOException e) {
             e.printStackTrace();
         }

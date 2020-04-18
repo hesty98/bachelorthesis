@@ -1,7 +1,6 @@
-package Initialization.OEMVerificationServerConnection;
+package Initialization.Network.OEMVerificationServerConnection;
 
 import Events.NoConnectionEvent;
-import Initialization.IConnectionClient;
 import Messages.IMessage;
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;

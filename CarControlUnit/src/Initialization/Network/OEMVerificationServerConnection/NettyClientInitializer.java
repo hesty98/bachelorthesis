@@ -1,6 +1,5 @@
-package Initialization.OEMVerificationServerConnection;
+package Initialization.Network.OEMVerificationServerConnection;
 
-import Initialization.IConnectionClient;
 import com.google.inject.Inject;
 
 /**

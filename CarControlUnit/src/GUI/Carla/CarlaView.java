@@ -1,4 +1,4 @@
-package View.Carla;
+package GUI.Carla;
 
 import com.airhacks.afterburner.views.FXMLView;
 

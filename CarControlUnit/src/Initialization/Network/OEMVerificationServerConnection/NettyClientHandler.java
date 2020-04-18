@@ -1,4 +1,4 @@
-package Initialization.OEMVerificationServerConnection;
+package Initialization.Network.OEMVerificationServerConnection;
 
 import Messages.IMessage;
 import io.netty.channel.ChannelHandlerAdapter;

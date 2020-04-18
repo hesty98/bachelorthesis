@@ -1,9 +1,8 @@
 package Initialization.EventBus;
 
-import Initialization.IConnectionClient;
-import Initialization.OEMVerificationServerConnection.INettyClient;
-import Initialization.OEMVerificationServerConnection.NettyConnectionClient;
-import Initialization.OEMVerificationServerConnection.NettyClientInitializer;
+import Initialization.Network.OEMVerificationServerConnection.INettyClient;
+import Initialization.Network.OEMVerificationServerConnection.NettyConnectionClient;
+import Initialization.Network.OEMVerificationServerConnection.NettyClientInitializer;
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 

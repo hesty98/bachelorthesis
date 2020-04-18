@@ -1,8 +1,8 @@
-package View.Main;
+package GUI.Main;
 
-import Initialization.OEMVerificationServerConnection.NettyConnectionClient;
-import View.Carla.CarlaView;
-import View.CCUMessageHandler.MessageHandlerView;
+import Initialization.Network.OEMVerificationServerConnection.NettyConnectionClient;
+import GUI.Carla.CarlaView;
+import GUI.CCUMessageHandler.MessageHandlerView;
 
 import com.google.common.eventbus.EventBus;
 import javafx.application.Platform;

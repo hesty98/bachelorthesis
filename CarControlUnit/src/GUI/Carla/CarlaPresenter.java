@@ -1,14 +1,13 @@
-package View.Carla;
+package GUI.Carla;
 
 import Actions.ActionEnums;
-import Car.Software.ParkingServiceSoftware;
+import Car.SoftwareExamples.ParkingServiceSoftware;
 import EnvironmentObjects.Angebot;
-import EnvironmentObjects.Service;
 import EnvironmentObjects.ServiceDescription;
 import EnvironmentObjects.ServiceProvider;
-import Initialization.OEMVerificationServerConnection.NettyConnectionClient;
+import Initialization.Network.OEMVerificationServerConnection.NettyConnectionClient;
 import Messages.*;
-import View.LogPrinter;
+import GUI.LogPrinter;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 import javafx.event.ActionEvent;
@@ -31,9 +30,6 @@ import java.util.ResourceBundle;
  * @version 1.0
  */
 public class CarlaPresenter implements Initializable {
-
-    @FXML
-    public BorderPane mainPane;
 
     @Inject
     private EventBus eventBus;

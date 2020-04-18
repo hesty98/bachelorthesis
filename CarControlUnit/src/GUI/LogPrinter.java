@@ -1,6 +1,5 @@
-package View;
+package GUI;
 
-import Messages.IMessage;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 

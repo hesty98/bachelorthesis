@@ -1,12 +1,11 @@
 package Initialization;
 
 import Events.NoConnectionEvent;
-import Initialization.CarlaConnection.CarlaClientConnection;
-import Initialization.EventBus.CarlaPortModule;
-import Initialization.EventBus.MMSPortModule;
-import Initialization.MMSConnection.MMSClientConnection;
-import Initialization.OEMVerificationServerConnection.NettyConnectionClient;
-import Initialization.OEMVerificationServerConnection.NettyClientInitializer;
+import Initialization.Network.CarlaClientConnection;
+import Initialization.Network.MMSClientConnection;
+import Initialization.Network.NetworkConfig;
+import Initialization.Network.OEMVerificationServerConnection.NettyConnectionClient;
+import Initialization.Network.OEMVerificationServerConnection.NettyClientInitializer;
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 import com.airhacks.afterburner.injection.Injector;
@@ -14,6 +13,11 @@ import com.airhacks.afterburner.injection.Injector;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class' purpose is to start the connection to every chosen module of the prototype.
+ *
+ * @author linus hestermeyer
+ */
 public class MainDependencies {
     private final NettyClientInitializer nettyClientInitializer;
     private final EventBus eventBus;
@@ -30,13 +34,13 @@ public class MainDependencies {
 
         this.nettyClientInitializer = nettyClientInitializer;
         this.nettyClient = (NettyConnectionClient)nettyClientInitializer.createNettyClientConnection(NetworkConfig.serverUrl,NetworkConfig.serverPort);
-/*
-        this.carlaClientConnection=carlaClientConnection;
-        this.carlaClientConnection.initBootstrap("127.0.0.1", 22898);
 
-        this.mmsClientConnection=mmsClientConnection;
-        this.mmsClientConnection.initBootstrap("127.0.0.1",28620);
-*/
+        //this.carlaClientConnection=carlaClientConnection;
+        //this.carlaClientConnection.initBootstrap("127.0.0.1", 22898);
+
+        //this.mmsClientConnection=mmsClientConnection;
+        //this.mmsClientConnection.initBootstrap("127.0.0.1",28620);
+
         Map<Object, Object> context = new HashMap<>();
         context.put( "eventBus", this.eventBus);
         context.put( "nettyClient", this.nettyClient);

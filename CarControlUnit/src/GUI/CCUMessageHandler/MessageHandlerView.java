@@ -1,4 +1,4 @@
-package View.CCUMessageHandler;
+package GUI.CCUMessageHandler;
 
 import com.airhacks.afterburner.views.FXMLView;
 

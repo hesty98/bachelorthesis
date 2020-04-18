@@ -1,10 +1,8 @@
-package Car.Software;
+package Car.SoftwareExamples;
 
 import EnvironmentObjects.Software;
-import Initialization.CarlaConnection.CarlaClientConnection;
-import Initialization.EventBus.CarlaPortModule;
-import Initialization.EventBus.MMSPortModule;
-import Initialization.MMSConnection.MMSClientConnection;
+import Initialization.Network.CarlaClientConnection;
+import Initialization.Network.MMSClientConnection;
 import Messages.*;
 import com.google.inject.Inject;
 

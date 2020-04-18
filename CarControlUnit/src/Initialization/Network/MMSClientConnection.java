@@ -1,14 +1,14 @@
-package Initialization.CarlaConnection;
+package Initialization.Network;
 
-import Initialization.IConnectionClient;
 import Messages.IMessage;
-import com.google.inject.internal.cglib.proxy.$Dispatcher;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class CarlaClientConnection implements IConnectionClient {
+public class MMSClientConnection implements IConnectionClient {
     private static String HOST;
     private static int PORT;
     private Socket socket;
@@ -44,7 +44,6 @@ public class CarlaClientConnection implements IConnectionClient {
 
     @Override
     public void initBootstrap(String host, int port) {
-        //currently not needed
         this.HOST=host;
         this.PORT=port;
 
@@ -54,7 +53,7 @@ public class CarlaClientConnection implements IConnectionClient {
             out = new ObjectOutputStream(socket.getOutputStream()); // get the output stream of client.
             in = new ObjectInputStream(socket.getInputStream());    // get the input stream of client.
             this.startConnection();
-            System.err.println("Carla connection successful!");
+            System.err.println("MMS connection successful!");
         } catch (IOException e) {
             e.printStackTrace();
         }

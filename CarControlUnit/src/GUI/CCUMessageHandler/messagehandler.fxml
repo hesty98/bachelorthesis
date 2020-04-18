@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="464.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CCUMessageHandler.MessageHandlerPresenter">
+<AnchorPane prefHeight="464.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CCUMessageHandler.MessageHandlerPresenter">
    <children>
       <Slider layoutX="460.0" layoutY="31.0" orientation="VERTICAL" prefHeight="158.0" prefWidth="14.0" />
       <Slider layoutX="460.0" layoutY="250.0" orientation="VERTICAL" prefHeight="158.0" prefWidth="14.0" />

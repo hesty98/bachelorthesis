@@ -1,4 +1,4 @@
-package View.Main;
+package GUI.Main;
 
 import com.airhacks.afterburner.views.FXMLView;
 

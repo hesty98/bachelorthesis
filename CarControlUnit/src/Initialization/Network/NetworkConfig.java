@@ -1,4 +1,4 @@
-package Initialization;
+package Initialization.Network;
 
 
 /**

@@ -1,4 +1,4 @@
-package Initialization.OEMVerificationServerConnection;
+package Initialization.Network;
 
 import Messages.IMessage;
 
@@ -7,7 +7,7 @@ import Messages.IMessage;
  *
  * @author Linus Hestermeyer
  */
-public interface INettyClient {
+public interface IConnectionClient {
     /**
      * Starts the Connection with the Server. Also inits channelread, send etc for Ports.
      */
