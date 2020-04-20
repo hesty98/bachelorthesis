@@ -22,11 +22,6 @@ public class MessageHandlerPresenter implements Initializable {
     @FXML
     public BorderPane mainPane;
 
-    @Inject
-    private EventBus eventBus;
-
-    @Inject
-    private NettyConnectionClient nettyClient;
 
     @FXML
     public Label logReceivedMessages;
@@ -36,7 +31,6 @@ public class MessageHandlerPresenter implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        eventBus.register(this);
     }
 
     public void printToReceived(String s) {

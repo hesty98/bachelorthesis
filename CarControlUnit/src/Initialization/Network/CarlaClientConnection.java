@@ -13,6 +13,11 @@ public class CarlaClientConnection implements IConnectionClient {
     private Socket socket;
     private ObjectOutputStream out;
     private ObjectInputStream in;
+    private boolean running =false;
+
+    public boolean isRunning() {
+        return running;
+    }
 
 
     @Override

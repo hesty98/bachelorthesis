@@ -7,7 +7,6 @@ import EnvironmentObjects.ServiceDescription;
 import EnvironmentObjects.ServiceProvider;
 import Messages.*;
 import GUI.LogPrinter;
-import com.google.common.eventbus.EventBus;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-import javax.inject.Inject;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,9 +26,6 @@ import java.util.ResourceBundle;
  * @version 1.0
  */
 public class CarlaPresenter implements Initializable {
-
-    @Inject
-    private EventBus eventBus;
 
     @FXML
     public Label carLog;
@@ -57,7 +52,7 @@ public class CarlaPresenter implements Initializable {
         CAR_IN_PERCEPTION_AREA,
         CAR_LEAVING,
         CAR_INSTALLING_SW,
-        CAR_WAITING_FOR_SERVICEACTION,
+        CAR_USING_SERVICE
     }
 
     private STAGE currentStage = STAGE.NO_REGISTERED_CAR;
@@ -92,7 +87,7 @@ public class CarlaPresenter implements Initializable {
                     //TODO: von Carla aus tun.
                     ServiceRegistrationMessage msg = new ServiceRegistrationMessage(desc, 992120, serviceProvider.getPublicProviderID(), ParkingServiceSoftware.SOFTWARE_ID);
                     //ID of the Service, used by Software to know what to do
-                    eventBus.post(msg);
+                    //eventBus.post(msg);
                     messageSent =true;
                 }
             }
@@ -135,7 +130,7 @@ public class CarlaPresenter implements Initializable {
             case CAR_INSTALLING_SW:
                 setButtonVisibility(new boolean[]{false,false,false});
                 break;
-            case CAR_WAITING_FOR_SERVICEACTION:
+            case CAR_USING_SERVICE:
                 setButtonVisibility(new boolean[]{false, true, false});
                 break;
 

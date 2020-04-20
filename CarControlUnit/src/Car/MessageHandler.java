@@ -31,8 +31,9 @@ public class MessageHandler {
         //TODO: Netty
         //   this.swsConnection = new Nett;
 
-        this.carlaConnection.initBootstrap("127.0.0.1", 22898);
-        this.mmsConnection.initBootstrap("127.0.0.1",28620);
+        //this.carlaConnection.initBootstrap("127.0.0.1", 22898);
+        //this.mmsConnection.initBootstrap("127.0.0.1",28620);
+        //this.swsConnection.initBootstrap
         this.mgr =new SoftwareManager();
     }
 
@@ -43,10 +44,17 @@ public class MessageHandler {
         return handler;
     }
     public void sendToCarla(IMessage out){
-        this.carlaConnection.sendMessage(out);
+        if(((CarlaClientConnection)this.carlaConnection).isRunning()) {
+            this.carlaConnection.sendMessage(out);
+        }
+
     }
     public void sendToMMS(IMessage out){
-        this.mmsConnection.sendMessage(out);
+        if(((MMSClientConnection)this.mmsConnection).isRunning()){
+            this.mmsConnection.sendMessage(out);
+        } else {
+            messageHandlerPresenter.printToSent("Tried to send "+out.toString()+ "but mms is not connected;");
+        }
     }
     public void sendToSWS(IMessage out){
         this.swsConnection.sendMessage(out);

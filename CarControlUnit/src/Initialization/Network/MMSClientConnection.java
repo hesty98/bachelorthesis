@@ -15,7 +15,11 @@ public class MMSClientConnection implements IConnectionClient {
     private Socket socket;
     private ObjectOutputStream out;
     private ObjectInputStream in;
+    private boolean running =false;
 
+    public boolean isRunning() {
+        return running;
+    }
 
     @Override
     public void startConnection() {
@@ -53,10 +57,12 @@ public class MMSClientConnection implements IConnectionClient {
             this.socket=ss.accept();
             out = new ObjectOutputStream(socket.getOutputStream()); // get the output stream of client.
             in = new ObjectInputStream(socket.getInputStream());    // get the input stream of client.
+            running=true;
             this.startConnection();
             System.err.println("MMS connection successful!");
         } catch (IOException e) {
             e.printStackTrace();
+            running=false;
         }
 
     }
