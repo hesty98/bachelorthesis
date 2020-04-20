@@ -10,6 +10,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Linus Hestermeyer
  *
