@@ -1,7 +1,6 @@
 package Messages;
 
 import Actions.ActionEnums;
-import EnvironmentObjects.Service;
 
 public class ServiceActionCommand extends ServiceMessage {
     private ActionEnums action;

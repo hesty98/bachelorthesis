@@ -1,17 +1,15 @@
 package Messages;
 
-import EnvironmentObjects.Service;
-
 /**
  * @author Linus Hestermeyer
  *
  * Message, which is sent if the driver unsubscribes the service.
  */
-public class ServiceDeleteMessage extends Message{
+public class SoftwareDeleteMessage extends Message{
     private long carID;
     private String softwareID;
 
-    public ServiceDeleteMessage(long carID, String softwareID) {
+    public SoftwareDeleteMessage(long carID, String softwareID) {
         this.carID = carID;
         this.softwareID = softwareID;
     }
@@ -28,7 +26,7 @@ public class ServiceDeleteMessage extends Message{
         return softwareID;
     }
 
-    public void setSoftwareID(Service softwareID) {
+    public void setSoftwareID(String softwareID) {
         this.softwareID = softwareID;
     }
 }

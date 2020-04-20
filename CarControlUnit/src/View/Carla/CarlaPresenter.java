@@ -3,7 +3,6 @@ package View.Carla;
 import Actions.ActionEnums;
 import Car.Software.ParkingServiceSoftware;
 import EnvironmentObjects.Angebot;
-import EnvironmentObjects.Service;
 import EnvironmentObjects.ServiceDescription;
 import EnvironmentObjects.ServiceProvider;
 import Initialization.OEMVerificationServerConnection.NettyConnectionClient;
