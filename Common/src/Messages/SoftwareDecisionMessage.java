@@ -1,19 +1,30 @@
 package Messages;
 
-public class SoftwareDecisionMessage extends DecisionMessage {
+public class SoftwareDecisionMessage extends SoftwareMessage {
 
-    private String softwareID;
+    private long inquiryID;
+    private boolean accepted;
 
     public SoftwareDecisionMessage(long inquiryID, boolean accepted, String softwareID) {
-        super(inquiryID, accepted);
-        this.softwareID=softwareID;
+        super(softwareID);
+        this.inquiryID=inquiryID;
+        this.accepted=accepted;
+
     }
 
-    public String getSoftwareID() {
-        return softwareID;
+    public long getInquiryID() {
+        return inquiryID;
     }
 
-    public void setSoftwareID(String softwareID) {
-        this.softwareID = softwareID;
+    public void setInquiryID(long inquiryID) {
+        this.inquiryID = inquiryID;
+    }
+
+    public boolean isAccepted() {
+        return accepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
     }
 }

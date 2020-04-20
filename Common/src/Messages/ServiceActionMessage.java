@@ -9,11 +9,10 @@ import Actions.ActionEnums;
  */
 public class ServiceActionMessage extends ServiceMessage {
     private ActionEnums action;
-    private String serviceID;
 
-    public ServiceActionMessage(ActionEnums action, String serviceID, String serviceSoftwareID) {
-        super(serviceSoftwareID);
-        this.serviceID = serviceID;
+    public ServiceActionMessage(ActionEnums action, String serviceID, String requiredSWID) {
+        super(requiredSWID, serviceID);
+        this.action=action;
     }
 
     public ActionEnums getAction() {
@@ -24,11 +23,4 @@ public class ServiceActionMessage extends ServiceMessage {
         this.action = action;
     }
 
-    public String getCommunicatingService() {
-        return serviceID;
-    }
-
-    public void setCommunicatingService(String serviceID) {
-        this.serviceID = serviceID;
-    }
 }

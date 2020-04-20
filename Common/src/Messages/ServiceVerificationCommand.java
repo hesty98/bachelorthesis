@@ -7,8 +7,8 @@ public class ServiceVerificationCommand extends ServiceMessage{
     private ServiceDescription serviceDescription;
     private long inquiryID;
 
-    public ServiceVerificationCommand(String car_manifest,ServiceDescription serviceDescription, long inquiryID, String serviceSoftwareID) {
-        super(serviceSoftwareID);
+    public ServiceVerificationCommand(String car_manifest,ServiceDescription serviceDescription, String requiredSWID, String serviceID, long inquiryID) {
+        super(requiredSWID, serviceID);
         this.car_manifest = car_manifest;
         this.serviceDescription=serviceDescription;
         this.inquiryID=inquiryID;

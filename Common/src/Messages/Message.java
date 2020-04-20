@@ -3,8 +3,7 @@ package Messages;
 import io.netty.channel.ChannelHandlerContext;
 
 abstract public class Message implements IMessage {
-
-
+    
     ChannelHandlerContext ctx = null;
 
     @Override

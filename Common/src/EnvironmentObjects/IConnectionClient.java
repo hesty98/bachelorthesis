@@ -1,4 +1,4 @@
-package Initialization.Network;
+package EnvironmentObjects;
 
 import Messages.IMessage;
 

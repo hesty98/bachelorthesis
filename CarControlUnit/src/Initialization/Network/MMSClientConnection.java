@@ -1,5 +1,6 @@
 package Initialization.Network;
 
+import EnvironmentObjects.IConnectionClient;
 import Messages.IMessage;
 
 import java.io.IOException;

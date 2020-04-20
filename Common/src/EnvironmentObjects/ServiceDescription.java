@@ -14,16 +14,14 @@ public class ServiceDescription implements Serializable {
     private String serviceTitle;
     private String serviceDescription;
     private ServiceProvider serviceProvider;
-    private String requiredSWID;
     private ArrayList<String> serviceBuzzwords;
     private Angebot angebot;
     private ArrayList<ActionEnums> actionTypes;
 
-    public ServiceDescription(String serviceTitle, String serviceDescription, ServiceProvider serviceProvider, String requiredSWID, ArrayList<String> serviceBuzzwords, Angebot angebot, ArrayList<ActionEnums> actionTypes) {
+    public ServiceDescription(String serviceTitle, String serviceDescription, ServiceProvider serviceProvider,ArrayList<String> serviceBuzzwords, Angebot angebot, ArrayList<ActionEnums> actionTypes) {
         this.serviceTitle = serviceTitle;
         this.serviceDescription = serviceDescription;
         this.serviceProvider = serviceProvider;
-        this.requiredSWID = requiredSWID;
         this.serviceBuzzwords = serviceBuzzwords;
         this.angebot = angebot;
         this.actionTypes = actionTypes;
@@ -51,14 +49,6 @@ public class ServiceDescription implements Serializable {
 
     public void setServiceProvider(ServiceProvider serviceProvider) {
         this.serviceProvider = serviceProvider;
-    }
-
-    public String getRequiredSWID() {
-        return requiredSWID;
-    }
-
-    public void setRequiredSWID(String requiredSWID) {
-        this.requiredSWID = requiredSWID;
     }
 
     public ArrayList<String> getServiceBuzzwords() {

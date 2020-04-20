@@ -6,7 +6,7 @@ import io.netty.channel.ChannelHandlerContext;
 
 
 /**
- * Handles Netty-Events (i.e. messages, connection status etc.).
+ * Handles Netty-Initialization.Network.Events (i.e. messages, connection status etc.).
  *
  * @author Linus Hestermeyer
  */

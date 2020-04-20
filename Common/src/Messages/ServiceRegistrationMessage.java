@@ -17,8 +17,8 @@ public class ServiceRegistrationMessage extends ServiceMessage{
     private long inquiryID;
     private boolean installSW;
 
-    public ServiceRegistrationMessage(ServiceDescription description, long inquiryID, String serviceSoftwareID) {
-        super(serviceSoftwareID);
+    public ServiceRegistrationMessage(ServiceDescription description, long inquiryID, String serviceSoftwareID, String requiredSWID) {
+        super(requiredSWID,serviceSoftwareID);
         this.description = description;
         this.inquiryID = inquiryID;
     }

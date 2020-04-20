@@ -1,5 +1,7 @@
 package GUI.Main;
 
+import GUI.CCUMessageHandler.MessageHandlerPresenter;
+import GUI.Carla.CarlaPresenter;
 import Initialization.Network.OEMVerificationServerConnection.NettyConnectionClient;
 import GUI.Carla.CarlaView;
 import GUI.CCUMessageHandler.MessageHandlerView;
@@ -26,12 +28,6 @@ public class MainPresenter implements Initializable {
     @FXML
     public BorderPane rightPane;
 
-    @Inject
-    private EventBus eventBus;
-
-    @Inject
-    private NettyConnectionClient nettyClient;
-
     private Stage primaryStage;
     private CarlaView carlaView = new CarlaView();
     private MessageHandlerView messageHandlerView = new MessageHandlerView();
@@ -39,7 +35,6 @@ public class MainPresenter implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        eventBus.register(this);
         leftPane.setCenter(messageHandlerView.getView());
         rightPane.setCenter(carlaView.getView());
 
@@ -49,6 +44,14 @@ public class MainPresenter implements Initializable {
                 System.exit(0);
             });
         });
+    }
+
+    public MessageHandlerPresenter getMessageHandlerPresenter(){
+        return (MessageHandlerPresenter)messageHandlerView.getPresenter();
+    }
+
+    public CarlaPresenter getCarlaPresenter(){
+        return (CarlaPresenter)carlaView.getPresenter();
     }
 
 

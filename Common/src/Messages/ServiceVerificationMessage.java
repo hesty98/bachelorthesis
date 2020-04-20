@@ -9,8 +9,8 @@ public class ServiceVerificationMessage extends ServiceMessage {
     private long inquiryID;
     //TODO: look, what other UPTANE features can be integrated
 
-    public ServiceVerificationMessage(ServiceDescription desc, boolean verified, String updated_car_manifest,long inquiryID, String serviceSoftwareID) {
-        super(serviceSoftwareID);
+    public ServiceVerificationMessage(ServiceDescription desc, boolean verified, String updated_car_manifest,long inquiryID, String requiredSWID, String serviceID) {
+        super(requiredSWID,serviceID);
         this.desc = desc;
         this.verified = verified;
         this.inquiryID=inquiryID;

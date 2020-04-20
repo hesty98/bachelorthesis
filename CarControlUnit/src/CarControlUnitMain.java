@@ -1,11 +1,7 @@
-import Initialization.EventBus.CarlaPortModule;
-import Initialization.EventBus.EventBusModule;
-import Initialization.EventBus.MMSPortModule;
-import Initialization.MainDependencies;
-import Initialization.EventBus.ServerNettyModule;
 import GUI.Main.MainPresenter;
 import GUI.Main.MainView;
-import com.google.inject.Guice;
+import Car.MessageHandler;
+import com.google.common.eventbus.EventBus;
 import com.airhacks.afterburner.injection.Injector;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -21,14 +17,8 @@ import javafx.stage.WindowEvent;
  */
 public class CarControlUnitMain extends Application {
 
-    private static final com.google.inject.Injector injector = Guice.createInjector(
-            new EventBusModule(),
-            new ServerNettyModule(),
-            new CarlaPortModule(),
-            new MMSPortModule()
-    );
-
-    private static final MainDependencies mainDependencies = injector.getInstance(MainDependencies.class);
+    private MessageHandler handler;
+    private EventBus bus= new EventBus();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -61,15 +51,14 @@ public class CarControlUnitMain extends Application {
         primaryStage.sizeToScene();
         primaryStage.show();
 
-        if(!mainDependencies.isNettyConnectionSuccess())
-        {
-            mainDependencies.postNettyConnectionFailed();
-        }
+        handler=MessageHandler.getInstance();
+        handler.setEventBus(bus);
+        handler.setCarlaPresenter(mainPresenter.getCarlaPresenter());
+        handler.setMessageHandlerPresenter(mainPresenter.getMessageHandlerPresenter());
     }
 
     @Override
     public void stop() throws Exception {
-
         Injector.forgetAll();
     }
 }

@@ -1,6 +1,6 @@
 package Messages;
 
-import EnvironmentObjects.Software;
+import EnvironmentObjects.Software.Software;
 
 public class SoftwareInstallationPackage extends SoftwareMessage {
     private Software software;

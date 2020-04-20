@@ -1,10 +1,15 @@
-package EnvironmentObjects;
+package EnvironmentObjects.Software;
+
+import EnvironmentObjects.IConnectionClient;
 
 public abstract class Software implements ISoftware {
     private String softwareID;
     private String swName;
     private String swDescription;
     private String swProviderID;
+    private IConnectionClient mmsConnection;
+    private IConnectionClient carlaConnection;
+    private IConnectionClient swsConnection;
 
     public Software(String softwareID, String swName, String swDescription, String swProviderID) {
         this.softwareID = softwareID;
@@ -43,5 +48,29 @@ public abstract class Software implements ISoftware {
 
     public void setSwProviderID(String swProviderID) {
         this.swProviderID = swProviderID;
+    }
+
+    public IConnectionClient getMmsConnection() {
+        return mmsConnection;
+    }
+
+    public void setMmsConnection(IConnectionClient mmsConnection) {
+        this.mmsConnection = mmsConnection;
+    }
+
+    public IConnectionClient getCarlaConnection() {
+        return carlaConnection;
+    }
+
+    public void setCarlaConnection(IConnectionClient carlaConnection) {
+        this.carlaConnection = carlaConnection;
+    }
+
+    public IConnectionClient getSwsConnection() {
+        return swsConnection;
+    }
+
+    public void setSwsConnection(IConnectionClient swsConnection) {
+        this.swsConnection = swsConnection;
     }
 }

@@ -2,14 +2,15 @@ package Messages;
 
 import Actions.ActionEnums;
 
+/**
+ * 
+ */
 public class ServiceActionCommand extends ServiceMessage {
     private ActionEnums action;
-    private String serviceID;
 
-    public ServiceActionCommand(ActionEnums action, String serviceID, String serviceSoftwareID) {
-        super(serviceSoftwareID);
+    public ServiceActionCommand(ActionEnums action, String serviceID,  String requiredSWID) {
+        super(requiredSWID,serviceID);
         this.action = action;
-        this.serviceID = serviceID;
 
     }
 
@@ -21,11 +22,4 @@ public class ServiceActionCommand extends ServiceMessage {
         this.action = action;
     }
 
-    public String getCommunicatingService() {
-        return serviceID;
-    }
-
-    public void setCommunicatingService(String serviceID) {
-        this.serviceID = serviceID;
-    }
 }

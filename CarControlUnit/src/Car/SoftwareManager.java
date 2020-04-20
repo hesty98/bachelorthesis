@@ -1,6 +1,6 @@
 package Car;
 
-import EnvironmentObjects.Software;
+import EnvironmentObjects.Software.Software;
 import Initialization.Network.CarlaClientConnection;
 import Initialization.Network.MMSClientConnection;
 import Messages.ServiceRegistrationMessage;
@@ -12,10 +12,6 @@ import java.util.ArrayList;
  * Every Car has a SoftwareManager. the Softwaremanager forwards incoming messages to the specific Software which is needed to handle these Messages. It also prepares the installation of new Software.
  */
 public class SoftwareManager {
-    @Inject
-    private CarlaClientConnection carlaClientConnection;
-    @Inject
-    private MMSClientConnection mmsClientConnection;
 
     private static ArrayList<Software> installedSW = new ArrayList<>();
 
@@ -42,12 +38,11 @@ public class SoftwareManager {
      */
     public void submitSoftware(ServiceRegistrationMessage msg) {
         msg.setInstallSW(true);
-        mmsClientConnection.sendMessage(msg);
+        MessageHandler.getInstance().sendToMMS(msg);
     }
 
 
     public void installSoftware(Software software) {
-        //eigentlich müsste hier ein installSkript durchgeführt werden. Aber
         installedSW.add(software);
     }
 

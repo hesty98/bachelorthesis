@@ -1,8 +1,5 @@
-package Car.SoftwareExamples;
+package EnvironmentObjects.Software;
 
-import EnvironmentObjects.Software;
-import Initialization.Network.CarlaClientConnection;
-import Initialization.Network.MMSClientConnection;
 import Messages.*;
 import com.google.inject.Inject;
 
@@ -13,10 +10,6 @@ import com.google.inject.Inject;
  * @author Linus Hestermeyer
  */
 public class ParkingServiceSoftware extends Software {
-    @Inject
-    private MMSClientConnection mmsClientConnection;
-    @Inject
-    private CarlaClientConnection carlaClientConnection;
 
     public static final String SOFTWARE_ID = "PARKING_SERVICE_GERMAN_CITIES";
 
@@ -42,7 +35,7 @@ public class ParkingServiceSoftware extends Software {
      */
     private void handleServiceRegistration(ServiceRegistrationMessage msg){
         msg.setInstallSW(false);
-        this.mmsClientConnection.sendMessage(msg);
+        getMmsConnection().sendMessage(msg);
     }
 
     /**
@@ -50,7 +43,7 @@ public class ParkingServiceSoftware extends Software {
      * @param msg
      */
     private void handleServiceDecisionMessage(ServiceDecisionMessage msg){
-        this.carlaClientConnection.sendMessage(msg);
+        getCarlaConnection().sendMessage(msg);
     }
 
     /**
@@ -58,7 +51,7 @@ public class ParkingServiceSoftware extends Software {
      * @param msg
      */
     private void handleServiceActionCommand(ServiceActionCommand msg){
-        this.mmsClientConnection.sendMessage(msg);
-        this.carlaClientConnection.sendMessage(msg);
+        getMmsConnection().sendMessage(msg);
+        getCarlaConnection().sendMessage(msg);
     }
 }

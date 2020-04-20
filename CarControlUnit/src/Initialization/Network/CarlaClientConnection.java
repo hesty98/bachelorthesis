@@ -1,5 +1,6 @@
 package Initialization.Network;
 
+import EnvironmentObjects.IConnectionClient;
 import Messages.IMessage;
 
 import java.io.*;
@@ -36,7 +37,7 @@ public class CarlaClientConnection implements IConnectionClient {
             out.close();
             socket.close();
         }catch (Exception e){
-            e.printStackTrace();
+ 
         }
     }
 
