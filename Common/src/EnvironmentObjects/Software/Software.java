@@ -73,4 +73,7 @@ public abstract class Software implements ISoftware {
     public void setSwsConnection(IConnectionClient swsConnection) {
         this.swsConnection = swsConnection;
     }
+    public boolean isUpTpDate(){
+        return true;
+    }
 }

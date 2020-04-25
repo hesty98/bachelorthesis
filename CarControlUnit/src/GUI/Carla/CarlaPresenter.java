@@ -1,6 +1,7 @@
 package GUI.Carla;
 
 import Actions.ActionEnums;
+import Car.MessageHandler;
 import EnvironmentObjects.Software.ParkingServiceSoftware;
 import EnvironmentObjects.Angebot;
 import EnvironmentObjects.ServiceDescription;
@@ -34,7 +35,13 @@ public class CarlaPresenter implements Initializable {
     public Label environmentlog;
 
     @FXML
-    public Button useCarla;
+    public Button useCarla; //start the engine
+
+    @FXML
+    public Button startScenarioButton;
+
+    @FXML
+    public Button driveIntoPerceptionAreaButton;
 
     @FXML
     public Button sendServiceRegistrationMessage;
@@ -43,24 +50,62 @@ public class CarlaPresenter implements Initializable {
     public Button sendServiceActionButton;
 
     @FXML
-    public Button driveIntoPerceptionAreaButton;
+    public Button sayGoodbye;
 
     private boolean messageSent =false;
 
-    private enum STAGE {
+    public enum STAGE {
+        NO_RUNNING_SCENARIO,
         NO_REGISTERED_CAR,
         CAR_IN_PERCEPTION_AREA,
-        CAR_LEAVING,
+        CAR_DECLINED_SERVICE,
         CAR_INSTALLING_SW,
-        CAR_USING_SERVICE
+        CAR_ACCEPTED_SERVICE
     }
 
-    private STAGE currentStage = STAGE.NO_REGISTERED_CAR;
+    public STAGE currentStage = STAGE.NO_REGISTERED_CAR;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setUpButtons();
+                useCarla.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    final ProcessBuilder pb = new ProcessBuilder("D:\\Carla\\CarlaUE4.exe");
+                    pb.directory(new File("D:\\Carla"));
+                    final Process p = pb.start();
+                    System.err.println("Starting Carla.... This could take a while.");
+                    currentStage=STAGE.NO_RUNNING_SCENARIO;
+                    setUpButtons();
+                    /*
+                    TODO: Buttons auf unsichtbar setzen
+                      Generell: entweder Carla oder Buttons
+                    */
+                }catch (Exception e){
+                    currentStage=STAGE.NO_REGISTERED_CAR;
+                    setUpButtons();
+                    LogPrinter.displayInView(carLog,"Carla Failed to run. Please correct the carla directory in config file. Running Without Carla in GUI.");
+
+//                    e.printStackTrace();
+
+                }
+            }
+        });
+        startScenarioButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //TODO: start scenario in Carla
+            }
+        });
+        driveIntoPerceptionAreaButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                currentStage = STAGE.CAR_IN_PERCEPTION_AREA;
+                setUpButtons();
+            }
+        });
         sendServiceRegistrationMessage.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -89,28 +134,21 @@ public class CarlaPresenter implements Initializable {
                     //ID of the Service, used by Software to know what to do
                     //eventBus.post(msg);
                     messageSent =true;
+                    MessageHandler.getInstance().post(msg);
                 }
             }
         });
-        useCarla.setOnAction(new EventHandler<ActionEvent>() {
+        sendServiceActionButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                try {
-                    final ProcessBuilder pb = new ProcessBuilder("D:\\Carla\\CarlaUE4.exe");
-                    pb.directory(new File("D:\\Carla"));
-                    final Process p = pb.start();
-                    System.err.println("Starting Carla.... This could take a while.");
-                    setButtonVisibility(true);
-                    /*
-                    TODO: Buttons auf unsichtbar setzen
-                      Generell: entweder Carla oder Buttons
-                    */
-                }catch (Exception e){
-                    setButtonVisibility(true);
-                    System.err.println("Carla Failed to run.");
-                    e.printStackTrace();
-                    //TODO: wenn carla nichtz startet soll steuerung über GUI-Buttons möglich sein.
-                }
+                ServiceActionCommand cmd = new ServiceActionCommand(ActionEnums.TARGET, "hestermeyer_parken",  ParkingServiceSoftware.SOFTWARE_ID);
+                MessageHandler.getInstance().post(cmd);
+            }
+        });
+        sayGoodbye.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
             }
         });
     }
@@ -120,18 +158,23 @@ public class CarlaPresenter implements Initializable {
      */
     private void setUpButtons() {
         switch (currentStage){
+            case NO_RUNNING_SCENARIO:
+                setButtonVisibility(new boolean[]{false,true,false,false,false,false});
+                break;
             case NO_REGISTERED_CAR:
-                setButtonVisibility(new boolean[]{false, false, true});
+                setButtonVisibility(new boolean[]{false, false, true,false,false,false});
                 break;
             case CAR_IN_PERCEPTION_AREA:
-                setButtonVisibility(new boolean[]{true, false, false});
+                setButtonVisibility(new boolean[]{false, false, false, true,false,false});
                 break;
-            case CAR_LEAVING:
+            case CAR_DECLINED_SERVICE:
+                setButtonVisibility(new boolean[]{false,false,false, false,true,false});
+                break;
             case CAR_INSTALLING_SW:
-                setButtonVisibility(new boolean[]{false,false,false});
+                setButtonVisibility(new boolean[]{false,false,false,false,false,false});
                 break;
-            case CAR_USING_SERVICE:
-                setButtonVisibility(new boolean[]{false, true, false});
+            case CAR_ACCEPTED_SERVICE:
+                setButtonVisibility(new boolean[]{false, false, false, false, false, true});
                 break;
 
             default:
@@ -140,16 +183,12 @@ public class CarlaPresenter implements Initializable {
     }
 
     private void setButtonVisibility(boolean[] b) {
-        sendServiceRegistrationMessage.setDisable(b[0]);
-        sendServiceActionButton.setDisable(b[1]);
+        useCarla.setDisable(b[0]);
+        startScenarioButton.setDisable(b[1]);
         driveIntoPerceptionAreaButton.setDisable(b[2]);
-    }
-
-    private void setButtonVisibility(boolean b) {
-        useCarla.setDisable(b);
-        sendServiceRegistrationMessage.setDisable(b);
-        sendServiceActionButton.setDisable(b);
-        driveIntoPerceptionAreaButton.setDisable(b);
+        sendServiceRegistrationMessage.setDisable(b[3]);
+        sayGoodbye.setDisable(b[4]);
+        sendServiceActionButton.setDisable(b[5]);
     }
 
     public void printToEnvironment(String s) {

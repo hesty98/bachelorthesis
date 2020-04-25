@@ -8,6 +8,9 @@ import GUI.CCUMessageHandler.MessageHandlerPresenter;
 import GUI.Carla.CarlaPresenter;
 import Initialization.Network.CarlaClientConnection;
 import Initialization.Network.MMSClientConnection;
+import Initialization.Network.NetworkConfig;
+import Initialization.Network.OEMVerificationServerConnection.NettyClientInitializer;
+import Initialization.Network.OEMVerificationServerConnection.NettyConnectionClient;
 import Messages.*;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
@@ -17,7 +20,9 @@ import java.util.ArrayList;
 public class MessageHandler {
     private IConnectionClient carlaConnection;
     private IConnectionClient mmsConnection;
-    private IConnectionClient swsConnection;
+
+    private final NettyClientInitializer nettyClientInitializer;
+    private NettyConnectionClient swsConnection;
     private EventBus bus;
     private CarlaPresenter carlaPresenter;
     private MessageHandlerPresenter messageHandlerPresenter;
@@ -28,8 +33,8 @@ public class MessageHandler {
     private MessageHandler() {
         this.carlaConnection = new CarlaClientConnection();
         this.mmsConnection = new MMSClientConnection();
-        //TODO: Netty
-        //   this.swsConnection = new Nett;
+        nettyClientInitializer = new NettyClientInitializer();
+        this.swsConnection = (NettyConnectionClient)nettyClientInitializer.createNettyClientConnection(NetworkConfig.serverUrl,NetworkConfig.serverPort);
 
         //this.carlaConnection.initBootstrap("127.0.0.1", 22898);
         //this.mmsConnection.initBootstrap("127.0.0.1",28620);
@@ -88,7 +93,7 @@ public class MessageHandler {
         final String serviceSoftwareID= msg.getRequiredSWID();
         Software handlingSW = mgr.getSoftware(serviceSoftwareID);
 
-        if(handlingSW != null){
+        if(handlingSW != null && handlingSW.isUpTpDate()){
             /*handlingSW.handleMessage(msg);
               TODO: delete this and get SDMessage from MMS
              */
@@ -98,9 +103,7 @@ public class MessageHandler {
             registeringServices.add(msg);
             ServiceVerificationCommand cmd = new ServiceVerificationCommand("eins cooles auto manifesto", msg.getDescription(), msg.getRequiredSWID(),msg.getServiceID(),msg.getInquiryID());
             swsConnection.sendMessage(cmd);
-            messageHandlerPresenter.printToSent(
-                    "Sent ServiceVerificationCommand to OEM Verification Server."
-            );
+            messageHandlerPresenter.printToSent("Sent ServiceVerificationCommand to OEM Verification Server.");
         }
     }
 
@@ -145,14 +148,14 @@ public class MessageHandler {
         if(handlingSW!=null) {
             handlingSW.handleMessage(serviceDecisionMessage);
         }else{
-            System.err.println("No Software handling the message. -> MessageHandlerPresenter");
+            System.err.println("No Software handling the message. -> MessageHandler");
         }
         if(serviceDecisionMessage.isAccepted()) {
             messageHandlerPresenter.printToReceived(
                             "\nDriver accepted to use the Service! Forwarding message to Carla-Environment."
             );
             carlaPresenter.printToEnvironment(
-                    "\nDriver accepted to use the Service! Preparing the ServiceActionCommand");
+                    "\nDriver accepted to use the Service! Ready to send the ServiceActionCommand");
 
             //TODO: DecisionMessage an CarlaEnv schicken und auf ServiceActionCommand von CarlaEnv warten; unten stehendes entfernen
             ServiceActionCommand serviceActionCommand = new ServiceActionCommand(ActionEnums.MOVEMENT, serviceDecisionMessage.getServiceID(), serviceDecisionMessage.getRequiredSWID());
@@ -224,5 +227,9 @@ public class MessageHandler {
         SoftwareInstallationPackage sw= new SoftwareInstallationPackage(msg.getSoftwareID(), new ParkingServiceSoftware("Parken in Deutschalnds Städten",
                 "Hier steht üblicherweise eine ausführliche Beschreibung der Software"));
         bus.post(sw);
+    }
+
+    public void post(IMessage msg){
+        bus.post(msg);
     }
 }

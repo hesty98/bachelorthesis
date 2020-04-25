@@ -27,7 +27,8 @@ public class ServiceListener {
                     true,
                     serviceVerificationCommand.getCar_manifest()+" updated",
                     serviceVerificationCommand.getInquiryID(),
-                    serviceVerificationCommand.getRequiredSWID()
+                    serviceVerificationCommand.getRequiredSWID(),
+                    serviceVerificationCommand.getServiceID()
             );
             serviceVerificationCommand.getCtx().writeAndFlush(msg);
         }
