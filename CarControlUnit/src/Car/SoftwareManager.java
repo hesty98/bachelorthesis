@@ -23,7 +23,7 @@ public class SoftwareManager {
      */
     public Software getSoftware(String serviceSoftwareID) {
         for(Software sw : installedSW){
-            if(sw.getSoftwareID()==serviceSoftwareID){
+            if(sw.getSoftwareID().equals(serviceSoftwareID)){
                 return sw;
             }
         }

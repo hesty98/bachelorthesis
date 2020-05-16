@@ -31,7 +31,7 @@ public class MainDependencies {
     public MainDependencies(EventBus eventBus){
         this.eventBus=eventBus;
 
-        this.nettyClient = (NettyConnectionClient)nettyClientInitializer.createNettyClientConnection(NetworkConfig.serverUrl,NetworkConfig.serverPort);
+        //this.nettyClient = (NettyConnectionClient)nettyClientInitializer.createNettyClientConnection(NetworkConfig.serverUrl,NetworkConfig.serverPort);
 
         //this.carlaClientConnection=carlaClientConnection;
         //this.carlaClientConnection.initBootstrap("127.0.0.1", 22898);

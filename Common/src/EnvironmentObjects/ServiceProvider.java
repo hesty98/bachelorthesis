@@ -6,11 +6,21 @@ public class ServiceProvider implements Serializable {
     private String publicProviderID;
     private String providerName;
     private String providerURL;
+    private String requiredSoftwareID;
 
-    public ServiceProvider(String publicProviderID, String providerName, String providerURL) {
+    public ServiceProvider(String publicProviderID, String providerName, String providerURL, String requiredSoftwareID) {
         this.publicProviderID = publicProviderID;
         this.providerName = providerName;
         this.providerURL = providerURL;
+        this.requiredSoftwareID = requiredSoftwareID;
+    }
+
+    public String getRequiredSoftwareID() {
+        return requiredSoftwareID;
+    }
+
+    public void setRequiredSoftwareID(String requiredSoftwareID) {
+        this.requiredSoftwareID = requiredSoftwareID;
     }
 
     public String getPublicProviderID() {

@@ -4,19 +4,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="464.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CCUMessageHandler.MessageHandlerPresenter">
+<AnchorPane prefHeight="1000.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CCUMessageHandler.MessageHandlerPresenter">
    <children>
-      <Slider layoutX="460.0" layoutY="31.0" orientation="VERTICAL" prefHeight="158.0" prefWidth="14.0" />
-      <Slider layoutX="460.0" layoutY="250.0" orientation="VERTICAL" prefHeight="158.0" prefWidth="14.0" />
-      <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="113.0" text="Reveived Messages">
+      <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="7.0" prefHeight="17.0" prefWidth="113.0" text="Reveived Messages">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="250.0" prefHeight="17.0" prefWidth="125.0" text="Forwarded Messages">
+      <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="500.0" prefHeight="17.0" prefWidth="125.0" text="Forwarded Messages">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="logReceivedMessages" alignment="TOP_LEFT" layoutX="14.0" layoutY="31.0" prefHeight="208.0" prefWidth="441.0" />
-      <Label fx:id="logForwardedMessages" alignment="TOP_LEFT" layoutX="14.0" layoutY="279.0" prefHeight="174.0" prefWidth="441.0" />
+      <ScrollPane fx:id="logReceivedMessages" layoutX="14.0" layoutY="35.0" prefHeight="450.0" prefWidth="900.0"/>
+      <ScrollPane fx:id="logForwardedMessages" layoutX="14.0" layoutY="517.0" prefHeight="450.0" prefWidth="900.0"/>
    </children>
 </AnchorPane>

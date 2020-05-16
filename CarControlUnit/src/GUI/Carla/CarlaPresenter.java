@@ -1,10 +1,11 @@
 package GUI.Carla;
 
-import Actions.ActionEnums;
+import Actions.IAction;
+import Actions.TargetAction;
 import Car.MessageHandler;
 import EnvironmentObjects.Software.ParkingServiceSoftware;
 import EnvironmentObjects.Angebot;
-import EnvironmentObjects.ServiceDescription;
+import EnvironmentObjects.Description;
 import EnvironmentObjects.ServiceProvider;
 import Messages.*;
 import GUI.LogPrinter;
@@ -13,7 +14,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 
 import java.io.File;
 import java.net.URL;
@@ -29,10 +30,10 @@ import java.util.ResourceBundle;
 public class CarlaPresenter implements Initializable {
 
     @FXML
-    public Label carLog;
+    public ScrollPane carLog;
 
     @FXML
-    public Label environmentlog;
+    public ScrollPane environmentlog;
 
     @FXML
     public Button useCarla; //start the engine
@@ -55,6 +56,7 @@ public class CarlaPresenter implements Initializable {
     private boolean messageSent =false;
 
     public enum STAGE {
+        NO_CAR_STARTED,
         NO_RUNNING_SCENARIO,
         NO_REGISTERED_CAR,
         CAR_IN_PERCEPTION_AREA,
@@ -62,14 +64,15 @@ public class CarlaPresenter implements Initializable {
         CAR_INSTALLING_SW,
         CAR_ACCEPTED_SERVICE
     }
+    private ServiceProvider serviceProvider;
 
-    public STAGE currentStage = STAGE.NO_REGISTERED_CAR;
+    public STAGE currentStage = STAGE.NO_CAR_STARTED;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setUpButtons();
-                useCarla.setOnAction(new EventHandler<ActionEvent>() {
+        useCarla.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
@@ -103,45 +106,51 @@ public class CarlaPresenter implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 currentStage = STAGE.CAR_IN_PERCEPTION_AREA;
+                LogPrinter.displayInView(environmentlog, "Percepted a Car within area. I could register to that car by clicking the Button below.");
                 setUpButtons();
             }
         });
         sendServiceRegistrationMessage.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(!messageSent) {
+                //TODO: send ServiceRegistrationMessage received from Carla
+                //if(!messageSent) {
                     //BUILD of a ServiceRegistrationMessage for the ParkingServiceSoftware
 
-                    ArrayList<ActionEnums> list = new ArrayList<>();
-                    list.add(ActionEnums.TARGET);
+                    ArrayList<IAction> list = new ArrayList<>();
+                    list.add(new TargetAction());
                     Angebot angebot = new Angebot(0);
-                    ServiceProvider serviceProvider = new ServiceProvider(
+                    serviceProvider = new ServiceProvider(
                             "hestermeyer_parken",
                             "Hestermeyer parken",
-                            "verify.parking_in_germany.de/hestermeyer_parken"
+                            "verify.parking_in_germany.de/hestermeyer_parken",
+                            ParkingServiceSoftware.SOFTWARE_ID
 
                     );
-                    ServiceDescription desc = new ServiceDescription(
+                    Description desc = new Description(
                             "Parken in der Innenstadt",
                             "Parken Sie in nächster Nähe zur Oldenburger Innenstadt!\r\n Preis pro angefangene Stunde: 70cent",
-                            serviceProvider,
                             new ArrayList<>(),
                             new Angebot(0.70),
-                            new ArrayList<ActionEnums>()
+                            list
                     );
                     //TODO: von Carla aus tun.
-                    ServiceRegistrationMessage msg = new ServiceRegistrationMessage(desc, 992120, serviceProvider.getPublicProviderID(), ParkingServiceSoftware.SOFTWARE_ID);
+                    ServiceRegistrationMessage msg = new ServiceRegistrationMessage(
+                            desc, 992120, serviceProvider
+                    );
                     //ID of the Service, used by Software to know what to do
                     //eventBus.post(msg);
                     messageSent =true;
                     MessageHandler.getInstance().post(msg);
-                }
+                //}
             }
         });
         sendServiceActionButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                ServiceActionCommand cmd = new ServiceActionCommand(ActionEnums.TARGET, "hestermeyer_parken",  ParkingServiceSoftware.SOFTWARE_ID);
+                ServiceActionCommand cmd = new ServiceActionCommand(
+                        new TargetAction(), serviceProvider
+                );
                 MessageHandler.getInstance().post(cmd);
             }
         });
@@ -156,8 +165,12 @@ public class CarlaPresenter implements Initializable {
     /**
      * Enables and disables invalid Buttons. Sets what is to happen on Action.
      */
-    private void setUpButtons() {
+    public void setUpButtons() {
         switch (currentStage){
+            case NO_CAR_STARTED:
+
+                setButtonVisibility(new boolean[]{true,false,false,false,false,false});
+                break;
             case NO_RUNNING_SCENARIO:
                 setButtonVisibility(new boolean[]{false,true,false,false,false,false});
                 break;
@@ -183,12 +196,13 @@ public class CarlaPresenter implements Initializable {
     }
 
     private void setButtonVisibility(boolean[] b) {
-        useCarla.setDisable(b[0]);
-        startScenarioButton.setDisable(b[1]);
-        driveIntoPerceptionAreaButton.setDisable(b[2]);
-        sendServiceRegistrationMessage.setDisable(b[3]);
-        sayGoodbye.setDisable(b[4]);
-        sendServiceActionButton.setDisable(b[5]);
+        System.err.println("Setting visibility...");
+        useCarla.setDisable(!b[0]);
+        startScenarioButton.setDisable(!b[1]);
+        driveIntoPerceptionAreaButton.setDisable(!b[2]);
+        sendServiceRegistrationMessage.setDisable(!b[3]);
+        sayGoodbye.setDisable(!b[4]);
+        sendServiceActionButton.setDisable(!b[5]);
     }
 
     public void printToEnvironment(String s) {

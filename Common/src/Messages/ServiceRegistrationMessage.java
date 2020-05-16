@@ -1,6 +1,7 @@
 package Messages;
 
-import EnvironmentObjects.ServiceDescription;
+import EnvironmentObjects.Description;
+import EnvironmentObjects.ServiceProvider;
 
 /**
  * @author Linus Hestermeyer
@@ -13,21 +14,21 @@ import EnvironmentObjects.ServiceDescription;
  * The request the actor(i.e. parking-validator / traffic light) sends to the car in order to propose the use of its service.
  */
 public class ServiceRegistrationMessage extends ServiceMessage{
-    private ServiceDescription description;
+    private Description description;
     private long inquiryID;
     private boolean installSW;
 
-    public ServiceRegistrationMessage(ServiceDescription description, long inquiryID, String serviceSoftwareID, String requiredSWID) {
-        super(requiredSWID,serviceSoftwareID);
+    public ServiceRegistrationMessage(Description description, long inquiryID, ServiceProvider serviceProvider) {
+        super(serviceProvider);
         this.description = description;
         this.inquiryID = inquiryID;
     }
 
-    public ServiceDescription getDescription() {
+    public Description getDescription() {
         return description;
     }
 
-    public void setDescription(ServiceDescription description) {
+    public void setDescription(Description description) {
         this.description = description;
     }
 

@@ -21,7 +21,6 @@ import java.util.Map;
 public class CarControlUnitMain extends Application {
 
     private MessageHandler handler;
-    private EventBus bus= new EventBus();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -55,7 +54,6 @@ public class CarControlUnitMain extends Application {
         primaryStage.show();
 
         handler=MessageHandler.getInstance();
-        handler.setEventBus(bus);
         handler.setCarlaPresenter(mainPresenter.getCarlaPresenter());
         handler.setMessageHandlerPresenter(mainPresenter.getMessageHandlerPresenter());
     }

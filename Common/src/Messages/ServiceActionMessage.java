@@ -1,6 +1,7 @@
 package Messages;
 
-import Actions.ActionEnums;
+import Actions.IAction;
+import EnvironmentObjects.ServiceProvider;
 
 /**
  * @author Linus Hestermeyer
@@ -8,18 +9,18 @@ import Actions.ActionEnums;
  * Message which contains the action the car is supposed to do.
  */
 public class ServiceActionMessage extends ServiceMessage {
-    private ActionEnums action;
+    private IAction action;
 
-    public ServiceActionMessage(ActionEnums action, String serviceID, String requiredSWID) {
-        super(requiredSWID, serviceID);
+    public ServiceActionMessage(IAction action, ServiceProvider serviceProvider) {
+        super(serviceProvider);
         this.action=action;
     }
 
-    public ActionEnums getAction() {
+    public IAction getAction() {
         return action;
     }
 
-    public void setAction(ActionEnums action) {
+    public void setAction(IAction action) {
         this.action = action;
     }
 

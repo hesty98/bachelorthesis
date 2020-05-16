@@ -1,6 +1,5 @@
 package Initialization.Network.OEMVerificationServerConnection;
 
-import com.google.inject.Inject;
 
 /**
  * Initializes the Netty-Instance and the ServerConnection.
@@ -16,7 +15,6 @@ public class NettyClientInitializer {
      *
      * @param iNettyClient nettyCLient
      */
-    @Inject
     public NettyClientInitializer(INettyClient iNettyClient)
     {
         this.iNettyClient = iNettyClient;

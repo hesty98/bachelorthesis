@@ -1,16 +1,17 @@
 package Messages;
 
-import EnvironmentObjects.ServiceDescription;
+import EnvironmentObjects.Description;
+import EnvironmentObjects.ServiceProvider;
 
 public class ServiceVerificationCommand extends ServiceMessage{
     private String car_manifest;
-    private ServiceDescription serviceDescription;
+    private Description description;
     private long inquiryID;
 
-    public ServiceVerificationCommand(String car_manifest,ServiceDescription serviceDescription, String requiredSWID, String serviceID, long inquiryID) {
-        super(requiredSWID, serviceID);
+    public ServiceVerificationCommand(String car_manifest, Description description, ServiceProvider serviceProvider, long inquiryID) {
+        super(serviceProvider);
         this.car_manifest = car_manifest;
-        this.serviceDescription=serviceDescription;
+        this.description = description;
         this.inquiryID=inquiryID;
     }
 
@@ -22,12 +23,12 @@ public class ServiceVerificationCommand extends ServiceMessage{
         this.car_manifest = car_manifest;
     }
 
-    public ServiceDescription getServiceDescription() {
-        return serviceDescription;
+    public Description getDescription() {
+        return description;
     }
 
-    public void setServiceDescription(ServiceDescription serviceDescription) {
-        this.serviceDescription = serviceDescription;
+    public void setDescription(Description description) {
+        this.description = description;
     }
 
     public long getInquiryID() {

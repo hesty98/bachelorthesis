@@ -41,7 +41,6 @@ public class NettyConnectionClient implements INettyClient {
      *
      * @param eventBus bus
      */
-    @Inject
     public NettyConnectionClient(EventBus eventBus) {
         this.eventLoopGroup = new NioEventLoopGroup();
         this.bootstrap = new Bootstrap();

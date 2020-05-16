@@ -2,6 +2,8 @@ package Initialization.Network;
 
 import EnvironmentObjects.IConnectionClient;
 import Messages.IMessage;
+import Messages.ServiceDecisionMessage;
+import com.google.common.eventbus.EventBus;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -14,6 +16,12 @@ public class CarlaClientConnection implements IConnectionClient {
     private ObjectOutputStream out;
     private ObjectInputStream in;
     private boolean running =false;
+    private EventBus bus;
+    private ServerSocket serverSocket;
+
+    public CarlaClientConnection(EventBus bus) {
+        this.bus=bus;
+    }
 
     public boolean isRunning() {
         return running;
@@ -22,17 +30,24 @@ public class CarlaClientConnection implements IConnectionClient {
 
     @Override
     public void startConnection() {
-        while (true) {
-            try {
-                Object o = in.readObject();
-                System.out.println("Read object: "+o);
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                while(true) {
+                    try {
+                        Object o = in.readObject();
+                        System.out.println("Read object: " + o);
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-        }
+        };
+        t.start();
+        t.run();
     }
 
     @Override
@@ -51,27 +66,41 @@ public class CarlaClientConnection implements IConnectionClient {
         //currently not needed
         this.HOST=host;
         this.PORT=port;
-
         try {
-            ServerSocket ss = new ServerSocket(PORT);
-            this.socket=ss.accept();
-            out = new ObjectOutputStream(socket.getOutputStream()); // get the output stream of client.
-            in = new ObjectInputStream(socket.getInputStream());    // get the input stream of client.
-            this.startConnection();
-            System.err.println("Carla connection successful!");
-        } catch (IOException e) {
+            serverSocket= new ServerSocket(PORT);
+        } catch (Exception e){
             e.printStackTrace();
         }
+        new Thread(){
+            @Override
+            public void run() {
+                try {
+                    socket=serverSocket.accept();
+                    out = new ObjectOutputStream(socket.getOutputStream()); // get the output stream of client.
+                    in = new ObjectInputStream(socket.getInputStream());    // get the input stream of client.
+                    running=true;
+                    startConnection();
+                    System.err.println("Carla connection successful!");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+
 
     }
 
     @Override
     public void sendMessage(IMessage out) {
-        try {
-            this.out.writeObject(out);
-            this.out.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(this.out != null) {
+            try {
+                this.out.writeObject(out);
+                this.out.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else{
+            System.err.println("Carla isnt running - use the Buttons!");
         }
     }
 }

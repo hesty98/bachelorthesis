@@ -1,21 +1,20 @@
 package EnvironmentObjects.Software;
 
 import EnvironmentObjects.IConnectionClient;
+import EnvironmentObjects.Description;
 
 public abstract class Software implements ISoftware {
     private String softwareID;
-    private String swName;
-    private String swDescription;
-    private String swProviderID;
+    private String providerID;
+    private Description description;
     private IConnectionClient mmsConnection;
     private IConnectionClient carlaConnection;
     private IConnectionClient swsConnection;
 
-    public Software(String softwareID, String swName, String swDescription, String swProviderID) {
+    public Software(String softwareID,String providerID, Description description) {
         this.softwareID = softwareID;
-        this.swName = swName;
-        this.swDescription = swDescription;
-        this.swProviderID = swProviderID;
+        this.description= description;
+        this.providerID=providerID;
     }
 
     public String getSoftwareID() {
@@ -26,28 +25,12 @@ public abstract class Software implements ISoftware {
         this.softwareID = softwareID;
     }
 
-    public String getSwName() {
-        return swName;
+    public Description getDescription() {
+        return description;
     }
 
-    public void setSwName(String swName) {
-        this.swName = swName;
-    }
-
-    public String getSwDescription() {
-        return swDescription;
-    }
-
-    public void setSwDescription(String swDescription) {
-        this.swDescription = swDescription;
-    }
-
-    public String getSwProviderID() {
-        return swProviderID;
-    }
-
-    public void setSwProviderID(String swProviderID) {
-        this.swProviderID = swProviderID;
+    public void setDescription(Description description) {
+        this.description = description;
     }
 
     public IConnectionClient getMmsConnection() {
@@ -75,5 +58,13 @@ public abstract class Software implements ISoftware {
     }
     public boolean isUpTpDate(){
         return true;
+    }
+
+    public String getProviderID() {
+        return providerID;
+    }
+
+    public void setProviderID(String providerID) {
+        this.providerID = providerID;
     }
 }

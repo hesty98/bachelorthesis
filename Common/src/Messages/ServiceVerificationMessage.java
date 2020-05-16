@@ -1,27 +1,28 @@
 package Messages;
 
-import EnvironmentObjects.ServiceDescription;
+import EnvironmentObjects.Description;
+import EnvironmentObjects.ServiceProvider;
 
 public class ServiceVerificationMessage extends ServiceMessage {
-    private ServiceDescription desc;
+    private Description desc;
     private boolean verified;
     private String updated_car_manifest;
     private long inquiryID;
     //TODO: look, what other UPTANE features can be integrated
 
-    public ServiceVerificationMessage(ServiceDescription desc, boolean verified, String updated_car_manifest,long inquiryID, String requiredSWID, String serviceID) {
-        super(requiredSWID,serviceID);
+    public ServiceVerificationMessage(Description desc, boolean verified, String updated_car_manifest, long inquiryID, ServiceProvider serviceProvider) {
+        super(serviceProvider);
         this.desc = desc;
         this.verified = verified;
         this.inquiryID=inquiryID;
         this.updated_car_manifest=updated_car_manifest;
     }
 
-    public ServiceDescription getDesc() {
+    public Description getDesc() {
         return desc;
     }
 
-    public void setDesc(ServiceDescription desc) {
+    public void setDesc(Description desc) {
         this.desc = desc;
     }
 

@@ -6,6 +6,7 @@ import com.google.common.eventbus.EventBus;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javax.inject.Inject;
 import java.net.URL;
@@ -22,15 +23,15 @@ public class MessageHandlerPresenter implements Initializable {
     @FXML
     public BorderPane mainPane;
 
+    @FXML
+    public ScrollPane logReceivedMessages;
 
     @FXML
-    public Label logReceivedMessages;
-
-    @FXML
-    public Label logForwardedMessages;
+    public ScrollPane logForwardedMessages;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
     }
 
     public void printToReceived(String s) {

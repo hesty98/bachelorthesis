@@ -1,7 +1,14 @@
 package EnvironmentObjects.Software;
 
+import Actions.IAction;
+import Actions.MovementHintAction;
+import Actions.TargetAction;
+import EnvironmentObjects.Angebot;
+import EnvironmentObjects.Description;
 import Messages.*;
 import com.google.inject.Inject;
+
+import java.util.ArrayList;
 
 /**
  * With this Software, simulated cars are supposed to park in a specific location.
@@ -10,12 +17,38 @@ import com.google.inject.Inject;
  * @author Linus Hestermeyer
  */
 public class ParkingServiceSoftware extends Software {
-
     public static final String SOFTWARE_ID = "PARKING_SERVICE_GERMAN_CITIES";
+    private static final String PROVIDER_ID = "GER_28";
+    private static final String NAME = "Parking in Germany";
+    private static final String DESCRIPTION = "Mit dieser SOftware kann in jeder Stadt Deutschlands auf den Parkplätzen geparkt werden.";
+    private static final Angebot ANGEBOT = new Angebot(2000);
+    private static final ArrayList<IAction> ACTIONTYPES=new ArrayList<IAction>(){
+        {
+            add(new MovementHintAction());
+            add(new TargetAction());
+        }
+    };
+    private static final ArrayList<String> BUZZWORDS=new ArrayList<String>(){
+        {
+            add("Parken");
+            add("Deutschland");
+            add("Überall");
+            add("Günstig");
+        }
+    };
+
 
     @Inject
-    public ParkingServiceSoftware(String swName, String swDescription) {
-        super(SOFTWARE_ID, swName, swDescription, SOFTWARE_ID);
+    public ParkingServiceSoftware() {
+        super(SOFTWARE_ID,
+                PROVIDER_ID,
+                new Description(
+                NAME,
+                DESCRIPTION,
+                BUZZWORDS,
+                ANGEBOT,
+                ACTIONTYPES
+        ));
     }
 
     @Override

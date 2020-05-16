@@ -11,4 +11,12 @@ public class Angebot implements Serializable {
     public Angebot(double pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
     }
+
+    public double getPricePerUnit() {
+        return pricePerUnit;
+    }
+
+    public void setPricePerUnit(double pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
+    }
 }

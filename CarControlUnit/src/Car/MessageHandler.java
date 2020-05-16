@@ -1,8 +1,6 @@
 package Car;
 
-import Actions.ActionEnums;
 import EnvironmentObjects.IConnectionClient;
-import EnvironmentObjects.Software.ParkingServiceSoftware;
 import EnvironmentObjects.Software.Software;
 import GUI.CCUMessageHandler.MessageHandlerPresenter;
 import GUI.Carla.CarlaPresenter;
@@ -31,13 +29,16 @@ public class MessageHandler {
     private static MessageHandler handler;
 
     private MessageHandler() {
-        this.carlaConnection = new CarlaClientConnection();
-        this.mmsConnection = new MMSClientConnection();
-        nettyClientInitializer = new NettyClientInitializer();
+        this.bus=new EventBus();
+        bus.register(this);
+        this.carlaConnection = new CarlaClientConnection(bus);
+        this.mmsConnection = new MMSClientConnection(bus);
+        this.swsConnection= new NettyConnectionClient(bus);
+        nettyClientInitializer = new NettyClientInitializer(swsConnection);
         this.swsConnection = (NettyConnectionClient)nettyClientInitializer.createNettyClientConnection(NetworkConfig.serverUrl,NetworkConfig.serverPort);
 
         //this.carlaConnection.initBootstrap("127.0.0.1", 22898);
-        //this.mmsConnection.initBootstrap("127.0.0.1",28620);
+        this.mmsConnection.initBootstrap("127.0.0.1",22620);
         //this.swsConnection.initBootstrap
         this.mgr =new SoftwareManager();
     }
@@ -64,12 +65,6 @@ public class MessageHandler {
     public void sendToSWS(IMessage out){
         this.swsConnection.sendMessage(out);
     }
-    public void setEventBus(EventBus bus) {
-        if(this.bus==null) {
-            this.bus = bus;
-            bus.register(this);
-        }
-    }
     public void setMessageHandlerPresenter(MessageHandlerPresenter messageHandlerPresenter) {
         this.messageHandlerPresenter=messageHandlerPresenter;
     }
@@ -87,21 +82,18 @@ public class MessageHandler {
     @Subscribe
     public void registerService(ServiceRegistrationMessage msg){
         messageHandlerPresenter.printToReceived("Received new ServiceRegistrationService. InquiryID: "+ msg.getInquiryID()
-                +"\n     Type: "+msg.getRequiredSWID()
-                +"\n     Titel: "+msg.getDescription().getServiceTitle()
-                +"\n     Description:"+msg.getDescription().getServiceDescription());
-        final String serviceSoftwareID= msg.getRequiredSWID();
+                +"\n     Type: "+msg.getServiceProvider().getProviderName()
+                +"\n     Titel: "+msg.getDescription().getTitle()
+                +"\n     Description:"+msg.getDescription().getDescription());
+        final String serviceSoftwareID= msg.getServiceProvider().getRequiredSoftwareID();
         Software handlingSW = mgr.getSoftware(serviceSoftwareID);
 
         if(handlingSW != null && handlingSW.isUpTpDate()){
-            /*handlingSW.handleMessage(msg);
-              TODO: delete this and get SDMessage from MMS
-             */
-            ServiceDecisionMessage sdMSG = new ServiceDecisionMessage(msg.getInquiryID(), true,msg.getRequiredSWID(), msg.getRequiredSWID());
-            bus.post(sdMSG);
+            //Wait for ServiceDecisionMessage from MMS when this is sent
+            mmsConnection.sendMessage(msg);
         } else{
             registeringServices.add(msg);
-            ServiceVerificationCommand cmd = new ServiceVerificationCommand("eins cooles auto manifesto", msg.getDescription(), msg.getRequiredSWID(),msg.getServiceID(),msg.getInquiryID());
+            ServiceVerificationCommand cmd = new ServiceVerificationCommand("eins cooles auto manifesto", msg.getDescription(), msg.getServiceProvider(),msg.getInquiryID());
             swsConnection.sendMessage(cmd);
             messageHandlerPresenter.printToSent("Sent ServiceVerificationCommand to OEM Verification Server.");
         }
@@ -111,17 +103,15 @@ public class MessageHandler {
     public void waitForVerification(ServiceVerificationMessage serviceVerificationMessage){
         messageHandlerPresenter.printToReceived(
                      "\nReceived ServiceVerificationMessage. " +
-                        "\n     Providor: "+ serviceVerificationMessage.getDesc().getServiceProvider()+
-                        "\n     Description: "+serviceVerificationMessage.getDesc().getServiceDescription()+
+                        "\n     Providor: "+ serviceVerificationMessage.getServiceProvider().getProviderName()+
+                        "\n     Description: "+serviceVerificationMessage.getDesc().getDescription()+
                         "\n\nIn future, we need to Forward to MMS. Currently, Service always gets accepted and pushed to the intern eventbus right away."
         );
 
         if(serviceVerificationMessage.isVerified()){
             for(ServiceRegistrationMessage msg : registeringServices){
-                if(serviceVerificationMessage.getRequiredSWID() == msg.getRequiredSWID()){
-                    //mgr.submitSoftware(msg);
-                    //TODO: get SoftwareDecisionMessage from MMS, delete lower and uncomment upper line
-                    SoftwareDecisionMessage sdMSG = new SoftwareDecisionMessage(msg.getInquiryID(),true ,msg.getRequiredSWID());
+                if(serviceVerificationMessage.getServiceProvider().getRequiredSoftwareID().equals(msg.getServiceProvider().getRequiredSoftwareID())){
+                    mgr.submitSoftware(msg);
                 }
             }
         } else{
@@ -134,16 +124,16 @@ public class MessageHandler {
         messageHandlerPresenter.printToReceived("\n"
                 + "Received ServiceActionCommand. Creating verified Message and forwarding to carla."
         );
-        final String serviceSWID =cmd.getRequiredSWID();
+        final String serviceSWID =cmd.getServiceProvider().getRequiredSoftwareID();
         Software handlingSW = mgr.getSoftware(serviceSWID);
         handlingSW.handleMessage(cmd);
-        ServiceActionMessage sam = new ServiceActionMessage(cmd.getAction(), cmd.getServiceID(), cmd.getRequiredSWID());
+        ServiceActionMessage sam = new ServiceActionMessage(cmd.getAction(), cmd.getServiceProvider());
         bus.post(sam);
     }
 
     @Subscribe
     public void waitForDecisions(ServiceDecisionMessage serviceDecisionMessage){
-        final String serviceSoftwareID= serviceDecisionMessage.getRequiredSWID();
+        final String serviceSoftwareID= serviceDecisionMessage.getServiceProvider().getRequiredSoftwareID();
         Software handlingSW = mgr.getSoftware(serviceSoftwareID);
         if(handlingSW!=null) {
             handlingSW.handleMessage(serviceDecisionMessage);
@@ -157,9 +147,8 @@ public class MessageHandler {
             carlaPresenter.printToEnvironment(
                     "\nDriver accepted to use the Service! Ready to send the ServiceActionCommand");
 
-            //TODO: DecisionMessage an CarlaEnv schicken und auf ServiceActionCommand von CarlaEnv warten; unten stehendes entfernen
-            ServiceActionCommand serviceActionCommand = new ServiceActionCommand(ActionEnums.MOVEMENT, serviceDecisionMessage.getServiceID(), serviceDecisionMessage.getRequiredSWID());
-            bus.post(serviceActionCommand);
+            carlaPresenter.currentStage = CarlaPresenter.STAGE.CAR_ACCEPTED_SERVICE;
+            carlaPresenter.setUpButtons();
         }else{
             messageHandlerPresenter.printToReceived(
                             "\nDriver did not accept to use the Service! Forwarding message to Carla-Environment (TODO)."
@@ -175,9 +164,8 @@ public class MessageHandler {
     @Subscribe
     public void waitForSoftwareDecisions(SoftwareDecisionMessage softwareDecisionMessage){
         if(softwareDecisionMessage.isAccepted()){
-            //TODO: forward InstallRequest to the SwS and send him the SoftwareInstallRequzest with swID contained. SwS returns the wanted Software.
-            //sendToSWS();
             SoftwareInstallRequest req = new SoftwareInstallRequest(softwareDecisionMessage.getSoftwareID());
+            messageHandlerPresenter.printToSent("Requesting a SoftwareInstallationPackage form the Server...");
             sendToSWS(req);
         } else{
             System.err.println("Driver doesnt want to install Software!");
@@ -187,23 +175,26 @@ public class MessageHandler {
 
     @Subscribe
     public void waitForSoftwarePackage(SoftwareInstallationPackage installationPackage){
+        messageHandlerPresenter.printToReceived("A new Software has been sent by the Server: "+installationPackage.getSoftware().getDescription().getTitle());
         Software toBeInstalled = installationPackage.getSoftware();
 
         //Kommunikationskanäle setzen
         toBeInstalled.setCarlaConnection(carlaConnection);
         toBeInstalled.setMmsConnection(mmsConnection);
-        toBeInstalled.setSwsConnection(swsConnection);
+        //toBeInstalled.setSwsConnection(swsConnection);
 
         //Software hinzufügen
         mgr.installSoftware(toBeInstalled);
 
+        ServiceRegistrationMessage registrationMessage = null;
         for(ServiceRegistrationMessage msg : registeringServices){
-            if(installationPackage.getSoftwareID() == msg.getRequiredSWID()){
-                msg.setInstallSW(false);
-                registeringServices.remove(msg);
-                bus.post(msg);
+            if(installationPackage.getSoftwareID().equals(msg.getServiceProvider().getRequiredSoftwareID())){
+                registrationMessage =msg;
+                registrationMessage.setInstallSW(false);
             }
         }
+        registeringServices.remove(registrationMessage);
+        bus.post(registrationMessage);
     }
 
     /**
@@ -213,20 +204,8 @@ public class MessageHandler {
      */
     @Subscribe
     public void readyForAction(ServiceActionMessage serviceActionMessage){
-        carlaPresenter.printToCar("Received a new Action, yeeeey!");
+        carlaPresenter.printToCar("My Car is now parking!");
         sendToCarla(serviceActionMessage);
-    }
-
-
-    /**
-     * TODO: Über NEtty und OEMServer machen, da gehört das hin.
-     * @param msg
-     */
-    @Subscribe
-    public void handleInstallRequest(SoftwareInstallRequest msg){
-        SoftwareInstallationPackage sw= new SoftwareInstallationPackage(msg.getSoftwareID(), new ParkingServiceSoftware("Parken in Deutschalnds Städten",
-                "Hier steht üblicherweise eine ausführliche Beschreibung der Software"));
-        bus.post(sw);
     }
 
     public void post(IMessage msg){

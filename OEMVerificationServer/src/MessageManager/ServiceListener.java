@@ -1,7 +1,11 @@
 package MessageManager;
 
+import EnvironmentObjects.Software.ParkingServiceSoftware;
+import EnvironmentObjects.Software.Software;
 import Messages.ServiceVerificationCommand;
 import Messages.ServiceVerificationMessage;
+import Messages.SoftwareInstallRequest;
+import Messages.SoftwareInstallationPackage;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 
@@ -19,21 +23,30 @@ public class ServiceListener {
     public void incomingVerificationCommand(ServiceVerificationCommand serviceVerificationCommand){
         System.err.println("Received ServiceVerification Command. InquiryID: "+serviceVerificationCommand.getInquiryID()
                 + "\nManifest:\n"+serviceVerificationCommand.getCar_manifest()
-                + "\nProvider: "+serviceVerificationCommand.getServiceDescription().getServiceProvider()
+                + "\nProvider: "+serviceVerificationCommand.getServiceProvider().getProviderName()
         );
-        if(verified(serviceVerificationCommand.getServiceDescription().getServiceProvider().getPublicProviderID())){
+        if(verified(serviceVerificationCommand.getServiceProvider().getRequiredSoftwareID())){
             ServiceVerificationMessage msg = new ServiceVerificationMessage(
-                    serviceVerificationCommand.getServiceDescription(),
+                    serviceVerificationCommand.getDescription(),
                     true,
                     serviceVerificationCommand.getCar_manifest()+" updated",
                     serviceVerificationCommand.getInquiryID(),
-                    serviceVerificationCommand.getRequiredSWID(),
-                    serviceVerificationCommand.getServiceID()
+                    serviceVerificationCommand.getServiceProvider()
             );
             serviceVerificationCommand.getCtx().writeAndFlush(msg);
         }
 
     }
+
+    @Subscribe
+    public void handleSWInstallRequest(SoftwareInstallRequest softwareInstallRequest){
+        //Todo: get from Database
+        Software parkSoftware = new ParkingServiceSoftware();
+        SoftwareInstallationPackage pkg = new SoftwareInstallationPackage(parkSoftware.getSoftwareID(), parkSoftware);
+
+        softwareInstallRequest.getCtx().writeAndFlush(pkg);
+    }
+
 
     private boolean verified(String publicProviderID) {
         /*TODO future: check, rather or not Service is verified by SoftwareProvider
