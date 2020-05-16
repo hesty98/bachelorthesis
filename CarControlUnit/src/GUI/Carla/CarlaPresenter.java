@@ -114,7 +114,7 @@ public class CarlaPresenter implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 //TODO: send ServiceRegistrationMessage received from Carla
-                //if(!messageSent) {
+                if(!messageSent) {
                     //BUILD of a ServiceRegistrationMessage for the ParkingServiceSoftware
 
                     ArrayList<IAction> list = new ArrayList<>();
@@ -142,7 +142,7 @@ public class CarlaPresenter implements Initializable {
                     //eventBus.post(msg);
                     messageSent =true;
                     MessageHandler.getInstance().post(msg);
-                //}
+                }
             }
         });
         sendServiceActionButton.setOnAction(new EventHandler<ActionEvent>() {

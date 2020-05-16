@@ -44,6 +44,7 @@ public class SoftwareManager {
 
     public void installSoftware(Software software) {
         installedSW.add(software);
+        System.err.println("Installed new Software: " + software);
     }
 
     public void uninstallSoftware(Software software){

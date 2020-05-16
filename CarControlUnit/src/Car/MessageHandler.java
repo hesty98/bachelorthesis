@@ -84,14 +84,17 @@ public class MessageHandler {
         messageHandlerPresenter.printToReceived("Received new ServiceRegistrationService. InquiryID: "+ msg.getInquiryID()
                 +"\n     Type: "+msg.getServiceProvider().getProviderName()
                 +"\n     Titel: "+msg.getDescription().getTitle()
-                +"\n     Description:"+msg.getDescription().getDescription());
+                +"\n     Description:"+msg.getDescription().getDescription()
+                +"\n     Install:"+msg.isInstallSW());
         final String serviceSoftwareID= msg.getServiceProvider().getRequiredSoftwareID();
         Software handlingSW = mgr.getSoftware(serviceSoftwareID);
 
         if(handlingSW != null && handlingSW.isUpTpDate()){
             //Wait for ServiceDecisionMessage from MMS when this is sent
+            System.err.println("necessary SW already installed "+ msg.isInstallSW());
             mmsConnection.sendMessage(msg);
         } else{
+            msg.setInstallSW(true);
             registeringServices.add(msg);
             ServiceVerificationCommand cmd = new ServiceVerificationCommand("eins cooles auto manifesto", msg.getDescription(), msg.getServiceProvider(),msg.getInquiryID());
             swsConnection.sendMessage(cmd);
@@ -111,6 +114,7 @@ public class MessageHandler {
         if(serviceVerificationMessage.isVerified()){
             for(ServiceRegistrationMessage msg : registeringServices){
                 if(serviceVerificationMessage.getServiceProvider().getRequiredSoftwareID().equals(msg.getServiceProvider().getRequiredSoftwareID())){
+                    System.err.println(msg +": "+ msg.isInstallSW());
                     mgr.submitSoftware(msg);
                 }
             }

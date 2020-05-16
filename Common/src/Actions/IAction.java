@@ -1,4 +1,6 @@
 package Actions;
 
-public interface IAction {
+import java.io.Serializable;
+
+public interface IAction extends Serializable {
 }
