@@ -1,22 +1,32 @@
 package Messages;
 
-import EnvironmentObjects.ServiceProvider;
+import EnvironmentObjects.Provider;
 
 public class ServiceMessage extends Message {
     /**
      * Gets used from the Software so that this knows what to do.
      */
-    private ServiceProvider serviceProvider;
+    private Provider provider;
+    private String requiredSWID;
 
-    public ServiceMessage(ServiceProvider serviceProvider) {
-        this.serviceProvider = serviceProvider;
+    public ServiceMessage(Provider provider, String requiredSWID) {
+        this.provider = provider;
+        this.requiredSWID=requiredSWID;
     }
 
-    public ServiceProvider getServiceProvider() {
-        return serviceProvider;
+    public Provider getProvider() {
+        return provider;
     }
 
-    public void setServiceProvider(ServiceProvider serviceProvider) {
-        this.serviceProvider = serviceProvider;
+    public void setProvider(Provider provider) {
+        this.provider = provider;
+    }
+
+    public String getRequiredSWID() {
+        return requiredSWID;
+    }
+
+    public void setRequiredSWID(String requiredSWID) {
+        this.requiredSWID = requiredSWID;
     }
 }

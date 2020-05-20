@@ -5,6 +5,7 @@ import Actions.MovementHintAction;
 import Actions.TargetAction;
 import EnvironmentObjects.Angebot;
 import EnvironmentObjects.Description;
+import EnvironmentObjects.Provider;
 import Messages.*;
 import com.google.inject.Inject;
 
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  */
 public class ParkingServiceSoftware extends Software {
     public static final String SOFTWARE_ID = "PARKING_SERVICE_GERMAN_CITIES";
-    private static final String PROVIDER_ID = "GER_28";
+    private static final Provider PROVIDER = new Provider("GER_PARK_28", "Hestermeyer Parking and partying", "linushestermeyer.de");
     private static final String NAME = "Parking in Germany";
     private static final String DESCRIPTION = "Mit dieser SOftware kann in jeder Stadt Deutschlands auf den Parkplätzen geparkt werden.";
     private static final Angebot ANGEBOT = new Angebot(2000);
@@ -36,19 +37,25 @@ public class ParkingServiceSoftware extends Software {
             add("Günstig");
         }
     };
+    private static final ArrayList<Provider> VERIFIEDPROVIDERS = new ArrayList<Provider>(){
+        {
+            add(new Provider("ger_park_328_nds", "Parken in Oldenburg", "parken.stadt-oldenburg.de"));
+        }
+    };
+
 
 
     @Inject
     public ParkingServiceSoftware() {
-        super(SOFTWARE_ID,
-                PROVIDER_ID,
-                new Description(
-                NAME,
-                DESCRIPTION,
-                BUZZWORDS,
-                ANGEBOT,
-                ACTIONTYPES
-        ));
+        super(SOFTWARE_ID, PROVIDER, new Description(   
+                    NAME,
+                    DESCRIPTION,
+                    BUZZWORDS,
+                    ANGEBOT,
+                    ACTIONTYPES
+                ),
+                VERIFIEDPROVIDERS
+        );
     }
 
     @Override

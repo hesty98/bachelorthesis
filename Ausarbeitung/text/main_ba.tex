@@ -1,0 +1,93 @@
+%\documentclass{IEEEtran}
+\documentclass{article}
+
+\input{xcode.tex}	
+\geometry{
+	left=2.5cm,
+	right=2cm,
+	top=2cm,
+	bottom=4cm,
+	bindingoffset=5mm
+}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+	language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+
+\newsavebox{\fminipagebox}
+\NewDocumentEnvironment{fminipage}{m O{\fboxsep}}
+{\par\kern#2\noindent\begin{lrbox}{\fminipagebox}
+		\begin{minipage}{#1}\ignorespaces}
+		{\end{minipage}\end{lrbox}%
+	\makebox[#1]{%
+		\kern\dimexpr-\fboxsep-\fboxrule\relax
+		\fbox{\usebox{\fminipagebox}}%
+		\kern\dimexpr-\fboxsep-\fboxrule\relax
+	}\par\kern#2
+}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\begin{titlepage}
+	\begin{figure}[H]
+		\centering
+		\subfigure{
+			\includegraphics[width=.4\textwidth]{pictures/uol_logo.png}
+		}        
+	\end{figure}
+	
+	\begin{center}
+		\large{\textbf{Konzept und Ansatz einer Wertschöpfungskette für die Erkennung und Bereitstellung neuer Fahrumfänge intelligenter Fahrzeuge}}\\
+		\large Vereinbarung zur Bachelorarbeit
+	\end{center}
+	\vfill
+	\begin{center}
+		\large{
+			An der\\
+			Carl von Ossietzky Universität Oldenburg\\
+			Studiengang Wirtschaftsinformatik\\
+			
+			\vspace{1cm}
+			Vorgelegt von Linus Hestermeyer\\ 
+			\textit{linus.hestermeyer@gmail.com}\\
+			Matr.Nr.: 4087097\\
+			\vfill
+			Erstprüfer: Prof. Dr. Frank Köster\\
+			Zweitprüfer: Dipl.-Inform. Gerald Sauter\\
+			\vfill
+			\noindent
+			Oldenburg, den \today
+		}
+	\end{center}
+\end{titlepage}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+\input{text/einleitung.tex}
+\clearpage
+
+\input{forschungsseminar/main_fs/main_fs_short.tex}
+\clearpage
+\input{text/bachelorarbeit.tex}
+\input{quellen.tex}
+\end{document}

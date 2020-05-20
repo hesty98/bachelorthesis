@@ -1,7 +1,7 @@
 package Messages;
 
 import Actions.IAction;
-import EnvironmentObjects.ServiceProvider;
+import EnvironmentObjects.Provider;
 
 /**
  * 
@@ -10,8 +10,8 @@ public class ServiceActionCommand extends ServiceMessage {
     //private ActionEnums action;
     private IAction action;
 
-    public ServiceActionCommand(IAction action, ServiceProvider serviceProvider) {
-        super(serviceProvider);
+    public ServiceActionCommand(IAction action, Provider provider, String requiredSWID) {
+        super(provider, requiredSWID);
         this.action = action;
 
     }

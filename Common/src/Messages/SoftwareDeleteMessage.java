@@ -1,6 +1,8 @@
 package Messages;
 
 
+import EnvironmentObjects.Provider;
+
 /**
  * @author Linus Hestermeyer
  *
@@ -9,8 +11,8 @@ package Messages;
 public class SoftwareDeleteMessage extends SoftwareMessage{
     private long carID;
 
-    public SoftwareDeleteMessage(long carID, String softwareID) {
-        super(softwareID);
+    public SoftwareDeleteMessage(long carID, String softwareID, Provider provider) {
+        super(softwareID,provider);
         this.carID = carID;
     }
 

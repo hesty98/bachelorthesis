@@ -82,40 +82,45 @@ public class MessageHandler {
     @Subscribe
     public void registerService(ServiceRegistrationMessage msg){
         messageHandlerPresenter.printToReceived("Received new ServiceRegistrationService. InquiryID: "+ msg.getInquiryID()
-                +"\n     Type: "+msg.getServiceProvider().getProviderName()
+                +"\n     Type: "+msg.getProvider().getProviderName()
                 +"\n     Titel: "+msg.getDescription().getTitle()
                 +"\n     Description:"+msg.getDescription().getDescription()
                 +"\n     Install:"+msg.isInstallSW());
-        final String serviceSoftwareID= msg.getServiceProvider().getRequiredSoftwareID();
+        final String serviceSoftwareID= msg.getRequiredSWID();
         Software handlingSW = mgr.getSoftware(serviceSoftwareID);
 
         if(handlingSW != null && handlingSW.isUpTpDate()){
             //Wait for ServiceDecisionMessage from MMS when this is sent
-            System.err.println("necessary SW already installed "+ msg.isInstallSW());
+            System.err.println("necessary SW already installed ");
             mmsConnection.sendMessage(msg);
         } else{
             msg.setInstallSW(true);
             registeringServices.add(msg);
-            ServiceVerificationCommand cmd = new ServiceVerificationCommand("eins cooles auto manifesto", msg.getDescription(), msg.getServiceProvider(),msg.getInquiryID());
+            SoftwareVerificationCommand cmd = new SoftwareVerificationCommand("eins cooles auto manifesto", msg.getDescription(), msg.getProvider(),msg.getInquiryID(), msg.getRequiredSWID());
             swsConnection.sendMessage(cmd);
             messageHandlerPresenter.printToSent("Sent ServiceVerificationCommand to OEM Verification Server.");
         }
     }
 
     @Subscribe
-    public void waitForVerification(ServiceVerificationMessage serviceVerificationMessage){
+    public void waitForVerification(SoftwareVerificationMessage softwareVerificationMessage){
         messageHandlerPresenter.printToReceived(
                      "\nReceived ServiceVerificationMessage. " +
-                        "\n     Providor: "+ serviceVerificationMessage.getServiceProvider().getProviderName()+
-                        "\n     Description: "+serviceVerificationMessage.getDesc().getDescription()+
+                        "\n     Providor: "+ softwareVerificationMessage.getProvider().getProviderName()+
+                        "\n     Description: "+ softwareVerificationMessage.getDesc().getDescription()+
                         "\n\nIn future, we need to Forward to MMS. Currently, Service always gets accepted and pushed to the intern eventbus right away."
         );
 
-        if(serviceVerificationMessage.isVerified()){
+        if(softwareVerificationMessage.isVerified()){
             for(ServiceRegistrationMessage msg : registeringServices){
-                if(serviceVerificationMessage.getServiceProvider().getRequiredSoftwareID().equals(msg.getServiceProvider().getRequiredSoftwareID())){
-                    System.err.println(msg +": "+ msg.isInstallSW());
-                    mgr.submitSoftware(msg);
+                if(softwareVerificationMessage.getSoftwareID().equals(msg.getRequiredSWID())){
+                    SoftwareRegistrationMessage swRegistration = new SoftwareRegistrationMessage(
+                            softwareVerificationMessage.getDesc(),
+                            softwareVerificationMessage.getInquiryID(),
+                            softwareVerificationMessage.getSoftwareID(),
+                            softwareVerificationMessage.getProvider()
+                    );
+                    MessageHandler.getInstance().sendToMMS(swRegistration);
                 }
             }
         } else{
@@ -128,16 +133,16 @@ public class MessageHandler {
         messageHandlerPresenter.printToReceived("\n"
                 + "Received ServiceActionCommand. Creating verified Message and forwarding to carla."
         );
-        final String serviceSWID =cmd.getServiceProvider().getRequiredSoftwareID();
+        final String serviceSWID =cmd.getRequiredSWID();
         Software handlingSW = mgr.getSoftware(serviceSWID);
         handlingSW.handleMessage(cmd);
-        ServiceActionMessage sam = new ServiceActionMessage(cmd.getAction(), cmd.getServiceProvider());
+        ServiceActionMessage sam = new ServiceActionMessage(cmd.getAction(), cmd.getProvider(), cmd.getRequiredSWID());
         bus.post(sam);
     }
 
     @Subscribe
     public void waitForDecisions(ServiceDecisionMessage serviceDecisionMessage){
-        final String serviceSoftwareID= serviceDecisionMessage.getServiceProvider().getRequiredSoftwareID();
+        final String serviceSoftwareID= serviceDecisionMessage.getRequiredSWID();
         Software handlingSW = mgr.getSoftware(serviceSoftwareID);
         if(handlingSW!=null) {
             handlingSW.handleMessage(serviceDecisionMessage);
@@ -168,7 +173,7 @@ public class MessageHandler {
     @Subscribe
     public void waitForSoftwareDecisions(SoftwareDecisionMessage softwareDecisionMessage){
         if(softwareDecisionMessage.isAccepted()){
-            SoftwareInstallRequest req = new SoftwareInstallRequest(softwareDecisionMessage.getSoftwareID());
+            SoftwareInstallRequest req = new SoftwareInstallRequest(softwareDecisionMessage.getSoftwareID(), softwareDecisionMessage.getProvider());
             messageHandlerPresenter.printToSent("Requesting a SoftwareInstallationPackage form the Server...");
             sendToSWS(req);
         } else{
@@ -192,7 +197,7 @@ public class MessageHandler {
 
         ServiceRegistrationMessage registrationMessage = null;
         for(ServiceRegistrationMessage msg : registeringServices){
-            if(installationPackage.getSoftwareID().equals(msg.getServiceProvider().getRequiredSoftwareID())){
+            if(installationPackage.getSoftwareID().equals(msg.getRequiredSWID())){
                 registrationMessage =msg;
                 registrationMessage.setInstallSW(false);
             }

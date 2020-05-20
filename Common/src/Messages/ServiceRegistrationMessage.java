@@ -1,7 +1,7 @@
 package Messages;
 
 import EnvironmentObjects.Description;
-import EnvironmentObjects.ServiceProvider;
+import EnvironmentObjects.Provider;
 
 /**
  * @author Linus Hestermeyer
@@ -18,8 +18,8 @@ public class ServiceRegistrationMessage extends ServiceMessage{
     private long inquiryID;
     private boolean installSW;
 
-    public ServiceRegistrationMessage(Description description, long inquiryID, ServiceProvider serviceProvider) {
-        super(serviceProvider);
+    public ServiceRegistrationMessage(Description description, long inquiryID, Provider provider,String requiredSWID) {
+        super(provider, requiredSWID);
         this.description = description;
         this.inquiryID = inquiryID;
     }

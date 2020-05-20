@@ -2,57 +2,64 @@ package MessageManager;
 
 import EnvironmentObjects.Software.ParkingServiceSoftware;
 import EnvironmentObjects.Software.Software;
-import Messages.ServiceVerificationCommand;
-import Messages.ServiceVerificationMessage;
+import Messages.SoftwareVerificationCommand;
+import Messages.SoftwareVerificationMessage;
 import Messages.SoftwareInstallRequest;
 import Messages.SoftwareInstallationPackage;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
+import init.SoftwareDatabase;
 
 /**
  * Listens on messages regarding a service handles the content.
  */
 public class ServiceListener {
     private EventBus eventBus;
+    private SoftwareDatabase database;
 
     public ServiceListener(EventBus eventBus) {
         this.eventBus=eventBus;
     }
 
     @Subscribe
-    public void incomingVerificationCommand(ServiceVerificationCommand serviceVerificationCommand){
-        System.err.println("Received ServiceVerification Command. InquiryID: "+serviceVerificationCommand.getInquiryID()
-                + "\nManifest:\n"+serviceVerificationCommand.getCar_manifest()
-                + "\nProvider: "+serviceVerificationCommand.getServiceProvider().getProviderName()
+    public void incomingVerificationCommand(SoftwareVerificationCommand softwareVerificationCommand){
+        System.err.println("Received ServiceVerification Command. InquiryID: "+ softwareVerificationCommand.getInquiryID()
+                + "\nManifest:\n"+ softwareVerificationCommand.getCar_manifest()
+                + "\nProvider: "+ softwareVerificationCommand.getProvider().getProviderName()
         );
-        if(verified(serviceVerificationCommand.getServiceProvider().getRequiredSoftwareID())){
-            ServiceVerificationMessage msg = new ServiceVerificationMessage(
-                    serviceVerificationCommand.getDescription(),
+
+
+        if(verified(softwareVerificationCommand.getSoftwareID())){
+            Software sw = SoftwareDatabase.getInstance().getSoftwareByKey(softwareVerificationCommand.getSoftwareID());
+
+            SoftwareVerificationMessage msg = new SoftwareVerificationMessage(
+                    //Todo: description for SW
+                    sw.getDescription(),
                     true,
-                    serviceVerificationCommand.getCar_manifest()+" updated",
-                    serviceVerificationCommand.getInquiryID(),
-                    serviceVerificationCommand.getServiceProvider()
+                    softwareVerificationCommand.getCar_manifest()+" updated",
+                    softwareVerificationCommand.getInquiryID(),
+                    sw.getProvider(),
+                    sw.getSoftwareID(),
+                    sw.getVerifiedProviders()
             );
-            serviceVerificationCommand.getCtx().writeAndFlush(msg);
+            softwareVerificationCommand.getCtx().writeAndFlush(msg);
         }
 
     }
 
     @Subscribe
     public void handleSWInstallRequest(SoftwareInstallRequest softwareInstallRequest){
-        //Todo: get from Database
-        Software parkSoftware = new ParkingServiceSoftware();
-        SoftwareInstallationPackage pkg = new SoftwareInstallationPackage(parkSoftware.getSoftwareID(), parkSoftware);
-
+        Software required =SoftwareDatabase.getInstance().getSoftwareByKey(softwareInstallRequest.getSoftwareID());;
+        SoftwareInstallationPackage pkg = new SoftwareInstallationPackage(required.getSoftwareID(), required, required.getProvider());
         softwareInstallRequest.getCtx().writeAndFlush(pkg);
     }
 
 
-    private boolean verified(String publicProviderID) {
-        /*TODO future: check, rather or not Service is verified by SoftwareProvider
-            OEMs can unVerify a ServiceProvider if its handlings are illegal
-         */
-        return true;
+    private boolean verified(String requiredSWID) {
+        Software sw = SoftwareDatabase.getInstance().getSoftwareByKey(requiredSWID);
+        if(sw != null)
+            return true;
+        return false;
     }
 
 }

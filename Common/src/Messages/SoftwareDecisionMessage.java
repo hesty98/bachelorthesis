@@ -1,12 +1,14 @@
 package Messages;
 
+import EnvironmentObjects.Provider;
+
 public class SoftwareDecisionMessage extends SoftwareMessage {
 
     private long inquiryID;
     private boolean accepted;
 
-    public SoftwareDecisionMessage(long inquiryID, boolean accepted, String softwareID) {
-        super(softwareID);
+    public SoftwareDecisionMessage(long inquiryID, boolean accepted, String softwareID, Provider provider) {
+        super(softwareID,provider);
         this.inquiryID=inquiryID;
         this.accepted=accepted;
 

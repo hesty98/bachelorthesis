@@ -1,6 +1,6 @@
 package Messages;
 
-import EnvironmentObjects.ServiceProvider;
+import EnvironmentObjects.Provider;
 
 /**
  * @author Linus Hestermeyer
@@ -12,8 +12,8 @@ public class ServiceDecisionMessage extends ServiceMessage {
     private long inquiryID;
     private boolean accepted;
 
-    public ServiceDecisionMessage(long inquiryID, boolean accepted, ServiceProvider serviceProvider) {
-        super(serviceProvider);
+    public ServiceDecisionMessage(long inquiryID, boolean accepted, Provider provider,String requiredSWID) {
+        super(provider, requiredSWID);
         this.inquiryID=inquiryID;
         this.accepted=accepted;
     }

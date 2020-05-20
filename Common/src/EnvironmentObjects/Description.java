@@ -11,42 +11,42 @@ import java.util.ArrayList;
  * Description of a Service.
  */
 public class Description implements Serializable {
-    private String serviceTitle;
-    private String serviceDescription;
-    private ArrayList<String> serviceBuzzwords;
+    private String title;
+    private String description;
+    private ArrayList<String> buzzwords;
     private Angebot angebot;
     private ArrayList<IAction> actionTypes;
 
-    public Description(String serviceTitle, String serviceDescription, ArrayList<String> serviceBuzzwords, Angebot angebot, ArrayList<IAction> actionTypes) {
-        this.serviceTitle = serviceTitle;
-        this.serviceDescription = serviceDescription;
-        this.serviceBuzzwords = serviceBuzzwords;
+    public Description(String title, String description, ArrayList<String> buzzwords, Angebot angebot, ArrayList<IAction> actionTypes) {
+        this.title = title;
+        this.description = description;
+        this.buzzwords = buzzwords;
         this.angebot = angebot;
         this.actionTypes = actionTypes;
     }
 
     public String getTitle() {
-        return serviceTitle;
+        return title;
     }
 
     public void setTitle(String serviceTitle) {
-        this.serviceTitle = serviceTitle;
+        this.title = serviceTitle;
     }
 
     public String getDescription() {
-        return serviceDescription;
+        return description;
     }
 
     public void setDescription(String serviceDescription) {
-        this.serviceDescription = serviceDescription;
+        this.description = serviceDescription;
     }
 
     public ArrayList<String> getBuzzwords() {
-        return serviceBuzzwords;
+        return buzzwords;
     }
 
     public void setBuzzwords(ArrayList<String> serviceBuzzwords) {
-        this.serviceBuzzwords = serviceBuzzwords;
+        this.buzzwords = serviceBuzzwords;
     }
 
     public Angebot getAngebot() {

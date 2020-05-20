@@ -2,19 +2,24 @@ package EnvironmentObjects.Software;
 
 import EnvironmentObjects.IConnectionClient;
 import EnvironmentObjects.Description;
+import EnvironmentObjects.Provider;
+
+import java.util.ArrayList;
 
 public abstract class Software implements ISoftware {
     private String softwareID;
-    private String providerID;
+    private Provider provider;
     private Description description;
     private IConnectionClient mmsConnection;
     private IConnectionClient carlaConnection;
     private IConnectionClient swsConnection;
+    private ArrayList<Provider> verifiedProviders;
 
-    public Software(String softwareID,String providerID, Description description) {
+    public Software(String softwareID,Provider provider, Description description, ArrayList<Provider> verifiedProviders) {
         this.softwareID = softwareID;
         this.description= description;
-        this.providerID=providerID;
+        this.provider=provider;
+        this.verifiedProviders=verifiedProviders;
     }
 
     public String getSoftwareID() {
@@ -60,11 +65,19 @@ public abstract class Software implements ISoftware {
         return true;
     }
 
-    public String getProviderID() {
-        return providerID;
+    public Provider getProvider() {
+        return provider;
     }
 
-    public void setProviderID(String providerID) {
-        this.providerID = providerID;
+    public void setProvider(Provider provider) {
+        this.provider = provider;
+    }
+
+    public ArrayList<Provider> getVerifiedProviders() {
+        return verifiedProviders;
+    }
+
+    public void setVerifiedProviders(ArrayList<Provider> verifiedProviders) {
+        this.verifiedProviders = verifiedProviders;
     }
 }

@@ -1,7 +1,7 @@
 package Messages;
 
 import Actions.IAction;
-import EnvironmentObjects.ServiceProvider;
+import EnvironmentObjects.Provider;
 
 /**
  * @author Linus Hestermeyer
@@ -11,8 +11,8 @@ import EnvironmentObjects.ServiceProvider;
 public class ServiceActionMessage extends ServiceMessage {
     private IAction action;
 
-    public ServiceActionMessage(IAction action, ServiceProvider serviceProvider) {
-        super(serviceProvider);
+    public ServiceActionMessage(IAction action, Provider provider, String requiredSWID) {
+        super(provider, requiredSWID);
         this.action=action;
     }
 

@@ -6,7 +6,7 @@ import Car.MessageHandler;
 import EnvironmentObjects.Software.ParkingServiceSoftware;
 import EnvironmentObjects.Angebot;
 import EnvironmentObjects.Description;
-import EnvironmentObjects.ServiceProvider;
+import EnvironmentObjects.Provider;
 import Messages.*;
 import GUI.LogPrinter;
 import javafx.event.ActionEvent;
@@ -64,7 +64,7 @@ public class CarlaPresenter implements Initializable {
         CAR_INSTALLING_SW,
         CAR_ACCEPTED_SERVICE
     }
-    private ServiceProvider serviceProvider;
+    private Provider provider;
 
     public STAGE currentStage = STAGE.NO_CAR_STARTED;
 
@@ -120,12 +120,10 @@ public class CarlaPresenter implements Initializable {
                     ArrayList<IAction> list = new ArrayList<>();
                     list.add(new TargetAction());
                     Angebot angebot = new Angebot(0);
-                    serviceProvider = new ServiceProvider(
-                            "hestermeyer_parken",
-                            "Hestermeyer parken",
-                            "verify.parking_in_germany.de/hestermeyer_parken",
-                            ParkingServiceSoftware.SOFTWARE_ID
-
+                    provider = new Provider(
+                          "GER_PARK_28",
+                            "Hestermeyer Parking and partying",
+                            "linushestermeyer.de"
                     );
                     Description desc = new Description(
                             "Parken in der Innenstadt",
@@ -136,7 +134,7 @@ public class CarlaPresenter implements Initializable {
                     );
                     //TODO: von Carla aus tun.
                     ServiceRegistrationMessage msg = new ServiceRegistrationMessage(
-                            desc, 992120, serviceProvider
+                            desc, 992120, provider, "PARKING_SERVICE_GERMAN_CITIES"
                     );
                     //ID of the Service, used by Software to know what to do
                     //eventBus.post(msg);
@@ -149,7 +147,7 @@ public class CarlaPresenter implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 ServiceActionCommand cmd = new ServiceActionCommand(
-                        new TargetAction(), serviceProvider
+                        new TargetAction(), provider, "PARKING_SERVICE_GERMAN_CITIES"
                 );
                 MessageHandler.getInstance().post(cmd);
             }
