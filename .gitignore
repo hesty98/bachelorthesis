@@ -6,3 +6,13 @@
 /Common/Common.iml
 /Server/Server.iml
 /bachelorthesis-java.iml
+/.idea/vcs.xml
+/.idea/.gitignore
+/.idea/.name
+/.idea/compiler.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/uiDesigner.xml
+/.idea/*
+/.idea
+/OEMVerificationServer/target
