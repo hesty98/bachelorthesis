@@ -29,6 +29,9 @@ import java.util.ResourceBundle;
  */
 public class CarlaPresenter implements Initializable {
 
+    //TODO: edit this according to your local Carla.exe/Carla.sh
+    private static final String PATH =
+            "D:\\Carla";
     @FXML
     public ScrollPane carLog;
 
@@ -77,15 +80,11 @@ public class CarlaPresenter implements Initializable {
             public void handle(ActionEvent event) {
                 try {
                     final ProcessBuilder pb = new ProcessBuilder("D:\\Carla\\CarlaUE4.exe");
-                    pb.directory(new File("D:\\Carla"));
+                    pb.directory(new File(PATH));
                     final Process p = pb.start();
                     System.err.println("Starting Carla.... This could take a while.");
                     currentStage=STAGE.NO_RUNNING_SCENARIO;
                     setUpButtons();
-                    /*
-                    TODO: Buttons auf unsichtbar setzen
-                      Generell: entweder Carla oder Buttons
-                    */
                 }catch (Exception e){
                     currentStage=STAGE.NO_REGISTERED_CAR;
                     setUpButtons();

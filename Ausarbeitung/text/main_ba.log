@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.3.29)  20 MAY 2020 14:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.3.29)  21 MAY 2020 17:22
 entering extended mode
 **./main_ba.tex
 (main_ba.tex
@@ -699,7 +699,7 @@ LaTeX Info: Redefining \nameref on input line 48.
 \openout3 = `main_ba.out'.
 
 \c@lstlisting=\count318
-<pictures/uol_logo.png, id=175, 198.7425pt x 126.4725pt>
+<pictures/uol_logo.png, id=183, 198.7425pt x 126.4725pt>
 File: pictures/uol_logo.png Graphic file (type png)
 <use pictures/uol_logo.png>
 Package pdftex.def Info: pictures/uol_logo.png  used on input line 55.
@@ -721,7 +721,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.38 ...tektur des Prototypen}{34}{subsection.6.1}
+l.39 ...Vorstellung des Prototypen}{37}{section.6}
                                                   % [1])
 \tf@toc=\write4
 \openout4 = `main_ba.toc'.
@@ -787,13 +787,13 @@ gnored
 <to be read again> 
                    \relax 
 l.1 \subsection
-               {Bedarfserkennung von Software} [2
+               {Bedarfserkennung von Software}\label{bedarfserkennung} [2
 
 ]
 
 LaTeX Warning: Citation `b35' on page 3 undefined on input line 4.
 
-<../text/forschungsseminar/../pictures/arichtecture_AV.png, id=259, 542.56757pt
+<../text/forschungsseminar/../pictures/arichtecture_AV.png, id=269, 542.56757pt
  x 188.8135pt>
 File: ../text/forschungsseminar/../pictures/arichtecture_AV.png Graphic file (t
 ype png)
@@ -816,7 +816,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
-<../text/forschungsseminar/../pictures/openscenario.jpg, id=266, 456.95718pt x 
+<../text/forschungsseminar/../pictures/openscenario.jpg, id=276, 456.95718pt x 
 487.8225pt>
 File: ../text/forschungsseminar/../pictures/openscenario.jpg Graphic file (type
  jpg)
@@ -851,7 +851,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--46
  []
 
 [6]
-<../text/forschungsseminar/../pictures/umweltanalyse.png, id=283, 720.6925pt x 
+<../text/forschungsseminar/../pictures/umweltanalyse.png, id=293, 720.6925pt x 
 380.42125pt>
 File: ../text/forschungsseminar/../pictures/umweltanalyse.png Graphic file (typ
 e png)
@@ -871,12 +871,12 @@ e ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \subsection
-               {Bereitstellung von Software} <../text/forschungsseminar/../pict
-ures/umweltanalyse.png>]
+               {Bereitstellung von Software}\label{bereitstellung} <../text/for
+schungsseminar/../pictures/umweltanalyse.png>]
 
 LaTeX Warning: Citation `uptane' on page 8 undefined on input line 6.
 
-<../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png, id=29
+<../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png, id=30
 1, 616.3025pt x 302.12875pt>
 File: ../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png G
 raphic file (type png)
@@ -907,7 +907,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-<../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png, id=30
+<../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png, id=31
 4, 792.9625pt x 422.57875pt>
 File: ../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png G
 raphic file (type png)
@@ -1084,7 +1084,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
 LaTeX Warning: Citation `seibert2008' on page 17 undefined on input line 12.
 
-<../text/forschungsseminar/../pictures/persona1.jpg, id=349, 426.59375pt x 532.
+<../text/forschungsseminar/../pictures/persona1.jpg, id=359, 426.59375pt x 532.
 99126pt>
 File: ../text/forschungsseminar/../pictures/persona1.jpg Graphic file (type jpg
 )
@@ -1110,7 +1110,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--67
 []\T1/cmr/m/n/10 Führerschein seit 47
  []
 
-<../text/forschungsseminar/../pictures/persona2.jpg, id=350, 578.16pt x 722.7pt
+<../text/forschungsseminar/../pictures/persona2.jpg, id=360, 578.16pt x 722.7pt
 >
 File: ../text/forschungsseminar/../pictures/persona2.jpg Graphic file (type jpg
 )
@@ -1152,7 +1152,7 @@ Underfull \hbox (badness 3019) in paragraph at lines 102--103
  []
 
 [17]
-<../text/forschungsseminar/../pictures/persona3.jpg, id=355, 852.786pt x 1281.5
+<../text/forschungsseminar/../pictures/persona3.jpg, id=365, 852.786pt x 1281.5
 88pt>
 File: ../text/forschungsseminar/../pictures/persona3.jpg Graphic file (type jpg
 )
@@ -1216,7 +1216,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
  []
 
 [20]
-<../text/forschungsseminar/../pictures/konzept.png, id=380, 721.69624pt x 661.4
+<../text/forschungsseminar/../pictures/konzept.png, id=390, 721.69624pt x 661.4
 7125pt>
 File: ../text/forschungsseminar/../pictures/konzept.png Graphic file (type png)
 
@@ -1272,7 +1272,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--2
 
 [24
 
-] [25] (text/wsk.tex
+] [25] (text/markt.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--4
 
  []
@@ -1302,111 +1302,137 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
  []
 
-[26
+) (text/bmc.tex [26
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 24--26
+Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
  []
 
 [27] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 49--65
+Underfull \hbox (badness 10000) in paragraph at lines 31--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--65
+Underfull \hbox (badness 10000) in paragraph at lines 31--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--65
+Underfull \hbox (badness 10000) in paragraph at lines 31--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--65
+Underfull \hbox (badness 10000) in paragraph at lines 31--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--65
+Underfull \hbox (badness 10000) in paragraph at lines 31--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--65
+Underfull \hbox (badness 10000) in paragraph at lines 31--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--65
+Underfull \hbox (badness 10000) in paragraph at lines 31--47
 
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 70--72
+[29] [30] [31]) [32] (text/wsk.tex
+<pictures/supplychain.png, id=460, 600.2425pt x 161.60374pt>
+File: pictures/supplychain.png Graphic file (type png)
+<use pictures/supplychain.png>
+Package pdftex.def Info: pictures/supplychain.png  used on input line 5.
+(pdftex.def)             Requested size: 377.62643pt x 101.67033pt.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--77
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--86
-
- []
-
-[30]
-
-LaTeX Warning: Reference `sicherheitsrichtlinien' on page 31 undefined on input
- line 91.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 90--94
+Underfull \hbox (badness 10000) in paragraph at lines 12--26
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Underfull \hbox (badness 10000) in paragraph at lines 12--26
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
+Underfull \hbox (badness 10000) in paragraph at lines 12--26
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--126
+Underfull \hbox (badness 10000) in paragraph at lines 12--26
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--126
+Underfull \hbox (badness 10000) in paragraph at lines 12--26
+
+ []
+
+[33
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
+s been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.26 
+      <./pictures/supplychain.png>]
+<pictures/wsk.png, id=476, 757.83125pt x 563.10374pt>
+File: pictures/wsk.png Graphic file (type png)
+<use pictures/wsk.png>
+Package pdftex.def Info: pictures/wsk.png  used on input line 29.
+(pdftex.def)             Requested size: 472.03125pt x 350.74464pt.
+ [34pdfTeX warning (ext4): destination with the same identifier (name{figure.8}
+) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.39 
+      <./pictures/wsk.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--126
+Underfull \hbox (badness 10000) in paragraph at lines 43--59
 
  []
 
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 127--132
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--59
 
  []
 
-) [32] (text/technische_konzepte.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--59
+
+ []
+
+) (text/abs_prozess.tex
+Underfull \hbox (badness 10000) in paragraph at lines 60--1
+
+ []
+
+) [35] (text/technische_konzepte.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
-) [33
 
-] (text/vorstellung_des_prototypen.tex) [34
+Underfull \hbox (badness 10000) in paragraph at lines 5--10
+
+ []
+
+) [36
+
+] (text/vorstellung_des_prototypen.tex) [37
 
 ] (text/ausblick.tex))
 (quellen.tex
@@ -1427,7 +1453,7 @@ Underfull \hbox (badness 6842) in paragraph at lines 35--39
 driving/ [9] Ter-rence Fong,
  []
 
-[35
+[38
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 51--52
@@ -1447,20 +1473,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--86
 tfahrendes-kfz-mensch-vs-
  []
 
-[36]
+[39]
 Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 93.
- [37]
+ [40]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 93.
  (main_ba.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
 Package rerunfilecheck Info: File `main_ba.out' has not changed.
-(rerunfilecheck)             Checksum: C00B737BFC5A9A4DA7339DCA11037075;3400.
+(rerunfilecheck)             Checksum: 6206AD1D5B7FFC53A2EF5DA49A92FD39;3570.
 
 
 LaTeX Warning: There were undefined references.
@@ -1468,10 +1494,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 93.
  ) 
 Here is how much of TeX's memory you used:
- 12386 strings out of 480932
- 193211 string characters out of 2909670
+ 12429 strings out of 480932
+ 194166 string characters out of 2909670
  697173 words of memory out of 3000000
- 27784 multiletter control sequences out of 15000+200000
+ 27807 multiletter control sequences out of 15000+200000
  546463 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,15n,57p,1930b,456s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1489,9 +1515,9 @@ pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
 /ec/dpi600\ecti1200.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfou
 r/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\font
 s/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on main_ba.pdf (40 pages, 5803958 bytes).
+Output written on main_ba.pdf (43 pages, 5849398 bytes).
 PDF statistics:
- 1076 PDF objects out of 1200 (max. 8388607)
- 142 named destinations out of 1000 (max. 500000)
- 395 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1135 PDF objects out of 1200 (max. 8388607)
+ 152 named destinations out of 1000 (max. 500000)
+ 421 words of extra memory for PDF output out of 10000 (max. 10000000)
 
