@@ -83,7 +83,10 @@ public class ParkingServiceSoftware extends Software {
      * @param msg
      */
     private void handleServiceDecisionMessage(ServiceDecisionMessage msg){
-        getCarlaConnection().sendMessage(msg);
+        if(msg.isAccepted()){
+            getCarlaConnection().sendMessage(new CarlaMessage(4));
+        }
+
     }
 
     /**

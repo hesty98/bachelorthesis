@@ -78,6 +78,7 @@ public class CarlaPresenter implements Initializable {
         useCarla.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                MessageHandler.getInstance().sendToCarla(new CarlaMessage(1));
                 try {
                     final ProcessBuilder pb = new ProcessBuilder("D:\\Carla\\CarlaUE4.exe");
                     pb.directory(new File(PATH));
@@ -86,7 +87,7 @@ public class CarlaPresenter implements Initializable {
                     currentStage=STAGE.NO_RUNNING_SCENARIO;
                     setUpButtons();
                 }catch (Exception e){
-                    currentStage=STAGE.NO_REGISTERED_CAR;
+                    currentStage=STAGE.NO_RUNNING_SCENARIO;
                     setUpButtons();
                     LogPrinter.displayInView(carLog,"Carla Failed to run. Please correct the carla directory in config file. Running Without Carla in GUI.");
 
@@ -98,12 +99,15 @@ public class CarlaPresenter implements Initializable {
         startScenarioButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //TODO: start scenario in Carla
+                MessageHandler.getInstance().sendToCarla(new CarlaMessage(2));
+                currentStage = STAGE.NO_REGISTERED_CAR;
+                setUpButtons();
             }
         });
         driveIntoPerceptionAreaButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                MessageHandler.getInstance().sendToCarla(new CarlaMessage(3));
                 currentStage = STAGE.CAR_IN_PERCEPTION_AREA;
                 LogPrinter.displayInView(environmentlog, "Percepted a Car within area. I could register to that car by clicking the Button below.");
                 setUpButtons();
@@ -149,12 +153,13 @@ public class CarlaPresenter implements Initializable {
                         new TargetAction(), provider, "PARKING_SERVICE_GERMAN_CITIES"
                 );
                 MessageHandler.getInstance().post(cmd);
+                MessageHandler.getInstance().sendToCarla(new CarlaMessage(4));
             }
         });
         sayGoodbye.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                MessageHandler.getInstance().sendToCarla(new CarlaMessage(5));
             }
         });
     }
@@ -198,8 +203,8 @@ public class CarlaPresenter implements Initializable {
         startScenarioButton.setDisable(!b[1]);
         driveIntoPerceptionAreaButton.setDisable(!b[2]);
         sendServiceRegistrationMessage.setDisable(!b[3]);
-        sayGoodbye.setDisable(!b[4]);
-        sendServiceActionButton.setDisable(!b[5]);
+        sayGoodbye.setDisable(!b[5]);
+        sendServiceActionButton.setDisable(!b[4]);
     }
 
     public void printToEnvironment(String s) {

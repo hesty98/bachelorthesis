@@ -2,6 +2,7 @@ package Initialization.Network;
 
 import EnvironmentObjects.IConnectionClient;
 import Messages.IMessage;
+import Messages.ServiceActionCommand;
 import Messages.ServiceDecisionMessage;
 import Messages.ServiceRegistrationMessage;
 import com.google.common.eventbus.EventBus;
@@ -79,9 +80,9 @@ public class MMSClientConnection implements IConnectionClient {
                         System.err.println("MMS connection successful!");
                         running = true;
                         out = new ObjectOutputStream(socket.getOutputStream()); // get the output stream of client.
-                        System.err.println("ObjectOutputStream created");
+                        System.err.println("ObjectOutputStream MMS created");
                         in = new ObjectInputStream(socket.getInputStream());    // get the input stream of client.
-                        System.err.println("ObjectInputStream created");
+                        System.err.println("ObjectInputStream MMS created");
                         startConnection();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -98,12 +99,6 @@ public class MMSClientConnection implements IConnectionClient {
             try {
                 this.out.writeObject(out);
                 this.out.flush();
-                try{
-                    System.err.println("Value: "+((ServiceRegistrationMessage)out).isInstallSW());
-
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
                 System.err.println(out);
             } catch (IOException e) {
                 e.printStackTrace();

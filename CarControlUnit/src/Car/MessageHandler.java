@@ -37,9 +37,9 @@ public class MessageHandler {
         nettyClientInitializer = new NettyClientInitializer(swsConnection);
         this.swsConnection = (NettyConnectionClient)nettyClientInitializer.createNettyClientConnection(NetworkConfig.serverUrl,NetworkConfig.serverPort);
 
-        //this.carlaConnection.initBootstrap("127.0.0.1", 22898);
+        this.carlaConnection.initBootstrap("127.0.0.1", 22898);
         this.mmsConnection.initBootstrap("127.0.0.1",22620);
-        //this.swsConnection.initBootstrap
+
         this.mgr =new SoftwareManager();
     }
 
@@ -214,7 +214,7 @@ public class MessageHandler {
     @Subscribe
     public void readyForAction(ServiceActionMessage serviceActionMessage){
         carlaPresenter.printToCar("My Car is now parking!");
-        sendToCarla(serviceActionMessage);
+        //sendToCarla(serviceActionMessage);
     }
 
     public void post(IMessage msg){

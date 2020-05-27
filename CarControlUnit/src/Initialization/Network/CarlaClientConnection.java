@@ -1,9 +1,12 @@
 package Initialization.Network;
 
 import EnvironmentObjects.IConnectionClient;
+import Messages.CarlaMessage;
 import Messages.IMessage;
 import Messages.ServiceDecisionMessage;
+import Messages.ServiceRegistrationMessage;
 import com.google.common.eventbus.EventBus;
+import org.json.JSONObject;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -30,24 +33,19 @@ public class CarlaClientConnection implements IConnectionClient {
 
     @Override
     public void startConnection() {
-        Thread t = new Thread(){
-            @Override
-            public void run() {
-                while(true) {
-                    try {
-                        Object o = in.readObject();
-                        System.out.println("Read object: " + o);
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
+        Thread t = new Thread(() -> {
+            while(true) {
+                System.err.println("Trying to read");
+                try {
+                    Object o = in.readObject();
+                    System.out.println("Read object carla: " + o);
+                    bus.post(o);
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
                 }
             }
-        };
+        });
         t.start();
-        t.run();
     }
 
     @Override
@@ -66,23 +64,30 @@ public class CarlaClientConnection implements IConnectionClient {
         //currently not needed
         this.HOST=host;
         this.PORT=port;
+
         try {
             serverSocket= new ServerSocket(PORT);
+            System.err.println("Opened up port "+ PORT + " for CarlaConnection: ");
         } catch (Exception e){
             e.printStackTrace();
         }
+
         new Thread(){
             @Override
             public void run() {
-                try {
-                    socket=serverSocket.accept();
-                    out = new ObjectOutputStream(socket.getOutputStream()); // get the output stream of client.
-                    in = new ObjectInputStream(socket.getInputStream());    // get the input stream of client.
-                    running=true;
-                    startConnection();
-                    System.err.println("Carla connection successful!");
-                } catch (IOException e) {
-                    e.printStackTrace();
+                while(!running) {
+                    try {
+                        socket = serverSocket.accept();
+                        System.err.println("Carla connection successful!");
+                        running = true;
+                        out = new ObjectOutputStream(socket.getOutputStream()); // get the output stream of client.
+                        System.err.println("ObjectOutputStream Carla created");
+                        in = new ObjectInputStream(socket.getInputStream());    // get the input stream of client.
+                        System.err.println("ObjectInputStream Carla created");
+                        startConnection();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }.start();
@@ -92,15 +97,26 @@ public class CarlaClientConnection implements IConnectionClient {
 
     @Override
     public void sendMessage(IMessage out) {
+
         if(this.out != null) {
+            JSONObject obj  = new JSONObject();
+            if(out instanceof CarlaMessage){
+                CarlaMessage carlaMessage= (CarlaMessage) out;
+                obj.put("action", carlaMessage.getAction());
+            }
+            StringWriter writer = new StringWriter();
+            obj.write(writer);
+
             try {
-                this.out.writeObject(out);
+                System.err.println("Trying to send an JSON Object.");
+                this.out.writeObject(writer.toString());
                 this.out.flush();
+                System.err.println("Sent to Carla: "+writer.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else{
-            System.err.println("Carla isnt running - use the Buttons!");
+            System.err.println("MMS not connected - what a bummer.");
         }
     }
 }
