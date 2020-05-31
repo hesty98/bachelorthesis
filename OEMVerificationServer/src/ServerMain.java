@@ -1,8 +1,8 @@
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import init.EventBusModule;
-import init.MainDependencies;
-import network.NettyServerModule;
+import setup.init.EventBusModule;
+import setup.init.MainDependencies;
+import setup.network.NettyServerModule;
 
 /**
  * Injector der MainDependencies für die View.Main Klasse

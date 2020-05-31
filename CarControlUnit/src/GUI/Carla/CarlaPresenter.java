@@ -122,17 +122,22 @@ public class CarlaPresenter implements Initializable {
 
                     ArrayList<IAction> list = new ArrayList<>();
                     list.add(new TargetAction());
-                    Angebot angebot = new Angebot(0);
                     provider = new Provider(
                           "GER_PARK_28",
                             "Hestermeyer Parking and partying",
                             "linushestermeyer.de"
                     );
+                    ArrayList<String> angebotTitel = new ArrayList<>();
+                    angebotTitel.add("Preis pro Stunde");
+
+                    ArrayList<Angebot> angebote = new ArrayList<>();
+                    angebote.add(new Angebot(0.70));
                     Description desc = new Description(
-                            "Parken in der Innenstadt",
-                            "Parken Sie in nächster Nähe zur Oldenburger Innenstadt!\r\n Preis pro angefangene Stunde: 70cent",
+                            "Parken in Oldenburg",
+                            "Parken Sie in nächster Nähe zur Oldenburger Innenstadt!",
                             new ArrayList<>(),
-                            new Angebot(0.70),
+                            angebote,
+                            angebotTitel,
                             list
                     );
                     //TODO: von Carla aus tun.

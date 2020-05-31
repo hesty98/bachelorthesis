@@ -14,12 +14,14 @@ public abstract class Software implements ISoftware {
     private IConnectionClient carlaConnection;
     private IConnectionClient swsConnection;
     private ArrayList<Provider> verifiedProviders;
+    private int version;
 
-    public Software(String softwareID,Provider provider, Description description, ArrayList<Provider> verifiedProviders) {
+    public Software(String softwareID,Provider provider, Description description, ArrayList<Provider> verifiedProviders, int version) {
         this.softwareID = softwareID;
         this.description= description;
         this.provider=provider;
         this.verifiedProviders=verifiedProviders;
+        this.version=version;
     }
 
     public String getSoftwareID() {
@@ -79,5 +81,13 @@ public abstract class Software implements ISoftware {
 
     public void setVerifiedProviders(ArrayList<Provider> verifiedProviders) {
         this.verifiedProviders = verifiedProviders;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
     }
 }

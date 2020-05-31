@@ -7,7 +7,6 @@ import EnvironmentObjects.Angebot;
 import EnvironmentObjects.Description;
 import EnvironmentObjects.Provider;
 import Messages.*;
-import com.google.inject.Inject;
 
 import java.util.ArrayList;
 
@@ -21,8 +20,23 @@ public class ParkingServiceSoftware extends Software {
     public static final String SOFTWARE_ID = "PARKING_SERVICE_GERMAN_CITIES";
     private static final Provider PROVIDER = new Provider("GER_PARK_28", "Hestermeyer Parking and partying", "linushestermeyer.de");
     private static final String NAME = "Parking in Germany";
-    private static final String DESCRIPTION = "Mit dieser SOftware kann in jeder Stadt Deutschlands auf den Parkplätzen geparkt werden.";
-    private static final Angebot ANGEBOT = new Angebot(2000);
+    private static final String DESCRIPTION = "Mit dieser Software kann in jeder Stadt Deutschlands auf städtischen Parkplätzen geparkt werden.";
+
+    private static final ArrayList<String> ANGEBOT_TITEL=new ArrayList<String>(){
+        {
+            add("Kauf");
+            add("Leihe für 6 Monate");
+            add("Monatsabo");
+        }
+    };
+
+    private static final ArrayList<Angebot> ANGEBOTE=new ArrayList<Angebot>(){
+        {
+            add(new Angebot(49.99)); //Kauf
+            add(new Angebot(22.50)); //Leihe für 6 Monate
+            add(new Angebot(4.99)); //Abo für 1 Monat
+        }
+    };
     private static final ArrayList<IAction> ACTIONTYPES=new ArrayList<IAction>(){
         {
             add(new MovementHintAction());
@@ -43,18 +57,19 @@ public class ParkingServiceSoftware extends Software {
         }
     };
 
+    public static final int VERSION = 1;
 
-
-    @Inject
     public ParkingServiceSoftware() {
         super(SOFTWARE_ID, PROVIDER, new Description(   
                     NAME,
                     DESCRIPTION,
                     BUZZWORDS,
-                    ANGEBOT,
+                    ANGEBOTE,
+                    ANGEBOT_TITEL,
                     ACTIONTYPES
                 ),
-                VERIFIEDPROVIDERS
+                VERIFIEDPROVIDERS,
+                VERSION
         );
     }
 

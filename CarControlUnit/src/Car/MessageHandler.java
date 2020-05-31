@@ -1,6 +1,7 @@
 package Car;
 
 import EnvironmentObjects.IConnectionClient;
+import EnvironmentObjects.Software.ParkingServiceSoftware;
 import EnvironmentObjects.Software.Software;
 import GUI.CCUMessageHandler.MessageHandlerPresenter;
 import GUI.Carla.CarlaPresenter;
@@ -26,6 +27,7 @@ public class MessageHandler {
     private MessageHandlerPresenter messageHandlerPresenter;
     private SoftwareManager mgr;
 
+    private String MANIFEST;
     private static MessageHandler handler;
 
     private MessageHandler() {
@@ -39,8 +41,9 @@ public class MessageHandler {
 
         this.carlaConnection.initBootstrap("127.0.0.1", 22898);
         this.mmsConnection.initBootstrap("127.0.0.1",22620);
-
+        this.MANIFEST ="Manifest\r\n";
         this.mgr =new SoftwareManager();
+        this.mgr.installSoftware(new ParkingServiceSoftware());
     }
 
     public static MessageHandler getInstance(){
@@ -72,6 +75,14 @@ public class MessageHandler {
         this.carlaPresenter=carlaPresenter;
     }
 
+    public String getMANIFEST() {
+        return MANIFEST;
+    }
+
+    public void setMANIFEST(String MANIFEST) {
+        this.MANIFEST = MANIFEST;
+    }
+
     private ArrayList<ServiceRegistrationMessage> registeringServices = new ArrayList<>();
 
     /**
@@ -82,43 +93,42 @@ public class MessageHandler {
     @Subscribe
     public void registerService(ServiceRegistrationMessage msg){
         messageHandlerPresenter.printToReceived("Received new ServiceRegistrationService. InquiryID: "+ msg.getInquiryID()
-                +"\n     Type: "+msg.getProvider().getProviderName()
-                +"\n     Titel: "+msg.getDescription().getTitle()
-                +"\n     Description:"+msg.getDescription().getDescription()
-                +"\n     Install:"+msg.isInstallSW());
+                +"\n     Providername: "+msg.getProvider().getProviderName()
+                +"\n     Service title: "+msg.getDescription().getTitle()
+                +"\n     Service description:"+msg.getDescription().getDescription());
+
         final String serviceSoftwareID= msg.getRequiredSWID();
         Software handlingSW = mgr.getSoftware(serviceSoftwareID);
 
         if(handlingSW != null && handlingSW.isUpTpDate()){
-            //Wait for ServiceDecisionMessage from MMS when this is sent
             System.err.println("necessary SW already installed ");
             mmsConnection.sendMessage(msg);
         } else{
             msg.setInstallSW(true);
             registeringServices.add(msg);
-            SoftwareVerificationCommand cmd = new SoftwareVerificationCommand("eins cooles auto manifesto", msg.getDescription(), msg.getProvider(),msg.getInquiryID(), msg.getRequiredSWID());
+            SoftwareContentRequest cmd = new SoftwareContentRequest(msg.getDescription(), msg.getProvider(),msg.getInquiryID(), msg.getRequiredSWID());
             swsConnection.sendMessage(cmd);
-            messageHandlerPresenter.printToSent("Sent ServiceVerificationCommand to OEM Verification Server.");
+            messageHandlerPresenter.printToSent("Sent SoftwareContentRequest to OEM Verification Server.");
         }
     }
 
     @Subscribe
-    public void waitForVerification(SoftwareVerificationMessage softwareVerificationMessage){
+    public void waitForVerification(SoftwareContentMessage softwareContentMessage){
         messageHandlerPresenter.printToReceived(
                      "\nReceived ServiceVerificationMessage. " +
-                        "\n     Providor: "+ softwareVerificationMessage.getProvider().getProviderName()+
-                        "\n     Description: "+ softwareVerificationMessage.getDesc().getDescription()+
+                        "\n     Providor: "+ softwareContentMessage.getProvider().getProviderName()+
+                        "\n     Description: "+ softwareContentMessage.getDesc().getDescription()+
                         "\n\nIn future, we need to Forward to MMS. Currently, Service always gets accepted and pushed to the intern eventbus right away."
         );
 
-        if(softwareVerificationMessage.isVerified()){
+        if(softwareContentMessage.isVerified()){
             for(ServiceRegistrationMessage msg : registeringServices){
-                if(softwareVerificationMessage.getSoftwareID().equals(msg.getRequiredSWID())){
+                if(softwareContentMessage.getSoftwareID().equals(msg.getRequiredSWID())){
                     SoftwareRegistrationMessage swRegistration = new SoftwareRegistrationMessage(
-                            softwareVerificationMessage.getDesc(),
-                            softwareVerificationMessage.getInquiryID(),
-                            softwareVerificationMessage.getSoftwareID(),
-                            softwareVerificationMessage.getProvider()
+                            softwareContentMessage.getDesc(),
+                            softwareContentMessage.getInquiryID(),
+                            softwareContentMessage.getSoftwareID(),
+                            softwareContentMessage.getProvider()
                     );
                     MessageHandler.getInstance().sendToMMS(swRegistration);
                 }
@@ -173,11 +183,14 @@ public class MessageHandler {
     @Subscribe
     public void waitForSoftwareDecisions(SoftwareDecisionMessage softwareDecisionMessage){
         if(softwareDecisionMessage.isAccepted()){
-            SoftwareInstallRequest req = new SoftwareInstallRequest(softwareDecisionMessage.getSoftwareID(), softwareDecisionMessage.getProvider());
+            SoftwareInstallRequest req = new SoftwareInstallRequest(
+                    softwareDecisionMessage.getSoftwareID(),
+                    softwareDecisionMessage.getProvider(),
+                    getMANIFEST());
             messageHandlerPresenter.printToSent("Requesting a SoftwareInstallationPackage form the Server...");
             sendToSWS(req);
         } else{
-            System.err.println("Driver doesnt want to install Software!");
+            System.err.println("Driver doesn't want to install Software, driving away!");
         }
     }
 
@@ -195,11 +208,13 @@ public class MessageHandler {
         //Software hinzufügen
         mgr.installSoftware(toBeInstalled);
 
+
+        //Now that Software is installed, if a Sevrice is waiting for this to be installed the Process must continue
         ServiceRegistrationMessage registrationMessage = null;
         for(ServiceRegistrationMessage msg : registeringServices){
-            if(installationPackage.getSoftwareID().equals(msg.getRequiredSWID())){
+            if(installationPackage.getSoftwareID().equals(msg.getRequiredSWID())
+                    && msg.isInstallSW()){
                 registrationMessage =msg;
-                registrationMessage.setInstallSW(false);
             }
         }
         registeringServices.remove(registrationMessage);
