@@ -1,31 +1,27 @@
 package Messages;
 
-import Actions.ActionEnums;
+import Actions.IAction;
+import EnvironmentObjects.Provider;
 
+/**
+ * 
+ */
 public class ServiceActionCommand extends ServiceMessage {
-    private ActionEnums action;
-    private String serviceID;
+    //private ActionEnums action;
+    private IAction action;
 
-    public ServiceActionCommand(ActionEnums action, String serviceID, String serviceSoftwareID) {
-        super(serviceSoftwareID);
+    public ServiceActionCommand(IAction action, Provider provider, String requiredSWID) {
+        super(provider, requiredSWID);
         this.action = action;
-        this.serviceID = serviceID;
 
     }
 
-    public ActionEnums getAction() {
+    public IAction getAction() {
         return action;
     }
 
-    public void setAction(ActionEnums action) {
+    public void setAction(IAction action) {
         this.action = action;
     }
 
-    public String getCommunicatingService() {
-        return serviceID;
-    }
-
-    public void setCommunicatingService(String serviceID) {
-        this.serviceID = serviceID;
-    }
 }

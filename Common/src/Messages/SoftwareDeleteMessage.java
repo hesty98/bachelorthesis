@@ -1,17 +1,19 @@
 package Messages;
 
+
+import EnvironmentObjects.Provider;
+
 /**
  * @author Linus Hestermeyer
  *
  * Message, which is sent if the driver unsubscribes the service.
  */
-public class SoftwareDeleteMessage extends Message{
+public class SoftwareDeleteMessage extends SoftwareMessage{
     private long carID;
-    private String softwareID;
 
-    public SoftwareDeleteMessage(long carID, String softwareID) {
+    public SoftwareDeleteMessage(long carID, String softwareID, Provider provider) {
+        super(softwareID,provider);
         this.carID = carID;
-        this.softwareID = softwareID;
     }
 
     public long getCarID() {
@@ -22,11 +24,4 @@ public class SoftwareDeleteMessage extends Message{
         this.carID = carID;
     }
 
-    public String getSoftwareID() {
-        return softwareID;
-    }
-
-    public void setSoftwareID(String softwareID) {
-        this.softwareID = softwareID;
-    }
 }

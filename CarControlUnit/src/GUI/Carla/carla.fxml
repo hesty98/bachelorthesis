@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="1000.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Carla.CarlaPresenter">
+   <children>
+      <Label layoutX="14.0" layoutY="6.0" text="Carla Car Log">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="490.0" prefHeight="25.0" prefWidth="154.0" text="Carla Environment Log">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="sendServiceRegistrationMessage" disable="true" layoutX="20.0" layoutY="950.0" mnemonicParsing="false" text="Send ServiceRegistrationMessage" />
+      <Button fx:id="sayGoodbye" layoutX="776.0" layoutY="950.0" mnemonicParsing="false" text="Start Scenario Again!" />
+      <ScrollPane fx:id="carLog" layoutX="22.0" layoutY="23.0" prefHeight="430.0" prefWidth="865.0" />
+      <Button fx:id="driveIntoPerceptionAreaButton" disable="true" layoutX="357.0" layoutY="457.0" mnemonicParsing="false" text="Drive into perception area" />
+      <ScrollPane fx:id="environmentlog" layoutX="22.0" layoutY="515.0" prefHeight="430.0" prefWidth="865.0" />
+      <Button fx:id="useCarla" layoutX="20.0" layoutY="457.0" mnemonicParsing="false"  text="Start the Engine." />
+      <Line endX="900.0000610351562" endY="490.0" startY="490.0" />
+      <Button fx:id="sendServiceActionButton" layoutX="348.0" layoutY="950.0" mnemonicParsing="false" text="Send ServiceActionMessage" />
+      <Button fx:id="startScenarioButton" layoutX="188.0" layoutY="457.0" mnemonicParsing="false" text="Start the Scenario." />
+
+   </children>
+</AnchorPane>

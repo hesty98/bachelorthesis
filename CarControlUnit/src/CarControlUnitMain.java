@@ -1,11 +1,7 @@
-import Initialization.EventBus.CarlaPortModule;
-import Initialization.EventBus.EventBusModule;
-import Initialization.EventBus.MMSPortModule;
-import Initialization.MainDependencies;
-import Initialization.EventBus.ServerNettyModule;
-import View.Main.MainPresenter;
-import View.Main.MainView;
-import com.google.inject.Guice;
+import GUI.Main.MainPresenter;
+import GUI.Main.MainView;
+import Car.MessageHandler;
+import com.google.common.eventbus.EventBus;
 import com.airhacks.afterburner.injection.Injector;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -14,6 +10,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Linus Hestermeyer
  *
@@ -21,14 +20,7 @@ import javafx.stage.WindowEvent;
  */
 public class CarControlUnitMain extends Application {
 
-    private static final com.google.inject.Injector injector = Guice.createInjector(
-            new EventBusModule(),
-            new ServerNettyModule(),
-            new CarlaPortModule(),
-            new MMSPortModule()
-    );
-
-    private static final MainDependencies mainDependencies = injector.getInstance(MainDependencies.class);
+    private MessageHandler handler;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -61,15 +53,13 @@ public class CarControlUnitMain extends Application {
         primaryStage.sizeToScene();
         primaryStage.show();
 
-        if(!mainDependencies.isNettyConnectionSuccess())
-        {
-            mainDependencies.postNettyConnectionFailed();
-        }
+        handler=MessageHandler.getInstance();
+        handler.setCarlaPresenter(mainPresenter.getCarlaPresenter());
+        handler.setMessageHandlerPresenter(mainPresenter.getMessageHandlerPresenter());
     }
 
     @Override
     public void stop() throws Exception {
-
         Injector.forgetAll();
     }
 }
