@@ -18,7 +18,7 @@
          </font>
       </Label>
       <Button fx:id="sendServiceRegistrationMessage" disable="true" layoutX="20.0" layoutY="950.0" mnemonicParsing="false" text="Send ServiceRegistrationMessage" />
-      <Button fx:id="sayGoodbye" layoutX="776.0" layoutY="950.0" mnemonicParsing="false" text="Say Goodbye!" />
+      <Button fx:id="sayGoodbye" layoutX="776.0" layoutY="950.0" mnemonicParsing="false" text="Start Scenario Again!" />
       <ScrollPane fx:id="carLog" layoutX="22.0" layoutY="23.0" prefHeight="430.0" prefWidth="865.0" />
       <Button fx:id="driveIntoPerceptionAreaButton" disable="true" layoutX="357.0" layoutY="457.0" mnemonicParsing="false" text="Drive into perception area" />
       <ScrollPane fx:id="environmentlog" layoutX="22.0" layoutY="515.0" prefHeight="430.0" prefWidth="865.0" />

@@ -1,5 +1,6 @@
 package GUI.Carla;
 
+import Actions.GoAwayAction;
 import Actions.IAction;
 import Actions.TargetAction;
 import Car.MessageHandler;
@@ -65,7 +66,8 @@ public class CarlaPresenter implements Initializable {
         CAR_IN_PERCEPTION_AREA,
         CAR_DECLINED_SERVICE,
         CAR_INSTALLING_SW,
-        CAR_ACCEPTED_SERVICE
+        CAR_ACCEPTED_SERVICE,
+        CAR_PARKED
     }
     private Provider provider;
 
@@ -116,55 +118,61 @@ public class CarlaPresenter implements Initializable {
         sendServiceRegistrationMessage.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //TODO: send ServiceRegistrationMessage received from Carla
-                if(!messageSent) {
-                    //BUILD of a ServiceRegistrationMessage for the ParkingServiceSoftware
+                //BUILD of a ServiceRegistrationMessage for the ParkingServiceSoftware
 
-                    ArrayList<IAction> list = new ArrayList<>();
-                    list.add(new TargetAction());
-                    provider = new Provider(
-                          "GER_PARK_28",
-                            "Hestermeyer Parking and partying",
-                            "linushestermeyer.de"
-                    );
-                    ArrayList<String> angebotTitel = new ArrayList<>();
-                    angebotTitel.add("Preis pro Stunde");
+                ArrayList<IAction> list = new ArrayList<>();
+                list.add(new TargetAction());
+                provider = new Provider(
+                      "GER_PARK_28",
+                        "Hestermeyer Parking and partying",
+                        "linushestermeyer.de"
+                );
+                ArrayList<String> angebotTitel = new ArrayList<>();
+                angebotTitel.add("Preis pro Stunde");
 
-                    ArrayList<Angebot> angebote = new ArrayList<>();
-                    angebote.add(new Angebot(0.70));
-                    Description desc = new Description(
-                            "Parken in Oldenburg",
-                            "Parken Sie in nächster Nähe zur Oldenburger Innenstadt!",
-                            new ArrayList<>(),
-                            angebote,
-                            angebotTitel,
-                            list
-                    );
-                    //TODO: von Carla aus tun.
-                    ServiceRegistrationMessage msg = new ServiceRegistrationMessage(
-                            desc, 992120, provider, "PARKING_SERVICE_GERMAN_CITIES"
-                    );
-                    //ID of the Service, used by Software to know what to do
-                    //eventBus.post(msg);
-                    messageSent =true;
-                    MessageHandler.getInstance().post(msg);
-                }
+                ArrayList<Angebot> angebote = new ArrayList<>();
+                angebote.add(new Angebot(0.70));
+                Description desc = new Description(
+                        "Parken in Oldenburg",
+                        "Parken Sie in nächster Nähe zur Oldenburger Innenstadt!",
+                        new ArrayList<>(),
+                        angebote,
+                        angebotTitel,
+                        list
+                );
+                //TODO: von Carla aus tun.
+                ServiceRegistrationMessage msg = new ServiceRegistrationMessage(
+                        desc, 992120, provider, "PARKING_SERVICE_GERMAN_CITIES"
+                );
+
+                MessageHandler.getInstance().post(msg);
+
             }
         });
         sendServiceActionButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                ServiceActionCommand cmd = new ServiceActionCommand(
-                        new TargetAction(), provider, "PARKING_SERVICE_GERMAN_CITIES"
-                );
-                MessageHandler.getInstance().post(cmd);
-                MessageHandler.getInstance().sendToCarla(new CarlaMessage(4));
+                if(currentStage== STAGE.CAR_ACCEPTED_SERVICE) {
+                    ServiceActionCommand cmd = new ServiceActionCommand(
+                            new TargetAction(), provider, "PARKING_SERVICE_GERMAN_CITIES"
+                    );
+                    MessageHandler.getInstance().post(cmd);
+                }else if(currentStage== STAGE.CAR_DECLINED_SERVICE){
+                    ServiceActionCommand cmd = new ServiceActionCommand(
+                            new GoAwayAction(), provider, "PARKING_SERVICE_GERMAN_CITIES"
+                    );
+                    MessageHandler.getInstance().post(cmd);
+                }
+                currentStage=STAGE.CAR_PARKED;
+                setUpButtons();
             }
         });
         sayGoodbye.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                MessageHandler.getInstance().sendToCarla(new CarlaMessage(5));
+                MessageHandler.getInstance().sendToCarla(new CarlaMessage(6));
+                currentStage=STAGE.NO_CAR_STARTED;
+                setUpButtons();
             }
         });
     }
@@ -175,7 +183,6 @@ public class CarlaPresenter implements Initializable {
     public void setUpButtons() {
         switch (currentStage){
             case NO_CAR_STARTED:
-
                 setButtonVisibility(new boolean[]{true,false,false,false,false,false});
                 break;
             case NO_RUNNING_SCENARIO:
@@ -187,14 +194,17 @@ public class CarlaPresenter implements Initializable {
             case CAR_IN_PERCEPTION_AREA:
                 setButtonVisibility(new boolean[]{false, false, false, true,false,false});
                 break;
-            case CAR_DECLINED_SERVICE:
-                setButtonVisibility(new boolean[]{false,false,false, false,true,false});
-                break;
             case CAR_INSTALLING_SW:
                 setButtonVisibility(new boolean[]{false,false,false,false,false,false});
                 break;
+            case CAR_DECLINED_SERVICE:
+                setButtonVisibility(new boolean[]{false,false,false, false,true,false});
+                break;
             case CAR_ACCEPTED_SERVICE:
-                setButtonVisibility(new boolean[]{false, false, false, false, false, true});
+                setButtonVisibility(new boolean[]{false,false,false, false,true,false});
+                break;
+            case CAR_PARKED:
+                setButtonVisibility(new boolean[]{false,false,false, false,false,true});
                 break;
 
             default:
@@ -208,8 +218,8 @@ public class CarlaPresenter implements Initializable {
         startScenarioButton.setDisable(!b[1]);
         driveIntoPerceptionAreaButton.setDisable(!b[2]);
         sendServiceRegistrationMessage.setDisable(!b[3]);
-        sayGoodbye.setDisable(!b[5]);
         sendServiceActionButton.setDisable(!b[4]);
+        sayGoodbye.setDisable(!b[5]);
     }
 
     public void printToEnvironment(String s) {

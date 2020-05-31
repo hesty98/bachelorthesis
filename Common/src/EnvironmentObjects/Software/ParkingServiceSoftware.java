@@ -1,5 +1,6 @@
 package EnvironmentObjects.Software;
 
+import Actions.GoAwayAction;
 import Actions.IAction;
 import Actions.MovementHintAction;
 import Actions.TargetAction;
@@ -110,6 +111,10 @@ public class ParkingServiceSoftware extends Software {
      */
     private void handleServiceActionCommand(ServiceActionCommand msg){
         getMmsConnection().sendMessage(msg);
-        getCarlaConnection().sendMessage(msg);
+        if(msg.getAction() instanceof GoAwayAction)
+            getCarlaConnection().sendMessage(new CarlaMessage(5));
+        else
+            getCarlaConnection().sendMessage(new CarlaMessage(4));
+
     }
 }

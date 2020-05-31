@@ -43,7 +43,6 @@ public class MessageHandler {
         this.mmsConnection.initBootstrap("127.0.0.1",22620);
         this.MANIFEST ="Manifest\r\n";
         this.mgr =new SoftwareManager();
-        this.mgr.installSoftware(new ParkingServiceSoftware());
     }
 
     public static MessageHandler getInstance(){
@@ -146,6 +145,8 @@ public class MessageHandler {
         final String serviceSWID =cmd.getRequiredSWID();
         Software handlingSW = mgr.getSoftware(serviceSWID);
         handlingSW.handleMessage(cmd);
+
+        //unnötig
         ServiceActionMessage sam = new ServiceActionMessage(cmd.getAction(), cmd.getProvider(), cmd.getRequiredSWID());
         bus.post(sam);
     }
@@ -155,6 +156,7 @@ public class MessageHandler {
         final String serviceSoftwareID= serviceDecisionMessage.getRequiredSWID();
         Software handlingSW = mgr.getSoftware(serviceSoftwareID);
         if(handlingSW!=null) {
+            //Todo: in handleMessage der Softwares muss die id des genutzten Angebots ausgewertet werden.
             handlingSW.handleMessage(serviceDecisionMessage);
         }else{
             System.err.println("No Software handling the message. -> MessageHandler");
@@ -172,6 +174,8 @@ public class MessageHandler {
             messageHandlerPresenter.printToReceived(
                             "\nDriver did not accept to use the Service! Forwarding message to Carla-Environment (TODO)."
             );
+            carlaPresenter.currentStage = CarlaPresenter.STAGE.CAR_DECLINED_SERVICE;
+            carlaPresenter.setUpButtons();
         }
     }
 
@@ -187,6 +191,7 @@ public class MessageHandler {
                     softwareDecisionMessage.getSoftwareID(),
                     softwareDecisionMessage.getProvider(),
                     getMANIFEST());
+            //todo: gewähltes Angebot berechnen
             messageHandlerPresenter.printToSent("Requesting a SoftwareInstallationPackage form the Server...");
             sendToSWS(req);
         } else{
