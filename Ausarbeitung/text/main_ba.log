@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.3.29)  27 MAY 2020 20:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.3.29)  31 MAY 2020 22:21
 entering extended mode
 **./main_ba.tex
 (main_ba.tex
@@ -21,6 +21,14 @@ File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
 ) (xcode.tex
+("C:\Program Files\MiKTeX 2.9\tex/latex/wrapfig\wrapfig.sty"
+\wrapoverhang=\dimen135
+\WF@size=\dimen136
+\c@WF@wrappedlines=\count175
+\WF@box=\box45
+\WF@everypar=\toks15
+Package: wrapfig 2003/01/31  v 3.6
+)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/capt-of\capt-of.sty"
 Package: capt-of 2009/12/29 v0.2 standard captions outside of floats
 )
@@ -45,18 +53,18 @@ Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\array.sty"
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen135
-\ar@mcellbox=\box45
-\extrarowheight=\dimen136
-\NC@list=\toks15
+\col@sep=\dimen137
+\ar@mcellbox=\box46
+\extrarowheight=\dimen138
+\NC@list=\toks16
 \extratabsurround=\skip49
 \backup@length=\skip50
-\ar@cellbox=\box46
+\ar@cellbox=\box47
 )
-\everycr=\toks16
+\everycr=\toks17
 \minrowclearance=\skip51
 )
-\rownum=\count175
+\rownum=\count176
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -76,24 +84,24 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip53
 \LTpre=\skip54
 \LTpost=\skip55
-\LTchunksize=\count176
-\LTcapwidth=\dimen137
-\LT@head=\box47
-\LT@firsthead=\box48
-\LT@foot=\box49
-\LT@lastfoot=\box50
-\LT@cols=\count177
-\LT@rows=\count178
-\c@LT@tables=\count179
-\c@LT@chunks=\count180
-\LT@p@ftn=\toks17
+\LTchunksize=\count177
+\LTcapwidth=\dimen139
+\LT@head=\box48
+\LT@firsthead=\box49
+\LT@foot=\box50
+\LT@lastfoot=\box51
+\LT@cols=\count178
+\LT@rows=\count179
+\c@LT@tables=\count180
+\c@LT@chunks=\count181
+\LT@p@ftn=\toks18
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/geometry\geometry.sty"
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks18
+\KV@toks@=\toks19
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifvtex.sty"
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
@@ -101,20 +109,45 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 ("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\iftex.sty"
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count181
-\Gm@cntv=\count182
-\c@Gm@tempcnt=\count183
-\Gm@bindingoffset=\dimen138
-\Gm@wd@mp=\dimen139
-\Gm@odd@mp=\dimen140
-\Gm@even@mp=\dimen141
-\Gm@layoutwidth=\dimen142
-\Gm@layoutheight=\dimen143
-\Gm@layouthoffset=\dimen144
-\Gm@layoutvoffset=\dimen145
-\Gm@dimlist=\toks19
+\Gm@cnth=\count182
+\Gm@cntv=\count183
+\c@Gm@tempcnt=\count184
+\Gm@bindingoffset=\dimen140
+\Gm@wd@mp=\dimen141
+\Gm@odd@mp=\dimen142
+\Gm@even@mp=\dimen143
+\Gm@layoutwidth=\dimen144
+\Gm@layoutheight=\dimen145
+\Gm@layouthoffset=\dimen146
+\Gm@layoutvoffset=\dimen147
+\Gm@dimlist=\toks20
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex/latex/blindtext\blindtext.sty"
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\xspace.sty"
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+\c@blindtext=\count185
+\c@Blindtext=\count186
+\c@blind@countparstart=\count187
+\blind@countxx=\count188
+\blindtext@numBlindtext=\count189
+\blind@countyy=\count190
+\c@blindlist=\count191
+\c@blindlistlevel=\count192
+\c@blindlist@level=\count193
+\blind@listitem=\count194
+\c@blind@listcount=\count195
+\c@blind@levelcount=\count196
+\blind@mathformula=\count197
+\blind@Mathformula=\count198
+\c@blind@randomcount=\count199
+\c@blind@randommax=\count266
+\c@blind@pangramcount=\count267
+\c@blind@pangrammax=\count268
+)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty"
 Package: amsmath 2020/01/20 v2.17e AMS math features
 \@mathmargin=\skip56
@@ -125,51 +158,51 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks20
-\ex@=\dimen146
+\@emptytoks=\toks21
+\ex@=\dimen148
 ))
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen147
+\pmbraise@=\dimen149
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count184
+\inf@bad=\count269
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count185
-\leftroot@=\count186
+\uproot@=\count270
+\leftroot@=\count271
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count187
-\DOTSCASE@=\count188
+\classnum@=\count272
+\DOTSCASE@=\count273
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box51
-\strutbox@=\box52
-\big@size=\dimen148
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+\big@size=\dimen150
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count189
-\c@MaxMatrixCols=\count190
+\macc@depth=\count274
+\c@MaxMatrixCols=\count275
 \dotsspace@=\muskip16
-\c@parentequation=\count191
-\dspbrk@lvl=\count192
-\tag@help=\toks21
-\row@=\count193
-\column@=\count194
-\maxfields@=\count195
-\andhelp@=\toks22
-\eqnshift@=\dimen149
-\alignsep@=\dimen150
-\tagshift@=\dimen151
-\tagwidth@=\dimen152
-\totwidth@=\dimen153
-\lineht@=\dimen154
-\@envbody=\toks23
+\c@parentequation=\count276
+\dspbrk@lvl=\count277
+\tag@help=\toks22
+\row@=\count278
+\column@=\count279
+\maxfields@=\count280
+\andhelp@=\toks23
+\eqnshift@=\dimen151
+\alignsep@=\dimen152
+\tagshift@=\dimen153
+\tagwidth@=\dimen154
+\totwidth@=\dimen155
+\lineht@=\dimen156
+\@envbody=\toks24
 \multlinegap=\skip57
 \multlinetaggap=\skip58
-\mathdisplay@stack=\toks24
+\mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
@@ -190,10 +223,10 @@ Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@ALC@unique=\count196
-\c@ALC@line=\count197
-\c@ALC@rem=\count198
-\c@ALC@depth=\count199
+\c@ALC@unique=\count281
+\c@ALC@line=\count282
+\c@ALC@rem=\count283
+\c@ALC@depth=\count284
 \ALC@tlm=\skip59
 \algorithmicindent=\skip60
 )
@@ -211,8 +244,8 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 )
-\Gin@req@height=\dimen155
-\Gin@req@width=\dimen156
+\Gin@req@height=\dimen157
+\Gin@req@width=\dimen158
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\textcomp.sty"
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
@@ -255,9 +288,9 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/kvoptions\kvoptions.sty"
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
-\@linkdim=\dimen157
-\Hy@linkcounter=\count266
-\Hy@pagecounter=\count267
+\@linkdim=\dimen159
+\Hy@linkcounter=\count285
+\Hy@pagecounter=\count286
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
 File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
@@ -270,7 +303,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/etexcmds\etexcmds.sty"
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count268
+\Hy@SavedSpaceFactor=\count287
 Package hyperref Info: Hyper figures OFF on input line 4547.
 Package hyperref Info: Link nesting OFF on input line 4552.
 Package hyperref Info: Hyper index ON on input line 4555.
@@ -278,14 +311,14 @@ Package hyperref Info: Plain pages OFF on input line 4562.
 Package hyperref Info: Backreferencing OFF on input line 4567.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4800.
-\c@Hy@tempcnt=\count269
+\c@Hy@tempcnt=\count288
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5159.
-\XeTeXLinkMargin=\dimen158
+\XeTeXLinkMargin=\dimen160
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/bitset\bitset.sty"
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -294,9 +327,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count270
-\Field@Width=\dimen159
-\Fld@charsize=\dimen160
+\Fld@menulength=\count289
+\Field@Width=\dimen161
+\Fld@charsize=\dimen162
 Package hyperref Info: Hyper figures OFF on input line 6430.
 Package hyperref Info: Link nesting OFF on input line 6435.
 Package hyperref Info: Hyper index ON on input line 6438.
@@ -310,9 +343,9 @@ LaTeX Info: Redefining \pageref on input line 6504.
 ("C:\Program Files\MiKTeX 2.9\tex/generic/atbegshi\atbegshi.sty"
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\Hy@abspage=\count271
-\c@Item=\count272
-\c@Hfootnote=\count273
+\Hy@abspage=\count290
+\c@Item=\count291
+\c@Hfootnote=\count292
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -323,8 +356,8 @@ File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
 )
-\Fld@listcount=\count274
-\c@bookmark@seq@number=\count275
+\Fld@listcount=\count293
+\c@bookmark@seq@number=\count294
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/rerunfilecheck\rerunfilecheck.sty"
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
@@ -336,14 +369,6 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
 \Hy@SectionHShift=\skip61
-)
-("C:\Program Files\MiKTeX 2.9\tex/latex/wrapfig\wrapfig.sty"
-\wrapoverhang=\dimen161
-\WF@size=\dimen162
-\c@WF@wrappedlines=\count276
-\WF@box=\box53
-\WF@everypar=\toks25
-Package: wrapfig 2003/01/31  v 3.6
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\inputenc.sty"
 Package: inputenc 2018/08/11 v1.3c Input encoding file
@@ -358,10 +383,10 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfigbottomskip=\skip64
 \subfigcapmargin=\dimen164
 \subfiglabelskip=\skip65
-\c@subfigure=\count277
-\c@lofdepth=\count278
-\c@subtable=\count279
-\c@lotdepth=\count280
+\c@subfigure=\count295
+\c@lofdepth=\count296
+\c@subtable=\count297
+\c@lotdepth=\count298
 
 ****************************************
 * Local config file subfigure.cfg used *
@@ -388,8 +413,8 @@ Package shellesc Info: Restricted shell escape enabled on input line 77.
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 )
 \svg@box=\box54
-\c@svg@param@lastpage=\count281
-\c@svg@param@currpage=\count282
+\c@svg@param@lastpage=\count299
+\c@svg@param@currpage=\count300
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/transparent\transparent.sty"
 Package: transparent 2019/11/29 v1.4 Transparency via pdfTeX's color stack (HO)
@@ -407,18 +432,18 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen172
 \cmidrulekern=\dimen173
 \defaultaddspace=\dimen174
-\@cmidla=\count283
-\@cmidlb=\count284
+\@cmidla=\count301
+\@cmidlb=\count302
 \@aboverulesep=\dimen175
 \@belowrulesep=\dimen176
-\@thisruleclass=\count285
-\@lastruleclass=\count286
+\@thisruleclass=\count303
+\@lastruleclass=\count304
 \@thisrulewidth=\dimen177
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/multirow\multirow.sty"
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip68
-\multirow@cntb=\count287
+\multirow@cntb=\count305
 \multirow@dima=\skip69
 \bigstrutjot=\dimen178
 )
@@ -429,7 +454,7 @@ Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 \TX@old@col=\dimen181
 \TX@target=\dimen182
 \TX@delta=\dimen183
-\TX@cols=\count288
+\TX@cols=\count306
 \TX@ftn=\toks28
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/mdframed\mdframed.sty"
@@ -441,18 +466,18 @@ Package: expl3 2020-03-06 L3 programming layer (loader)
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count289
+\l__kernel_color_stack_int=\count307
 \l__pdf_internal_box=\box55
 ))
 Package: xparse 2020-03-06 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count290
-\g__xparse_grabber_int=\count291
-\l__xparse_m_args_int=\count292
-\l__xparse_v_nesting_int=\count293
+\l__xparse_current_arg_int=\count308
+\g__xparse_grabber_int=\count309
+\l__xparse_m_args_int=\count310
+\l__xparse_v_nesting_int=\count311
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/etoolbox\etoolbox.sty"
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count294
+\etb@tempcnta=\count312
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/zref\zref-abspage.sty"
 Package: zref-abspage 2020-03-03 v2.29 Module abspage for zref (HO)
@@ -463,14 +488,14 @@ Package zref Info: New property list: main on input line 763.
 Package zref Info: New property: default on input line 764.
 Package zref Info: New property: page on input line 765.
 )
-\c@abspage=\count295
+\c@abspage=\count313
 Package zref Info: New property: abspage on input line 66.
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/needspace\needspace.sty"
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
 \mdf@templength=\skip70
-\c@mdf@globalstyle@cnt=\count296
+\c@mdf@globalstyle@cnt=\count314
 \mdf@skipabove@length=\skip71
 \mdf@skipbelow@length=\skip72
 \mdf@leftmargin@length=\skip73
@@ -546,21 +571,21 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \mdf@horizontalspaceofbox=\skip134
 \mdfsubtitleheight=\skip135
 \mdfsubsubtitleheight=\skip136
-\c@mdfcountframes=\count297
+\c@mdfcountframes=\count315
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count298
-\c@mdf@env@i=\count299
-\c@mdf@env@ii=\count300
-\c@mdf@zref@counter=\count301
+\mdf@envdepth=\count316
+\c@mdf@env@i=\count317
+\c@mdf@env@ii=\count318
+\c@mdf@zref@counter=\count319
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count302
+\c@float@type=\count320
 \float@exts=\toks29
 \float@box=\box61
 \@float@everytoks=\toks30
@@ -576,23 +601,23 @@ Package: import 2020/01/22  v 6.0
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\listings.sty"
-\lst@mode=\count303
+\lst@mode=\count321
 \lst@gtempboxa=\box63
 \lst@token=\toks31
-\lst@length=\count304
+\lst@length=\count322
 \lst@currlwidth=\dimen184
-\lst@column=\count305
-\lst@pos=\count306
+\lst@column=\count323
+\lst@pos=\count324
 \lst@lostspace=\dimen185
 \lst@width=\dimen186
-\lst@newlines=\count307
-\lst@lineno=\count308
+\lst@newlines=\count325
+\lst@lineno=\count326
 \lst@maxwidth=\dimen187
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstmisc.sty"
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count309
-\lst@skipnumbers=\count310
+\c@lstnumber=\count327
+\lst@skipnumbers=\count328
 \lst@framebox=\box64
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\listings.cfg"
@@ -607,35 +632,35 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
  (main_ba.aux)
 \openout1 = `main_ba.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
 
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count311
+\scratchcounter=\count329
 \scratchdimen=\dimen188
 \scratchbox=\box66
-\nofMPsegments=\count312
-\nofMParguments=\count313
+\nofMPsegments=\count330
+\nofMParguments=\count331
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count314
+\MPscratchCnt=\count332
 \MPscratchDim=\dimen189
-\MPnumerator=\count315
-\makeMPintoPDFobject=\count316
+\MPnumerator=\count333
+\makeMPintoPDFobject=\count334
 \everyMPtoPDFconversion=\toks33
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -678,7 +703,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box67
-Package hyperref Info: Link coloring OFF on input line 48.
+Package hyperref Info: Link coloring OFF on input line 51.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -688,45 +713,113 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/gettitlestring\gettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count317
+\c@section@level=\count335
 )
-LaTeX Info: Redefining \ref on input line 48.
-LaTeX Info: Redefining \pageref on input line 48.
-LaTeX Info: Redefining \nameref on input line 48.
+LaTeX Info: Redefining \ref on input line 51.
+LaTeX Info: Redefining \pageref on input line 51.
+LaTeX Info: Redefining \nameref on input line 51.
 
 (main_ba.out) (main_ba.out)
 \@outlinefile=\write3
 \openout3 = `main_ba.out'.
 
-\c@lstlisting=\count318
-<pictures/uol_logo.png, id=183, 198.7425pt x 126.4725pt>
+\c@lstlisting=\count336
+<pictures/uol_logo.png, id=207, 198.7425pt x 126.4725pt>
 File: pictures/uol_logo.png Graphic file (type png)
 <use pictures/uol_logo.png>
-Package pdftex.def Info: pictures/uol_logo.png  used on input line 55.
+Package pdftex.def Info: pictures/uol_logo.png  used on input line 58.
 (pdftex.def)             Requested size: 188.80962pt x 120.1559pt.
  [1
 
 {C:/Users/linus/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./pictures/
-uol_logo.png>] (main_ba.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+uol_logo.png>]pdfTeX warning (ext4): destination with the same identifier (name
+{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.89 \newpage
+              [1
 
-("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
+]
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+
+ []
+
+[2] (main_ba.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+ ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.39 ...Vorstellung des Prototypen}{41}{section.6}
-                                                  % [1])
+) [3
+
+])
 \tf@toc=\write4
 \openout4 = `main_ba.toc'.
 
- [2]
+ [4]
 (text/einleitung.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
@@ -738,7 +831,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--6
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 7--87
+Underfull \hbox (badness 10000) in paragraph at lines 7--106
 
  []
 
@@ -746,8 +839,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.87 \clearpage
-                [1
+l.106 \clearpage
+                 [1
 
 ] (forschungsseminar/main_fs/main_fs_short.tex
 (../text/forschungsseminar/einleitung_neu.tex
@@ -793,7 +886,7 @@ l.1 \subsection
 
 LaTeX Warning: Citation `b35' on page 3 undefined on input line 4.
 
-<../text/forschungsseminar/../pictures/arichtecture_AV.png, id=269, 542.56757pt
+<../text/forschungsseminar/../pictures/arichtecture_AV.png, id=309, 542.56757pt
  x 188.8135pt>
 File: ../text/forschungsseminar/../pictures/arichtecture_AV.png Graphic file (t
 ype png)
@@ -804,6 +897,12 @@ png  used on input line 9.
 
 LaTeX Warning: Citation `jschneider' on page 3 undefined on input line 10.
 
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.12 D
+      er Fahrer gibt dem Auto initial ein \textit{Ziel}, mit Hilfe dessen da...
 [3]
 
 LaTeX Warning: Citation `b35' on page 4 undefined on input line 16.
@@ -816,7 +915,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
-<../text/forschungsseminar/../pictures/openscenario.jpg, id=276, 456.95718pt x 
+<../text/forschungsseminar/../pictures/openscenario.jpg, id=315, 456.95718pt x 
 487.8225pt>
 File: ../text/forschungsseminar/../pictures/openscenario.jpg Graphic file (type
  jpg)
@@ -827,6 +926,12 @@ Package pdftex.def Info: ../text/forschungsseminar/../pictures/openscenario.jpg
 
 LaTeX Warning: Citation `b35' on page 4 undefined on input line 23.
 
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.25 O
+      penScenario ist aus mehreren GrÃ¼nden gut geeignet um als Kommunikatio...
 [4pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
 has been already used, duplicate ignored
 
@@ -851,7 +956,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--46
  []
 
 [6]
-<../text/forschungsseminar/../pictures/umweltanalyse.png, id=293, 720.6925pt x 
+<../text/forschungsseminar/../pictures/umweltanalyse.png, id=330, 720.6925pt x 
 380.42125pt>
 File: ../text/forschungsseminar/../pictures/umweltanalyse.png Graphic file (typ
 e png)
@@ -876,8 +981,8 @@ schungsseminar/../pictures/umweltanalyse.png>]
 
 LaTeX Warning: Citation `uptane' on page 8 undefined on input line 6.
 
-<../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png, id=30
-1, 616.3025pt x 302.12875pt>
+<../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png, id=33
+8, 616.3025pt x 302.12875pt>
 File: ../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png G
 raphic file (type png)
 <use ../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png>
@@ -907,8 +1012,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-<../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png, id=31
-4, 792.9625pt x 422.57875pt>
+<../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png, id=35
+2, 792.9625pt x 422.57875pt>
 File: ../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png G
 raphic file (type png)
 <use ../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png>
@@ -1079,7 +1184,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
 LaTeX Warning: Citation `seibert2008' on page 17 undefined on input line 12.
 
-<../text/forschungsseminar/../pictures/persona1.jpg, id=359, 426.59375pt x 532.
+<../text/forschungsseminar/../pictures/persona1.jpg, id=396, 426.59375pt x 532.
 99126pt>
 File: ../text/forschungsseminar/../pictures/persona1.jpg Graphic file (type jpg
 )
@@ -1105,7 +1210,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--67
 []\T1/cmr/m/n/10 Führerschein seit 47
  []
 
-<../text/forschungsseminar/../pictures/persona2.jpg, id=360, 578.16pt x 722.7pt
+<../text/forschungsseminar/../pictures/persona2.jpg, id=397, 578.16pt x 722.7pt
 >
 File: ../text/forschungsseminar/../pictures/persona2.jpg Graphic file (type jpg
 )
@@ -1147,7 +1252,7 @@ Underfull \hbox (badness 3019) in paragraph at lines 102--103
  []
 
 [17]
-<../text/forschungsseminar/../pictures/persona3.jpg, id=365, 852.786pt x 1281.5
+<../text/forschungsseminar/../pictures/persona3.jpg, id=402, 852.786pt x 1281.5
 88pt>
 File: ../text/forschungsseminar/../pictures/persona3.jpg Graphic file (type jpg
 )
@@ -1211,7 +1316,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
  []
 
 [20]
-<../text/forschungsseminar/../pictures/konzept.png, id=390, 721.69624pt x 661.4
+<../text/forschungsseminar/../pictures/konzept.png, id=428, 721.69624pt x 661.4
 7125pt>
 File: ../text/forschungsseminar/../pictures/konzept.png Graphic file (type png)
 
@@ -1235,39 +1340,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--8
 
  []
 
-) [23] (text/bachelorarbeit.tex (text/ueberleitung.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--7
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--12
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
-
- []
-
-)
-Underfull \hbox (badness 10000) in paragraph at lines 16--2
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--2
-
- []
-
-[24
-
-] [25] (text/markt.tex
+) [23] (text/bachelorarbeit.tex (text/markt.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--4
 
  []
@@ -1297,14 +1370,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
  []
 
-) (text/bmc.tex [26
+) (text/bmc.tex [24
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
  []
 
-[27] [28]
+[25] [26]
 Underfull \hbox (badness 10000) in paragraph at lines 31--47
 
  []
@@ -1339,7 +1412,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--47
 
  []
 
-[29]
+[27]
 Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
  []
@@ -1349,13 +1422,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--60
 
  []
 
-[30] [31]) [32] (text/wsk.tex
-<pictures/supplychain.png, id=457, 600.2425pt x 161.60374pt>
+[28] [29]) [30] (text/wsk.tex
+<pictures/supplychain.png, id=480, 600.2425pt x 161.60374pt>
 File: pictures/supplychain.png Graphic file (type png)
 <use pictures/supplychain.png>
 Package pdftex.def Info: pictures/supplychain.png  used on input line 5.
 (pdftex.def)             Requested size: 377.62643pt x 101.67033pt.
- [33
+ [31
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
 s been already used, duplicate ignored
@@ -1364,58 +1437,287 @@ s been already used, duplicate ignored
                                                   \fi \fi 
 l.17 	
        <./pictures/supplychain.png>]
-<pictures/wsk.png, id=474, 767.86874pt x 533.995pt>
+<pictures/wsk.png, id=497, 874.26625pt x 541.02126pt>
 File: pictures/wsk.png Graphic file (type png)
 <use pictures/wsk.png>
 Package pdftex.def Info: pictures/wsk.png  used on input line 23.
-(pdftex.def)             Requested size: 472.03125pt x 328.27054pt.
- [34pdfTeX warning (ext4): destination with the same identifier (name{figure.8}
+(pdftex.def)             Requested size: 566.43605pt x 350.52867pt.
+
+Overfull \hbox (25.4946pt too wide) in paragraph at lines 22--25
+[]  []
+ []
+
+[32pdfTeX warning (ext4): destination with the same identifier (name{figure.8})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.28 \begin{itemize}
+                     <./pictures/wsk.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 37--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
+
+ []
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+
+ []
+
+[34] [35] [36] [37]) (text/abs_prozess.tex
+Underfull \hbox (badness 10000) in paragraph at lines 121--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
+
+ []
+
+) [38] (text/technische_konzepte.tex
+<pictures/arichtecture_AV.png, id=556, 542.56757pt x 188.8135pt>
+File: pictures/arichtecture_AV.png Graphic file (type png)
+<use pictures/arichtecture_AV.png>
+Package pdftex.def Info: pictures/arichtecture_AV.png  used on input line 12.
+(pdftex.def)             Requested size: 472.03125pt x 164.2664pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--20
+
+ []
+
+[39
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 42--46
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--50
+
+ []
+
+[40pdfTeX warning (ext4): destination with the same identifier (name{figure.9})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.53 
+      <./pictures/arichtecture_AV.png>] [41]
+<pictures/konzept-Eigene-Installation.png, id=576, 577.15625pt x 704.6325pt>
+File: pictures/konzept-Eigene-Installation.png Graphic file (type png)
+<use pictures/konzept-Eigene-Installation.png>
+Package pdftex.def Info: pictures/konzept-Eigene-Installation.png  used on inpu
+t line 75.
+(pdftex.def)             Requested size: 377.62643pt x 461.04848pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--78
+
+ []
+
+[42]
+<pictures/konzept-Installationsprozess.png, id=582, 751.80875pt x 1128.215pt>
+File: pictures/konzept-Installationsprozess.png Graphic file (type png)
+<use pictures/konzept-Installationsprozess.png>
+Package pdftex.def Info: pictures/konzept-Installationsprozess.png  used on inp
+ut line 84.
+(pdftex.def)             Requested size: 405.94716pt x 609.20982pt.
+
+
+LaTeX Warning: Float too large for page by 8.90033pt on input line 87.
+
+[43pdfTeX warning (ext4): destination with the same identifier (name{figure.10}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.31 
-      <./pictures/wsk.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 36--39
+l.88 \subsubsection
+                   {Kommunikationsprotokoll: Nutzung eines Service} <./pictures
+/konzept-Eigene-Installation.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<pictures/konzept-Nutzungsprozess.png, id=589, 647.41875pt x 1165.35374pt>
+File: pictures/konzept-Nutzungsprozess.png Graphic file (type png)
+<use pictures/konzept-Nutzungsprozess.png>
+Package pdftex.def Info: pictures/konzept-Nutzungsprozess.png  used on input li
+ne 92.
+(pdftex.def)             Requested size: 354.02344pt x 637.24792pt.
+
+LaTeX Warning: Float too large for page by 36.93843pt on input line 95.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[44] [45pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.11}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.96 \clearpage
+                <./pictures/konzept-Installationsprozess.png>] [46pdfTeX warnin
+g (ext4): destination with the same identifier (name{figure.12}) has been alrea
+dy used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.96 \clearpage
+                <./pictures/konzept-Nutzungsprozess.png>])
+Overfull \hbox (7.31467pt too wide) in paragraph at lines 98--10
+\T1/cmr/m/n/10 Wertschöp-fungs-kette zu un-ter-stützen. In Kapi-tel []3.2[] wur
+-den weit-ere Konzepte und notwendige Ar-beitsvorgänge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--10
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--44
+Underfull \hbox (badness 10000) in paragraph at lines 98--10
 
  []
 
 
-LaTeX Warning: Reference `img:atm_sw_erkennung' on page 35 undefined on input l
-ine 45.
-
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
-
-[36] [37]) (text/abs_prozess.tex) [38] [39] (text/technische_konzepte.tex
-Underfull \hbox (badness 10000) in paragraph at lines 2--3
+Underfull \hbox (badness 10000) in paragraph at lines 98--10
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--10
+Underfull \hbox (badness 10000) in paragraph at lines 98--10
 
  []
 
-) [40
 
-] (text/vorstellung_des_prototypen.tex) [41
+Underfull \hbox (badness 10000) in paragraph at lines 98--10
 
-] (text/ausblick.tex))
-(quellen.tex
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--10
+
+ []
+
+(text/vorstellung_des_prototypen.tex
+<pictures/konzept-basic.png, id=609, 372.39125pt x 332.24126pt>
+File: pictures/konzept-basic.png Graphic file (type png)
+<use pictures/konzept-basic.png>
+Package pdftex.def Info: pictures/konzept-basic.png  used on input line 9.
+(pdftex.def)             Requested size: 236.01563pt x 210.57541pt.
+<pictures/konzept-Common.png, id=612, 644.4075pt x 236.885pt>
+File: pictures/konzept-Common.png Graphic file (type png)
+<use pictures/konzept-Common.png>
+Package pdftex.def Info: pictures/konzept-Common.png  used on input line 17.
+(pdftex.def)             Requested size: 377.62643pt x 138.82114pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[47
+
+] [48pdfTeX warning (ext4): destination with the same identifier (name{figure.1
+3}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.23 \subsubsection
+                   {Architektur der Software Applikation Managers (SAM)}pdfTeX 
+warning (ext4): destination with the same identifier (name{figure.14}) has been
+ already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.23 \subsubsection
+                   {Architektur der Software Applikation Managers (SAM)} <./pic
+tures/konzept-basic.png> <./pictures/konzept-Common.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+
+ []
+
+<pictures/konzept-SAM.png, id=627, 397.485pt x 352.31625pt>
+File: pictures/konzept-SAM.png Graphic file (type png)
+<use pictures/konzept-SAM.png>
+Package pdftex.def Info: pictures/konzept-SAM.png  used on input line 28.
+(pdftex.def)             Requested size: 236.01563pt x 209.20338pt.
+[49pdfTeX warning (ext4): destination with the same identifier (name{figure.15}
+) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.34 \subsubsection
+                   {Architektur des OEM-Servers (Server)} <./pictures/konzept-S
+AM.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 43--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+
+ []
+
+) [50] (text/ausblick.tex)) (quellen.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--6
 \T1/cmr/m/n/10 https://www.ericsson.com/en/blog/2017/11/the-automotive-industry
 -in-transformation--business-
  []
 
+[51
 
+]
 Underfull \hbox (badness 2846) in paragraph at lines 35--39
 []\T1/cmr/m/n/10 Alex Davies. 2015. Oh Look, More Ev-i-dence Hu-mans Shouldn't 
 Be Driv-ing. (May 2015).
@@ -1427,9 +1729,7 @@ Underfull \hbox (badness 6842) in paragraph at lines 35--39
 driving/ [9] Ter-rence Fong,
  []
 
-[42
 
-]
 Underfull \hbox (badness 10000) in paragraph at lines 51--52
 []\T1/cmr/m/n/10 ADAC: https://www.adac.de/rund-ums-fahrzeug/ausstattung-techni
 k-zubehoer/autonomes-
@@ -1447,34 +1747,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--86
 tfahrendes-kfz-mensch-vs-
  []
 
-[43]
+[52]
 Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 93.
- [44]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 93.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 112.
+ [53]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 112.
  (main_ba.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
-Package rerunfilecheck Info: File `main_ba.out' has not changed.
-(rerunfilecheck)             Checksum: 6206AD1D5B7FFC53A2EF5DA49A92FD39;3570.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 112.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 112.
 
+
+Package rerunfilecheck Warning: File `main_ba.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main_ba.out':
+(rerunfilecheck)             Before: 3CB6D7CBCD393D061B7878156426F100;4295
+(rerunfilecheck)             After:  636909108501B7953FFAC5B1FEBF54B5;4244.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 93.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 112.
  ) 
 Here is how much of TeX's memory you used:
- 12441 strings out of 480932
- 194310 string characters out of 2909670
- 697173 words of memory out of 3000000
- 27811 multiletter control sequences out of 15000+200000
- 546463 words of font info for 57 fonts, out of 3000000 for 9000
+ 12692 strings out of 480932
+ 198937 string characters out of 2909670
+ 700967 words of memory out of 3000000
+ 28023 multiletter control sequences out of 15000+200000
+ 548013 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 50i,15n,57p,1930b,456s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,15n,57p,1930b,459s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 tcrm1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecbi1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
@@ -1482,16 +1788,17 @@ ec/dpi600\ecbi1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
 /pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\linus\AppData\Local\MiKTeX
 \2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\linus\AppData\Lo
 cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\linus\
-AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Us
-ers\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.
+AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Us
+ers\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.
 pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
-\ecbx1440.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen
-/ec/dpi600\ecti1200.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfou
-r/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\font
-s/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on main_ba.pdf (47 pages, 5865006 bytes).
+\ecrm1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen
+/ec/dpi600\ecbx2074.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfou
+r/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\font
+s/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\linus\AppData\Local\MiKTe
+X\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
+Output written on main_ba.pdf (58 pages, 6231529 bytes).
 PDF statistics:
- 1166 PDF objects out of 1200 (max. 8388607)
- 160 named destinations out of 1000 (max. 500000)
- 421 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1296 PDF objects out of 1440 (max. 8388607)
+ 187 named destinations out of 1000 (max. 500000)
+ 504 words of extra memory for PDF output out of 10000 (max. 10000000)
 

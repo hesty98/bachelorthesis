@@ -14,14 +14,16 @@ public class Description implements Serializable {
     private String title;
     private String description;
     private ArrayList<String> buzzwords;
-    private Angebot angebot;
+    private ArrayList<Angebot> angebote;
+    private ArrayList<String> angebotTitel;
     private ArrayList<IAction> actionTypes;
 
-    public Description(String title, String description, ArrayList<String> buzzwords, Angebot angebot, ArrayList<IAction> actionTypes) {
+    public Description(String title, String description, ArrayList<String> buzzwords, ArrayList<Angebot> angebote,ArrayList<String> angebotTitel, ArrayList<IAction> actionTypes) {
         this.title = title;
         this.description = description;
         this.buzzwords = buzzwords;
-        this.angebot = angebot;
+        this.angebote = angebote;
+        this.angebotTitel=angebotTitel;
         this.actionTypes = actionTypes;
     }
 
@@ -49,19 +51,27 @@ public class Description implements Serializable {
         this.buzzwords = serviceBuzzwords;
     }
 
-    public Angebot getAngebot() {
-        return angebot;
-    }
-
-    public void setAngebot(Angebot angebot) {
-        this.angebot = angebot;
-    }
-
     public ArrayList<IAction> getActionTypes() {
         return actionTypes;
     }
 
     public void setActionTypes(ArrayList<IAction> actionTypes) {
         this.actionTypes = actionTypes;
+    }
+
+    public ArrayList<Angebot> getAngebote() {
+        return angebote;
+    }
+
+    public void setAngebote(ArrayList<Angebot> angebote) {
+        this.angebote = angebote;
+    }
+
+    public ArrayList<String> getAngebotTitel() {
+        return angebotTitel;
+    }
+
+    public void setAngebotTitel(ArrayList<String> angebotTitel) {
+        this.angebotTitel = angebotTitel;
     }
 }

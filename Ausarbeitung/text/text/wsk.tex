@@ -11,7 +11,7 @@ Nach der Wertschöpfungskette von Porter sind Unternehmen in primäre und unters
 \subsubsection{Primäre Aktivitäten}
 Es gibt Fünf unterschiedliche Primäre Aktivitäten. Das Kaufen und Lagern von Materialien wird der \textbf{Eingangslogistik }zugeordnet. Im Kontext des Softwareshops gibt es hier Zwei wichtige Bausteine:
 \begin{itemize}
-	\item[] \hspace{-0.6cm}\textbf{Software-Sicherheit verifizieren}\\
+	\item[] \hspace{-0.6cm}\textbf{Software-Sicherheit verifizieren}\\ \label{security}
 	Sämtliche Softwares, die in dem Shop aufgeführt werden sollen, müssen durch ein Sicherheitskonzept verifiziert werden. Es sollten mehrere Sicherheitskonzepte und Richtlinien erarbeitet werden, auch zwecks einer Unterscheidung von Fahrfunktions- und Service Software. Diese Konzepte unterstützen die Bereitstellung von (sicherer) Software.\\
 	Es muss sichergestellt werden, dass sämtliche erhobenen Daten entsprechend der Datenschutzrichtlinien des jeweiligen Landes verarbeitet werden. Neue Software muss außerdem auf Viren überprüft werden. Im Fall von \textit{Fahrfunktionssoftware }muss zudem sichergestellt werden, dass diese keine Sicherheitslücken in der Fahraufgabe aufweisen. Um dies zu erreichen, kann einer solchen Software eine Sammlung an OpenScenario Dateien beigefügt werden, die beschreiben welche Art von Situation durch die Software abgedeckt wird. Anhand dieser Dateien kann zum einen, wie in Kapitel \ref{2.2} beschrieben, die Suche von Softwares durchgeführt werden. Zum anderen können diese als Simulationsgrundlage dienen. Simulationen können Aussage darüber treffen, eine Software in der abzudeckenden Situation Sicher handelt oder nicht. Sie sollte auch im Rahmen der automatischen Erkennung von Softwarebedarf genutzt werden.
 	
@@ -19,8 +19,8 @@ Es gibt Fünf unterschiedliche Primäre Aktivitäten. Das Kaufen und Lagern von 
 	Erfüllt eine Software die Sicherheitsrichtlinen, wird sie anschließend Klassifiziert. Eine Klassifizierung soll die entsprechenden Metadaten zu Softwares zuordnen, welche für die Einordnung im Shop notwendig sind. Dieser Schritt hat einen Direkten Bezug zur Bedarfserkennung von Software. Anhand der Klassifizierung sollen Fahrzeughalter intuitiv wissen, wie gut/schlecht eine Software ist und welche Aufgabe sie erfüllt. Hierzu muss ein Konzept erarbeitet werden, welches die Bewertungsfaktoren festlegt. In Kapitel \ref{sw_klassifizierung} wird eine Beispielkonzept vorgestellt.
 \end{itemize}
 \begin{figure}[!h]
-	\hspace{-1cm}
-	\includegraphics[width=\columnwidth]{pictures/wsk.png}
+	\hspace{-2.5cm}
+	\includegraphics[width=1.2\columnwidth]{pictures/wsk.png}
 	\label{img:wsk}
 	\caption{Die wichtigsten Bausteine einzelner Aktivitäten der Wertschöpfungskette}
 \end{figure}
@@ -31,7 +31,8 @@ Nach erfolgreichen Durchlaufen der Aktivitäten der Eingangslogistik folgen die 
 
 	\item[] \hspace{-0.6cm}\textbf{Shop Verwaltung}\\
 	Um die Kundenzufriedenheit weiter zu steigern, muss der Inhalt des Shops verwaltet werden. Einige Softwares sollen zeitweilig hervorgehoben werden, und auch die angezeigten 'vorgeschlagenen Softwares' müssen kontinuierlich an die Fahrzeugdaten angepasst werden.
-	Softwares müssen hinzugefügt, entfernt oder aktualisiert werden und \textit{Empfehlungen der Redaktion} können gesetzt werden. Anstößige Kommentare oder gefährliche Softwares müssen aus dem Shop entfernt werden.
+	Softwares müssen hinzugefügt, entfernt oder aktualisiert werden und \textit{Empfehlungen der Redaktion} können gesetzt werden. Anstößige Kommentare oder gefährliche Softwares müssen aus dem Shop entfernt werden.\\
+	Des weiteren muss gesteuert werden, welche Softwares den Fahrzeughaltern vorgeschlagen werden. Dies kann durch die Einbeziehung von Fahrdaten der Fahrzeugs geschehen, da so Softwares entlang der häufig zurückgelegten Strecken präsentiert werden könne,
 
 	\item[] \hspace{-0.6cm} \textbf{Shop Entwicklung und Wartung}\\
 	Auch die (Weiter-)Entwicklung und Wartung des Shops trägt zu einer höheren Kundenzufriedenheit bei. Änderungen im Frontend können die User Experience (UX) steigern und somit zum Kauf animieren. Bezüglich der Frontend Entwicklung sollten die Prinzipien des User Centered Designs beachtet werden. Änderungen des Backends können den Umfang des Shops erhöhen oder bisherige Funktionen \textit{(bspw. das Vorschlagen von Software)} verbessern und Kundenzentrierter gestalten.\\
@@ -42,7 +43,7 @@ Der Dritte Schritt einer Wertschöpfungskette ist zusammengesetzt aus dem\textbf
 	\item[] \hspace{-0.6cm} \textbf{Automatische Erkennung von Software Bedarf}\\
 	Um die Nutzenversprechen der \textit{automatischen Erkennung eines Software Bedarfs }zu erfüllen, müssen Serverseitige Algorithmen diese anhand von Fahrzeug und Fahrzeughalterdaten identifizieren. Hierfür ist eine Implementierung des Uptane-Standards \textit{(Kapitel \ref{3.1})} notwendig. \\
 	
-	Der Prozess automatischer Erkennung eines Software Bedarfs wird in Abbildung \ref{img:atm_sw_erkennung} skizziert. Zunächst muss hierfür das\textbf{ Manifest des Fahrzeugs zusammen mit Fahrdaten an den Server geschickt werden.} Im Manifest befindet sich eine Liste aller installierten Softwares des Fahrzeugs. Die verschickten Fahrdaten treffen Aussage darüber, welche Strecken vom Fahrzeug oft zurückgelegt werden. Auf dem Server angekommen, wird \textbf{entlang dieser Strecken nach möglichen Softwares für das Fahrzeug} gesucht. Wurden Softwares gefunden, die noch nicht auf dem Fahrzeug installiert sind werden mehrere \textbf{virtuelle Instanzen des Autos} erstellt. Eine dieser Instanzen umfasst nur die Softwares, welche laut dem Manifest auf dem fahrzeug installiert sind. Den anderen Instanzen wird jeweils eine Software hinzugefügt, die entlang der Strecken gefunden wurden.
+	Der Prozess automatischer Erkennung eines Software Bedarfs wird im folgenden skizziert. Zunächst muss hierfür das\textbf{ Manifest des Fahrzeugs zusammen mit Fahrdaten an den Server geschickt werden.} Im Manifest befindet sich eine Liste aller installierten Softwares des Fahrzeugs. Die verschickten Fahrdaten treffen Aussage darüber, welche Strecken vom Fahrzeug oft zurückgelegt werden. Auf dem Server angekommen, wird \textbf{entlang dieser Strecken nach möglichen Softwares für das Fahrzeug} gesucht. Wurden Softwares gefunden, die noch nicht auf dem Fahrzeug installiert sind werden mehrere \textbf{virtuelle Instanzen des Autos} erstellt. Eine dieser Instanzen umfasst nur die Softwares, welche laut dem Manifest auf dem fahrzeug installiert sind. Den anderen Instanzen wird jeweils eine Software hinzugefügt, die entlang der Strecken gefunden wurden.
 	
 	Nach dem erstellen dieser virtuellen Fahrzeuge werden im vierten Schritt die jeweiligen Situationen der neuen Softwares zugeordneten OpenScenario-Dateien \textbf{simuliert} und von den \textbf{virtuellen Fahrzeugen durchlaufen}. Zum Vergleich durchfährt das virtuelle Fahrzeug welches keine neuen Softwares erhalten hat die gleichen Situationen durch. Anhand eines Vergleichs der Simulationen kann festgestellt werden, ob die Software positive, negative oder überhaupt keine Auswirkungen auf das Fahrverhalten des Fahrzeugs hat. Positiv wäre, wenn das Fahrzeug die Situation nun selbstständig durchfahren kann oder dies Ressourcenschonender tut. Negativ wäre, wenn die Situation durch die neue Software nicht weiter durchfahren wird oder die neue Software zum durchfahren der Situation nicht vom Fahrzeug ausgewählt wird. Dies kann bedeuten, dass auf dem Fahrzeug bereits eine Software installiert ist, welche diese bereits abdeckt.\\
 	
@@ -95,6 +96,26 @@ Wird Software von Software Providern beim Softwareshop eingereicht, durchläuft 
 	\item[5.] \textbf{Kundendienst}\\
 	Zur Steigerung der Kundentreue und -zufriedenheit ist das bereitstellen einer vielzahl von Kundendiensten notwendig. Diese ermöglichen unter anderem das Verwalten und Überwachen installierter Softwares.
 \end{itemize}
-Während all diese Schritte durchlaufen werden, geben die \textit{unterstützenden Aktivitäten} stetig Mehrwerte zu diesen hinzu. Diese werden im folgenden vorgestellt und ihre Rolle im Ablauf der Wertschöpfungskette verdeutlicht.
+Während all diese Schritte durchlaufen werden, geben die \textit{unterstützenden Aktivitäten} stetig Mehrwerte zur Produktion hinzu. Sie sind also \textit{indirekt am Erfolg beteiligt.} Diese werden im folgenden vorgestellt und ihre Rolle im Ablauf der Wertschöpfungskette verdeutlicht.
 \subsubsection{Unterstützende Aktivitäten}\label{unterstd_activities}
-api dok: sicherheitsrichtlinien, simulaztionsplattform etc
+Es gibt Vier Unterstützende Aktivitäten. So ist eine sinnvolle \textbf{Unternehmensinfrastruktur} zu schaffen, mit guter Anbindung zur Außenwelt, schnellem Internet und Mitarbeiter freundlichen Büroräumen, in welchen auch Freizeitaktivitäten möglich sind. Weiterhin gibt es auch die \textbf{Personalwirtschaft}, oder auch Humnan-Resource-Management. Diese beschreiben wichtige, die Mitarbeiter unterstützende Strukturen und Anhaltspunkte.
+\begin{itemize}
+	\item[] \hspace{-0.6cm} \textbf{Weiterbildungen}\\
+	Die kontinuierliche Weiterbildung der Entwickler, so zum Beispiel das gemeinsame lernen neuer Programmiersprachen \& -frameworks, oder auch gemeinsame Entwicklung des eigenen Lifestyles. Weiterbildungen können \textbf{alles} sein, was die Mitarbeiter voran bringt. Nicht nur Aspekte des Arbeitsgebiets sondern auch persönliche Skills tragen maßgebend dazu bei, dass Mitarbeiter aufgrund höherer Zufriedenheit besser arbeiten.\footnote{quelle} Das gemeinsame Lernen einer neuen Programmiersprache für die Back-End Entwicklung unterstützt direkt die (Weiter-)Entwicklung des Shops, welche im Kontext der Operationen durchgeführt wird.
+\end{itemize}
+Im Kontext eines Software Shops ist die stetige \textbf{Technologieentwicklung} wegweisend für den Erfolg des Unternehmens.\footnote{quelle} Hierzu gehört nicht nur die Schaffung von Werten für die innerbetriebliche Wertschöpfungskette, sondern auch die Supply Chain übergreifend Unterstützung der Partner und Kunden.
+
+\begin{itemize}
+	\item[] \hspace{-0.6cm} \textbf{IDE Entwicklung}\\
+	Das entwickeln einer eigenen Entwicklungsumgebung\textit{(IDE)} für die Entwicklung von Software kann sowohl die eigene Softwareentwicklung als auch die anderer Software provider unterstützen. Mit designierten Simulatoren und integrierten Sicherheitschecks könnte der Weg von Idee über Entwicklung hinzu Bereitstellung im Shop verkürzt werden. Diese sollte immer weiterentwickelt werden und neue Funktionen erhalten, die den Entwicklungsvorgang unterstützen oder sogar beschleunigen. Ein Vergleich aus der Realität ist hier Android Studio aber auch die Eclipse IDE, welche in Zusammenarbeit mit Unternehmen aus der ganzen Welt entwickelt wird.
+	
+	\item[] \hspace{-0.6cm} \textbf{Dokumentation und API-Reference}\\
+	Die Entwicklung von Software wird zusätzlich von der Bereitstellung einer ausführlichen API-Reference und einer technischen Dokumentation (mit Beispielen) positiv unterstützt. Die API-Reference sollte alle Funktionen von Klassen ausführlich beschreiben und im Nutzungskontext vorstellen. Diagramme unterstützen zusätzlich das Verständnis der API. Eine technische Dokumentation kann sehr vielfältig sein. Um die Entwicklung neuer Softwares voranzutreiben ist es Sinnvoll eine Einführung \textit{('Getting Started Guide')} in die Entwicklung von Softwares für ein Fahrzeug zu geben. Google stellt in diesem Kontext das \textit{Android Jetpack}\footnote{https://developer.android.com/jetpack} sowie weitere Dokumentationen mit Anleitungen und Videos zur Verfügung.\footnote{https://developer.android.com/guide}. Auch und vor allem sollten hier die Sicherheitskriterien welche im Kontext der Wertschöpfungskette in Abschnitt \ref{security} erwähnt wurden vorgestellt werden. Tipps und Tricks und zu beachtende Dinge sollten hier zu finden sein.
+	
+	\item[] \hspace{-0.6cm} \textbf{Entwicklung von Analyse-Tools}\\
+	Um Statistiken bzgl. der Softwarenutzung überblicken zu können, sollten Analyse-Tools entwickelt werden. Dank einer Web-App, über welche Software Provider generelle\textit{(Nutzung in H je Tag)} und auch spezifischere\textit{(Button-Clicks)} Statistiken ihrer Softwares sehen können, wären Entwickler dazu in der Lage ihre Software zu verbessern.
+	
+	\item[] \hspace{-0.6cm} \textbf{API-Entwicklung}\\
+	Neben einer ausführlichen API-Reference, muss die API selber stets erweitert werden. Hier gibt es zum einen die Software-API. Über diese müssen Systeme des Fahrzeugs angesteuert werden können und im generellen auch festgelegt werden wie die Software angesteuert wird. Die Weiterentwicklung der Software-API kann das ansteuern neuer Automarken oder die Anbindung an eine neue Schnittstelle umfassen. 
+\end{itemize}
+Die letzte unterstützende Aktivität ist die \textbf{Beschaffung}. Ihre Aufgabe ist, dass alle Mitarbeiter mit den nötigen Materialien, das heißt Computern, Tastaturen, Stiften oder anderem versorgt werden.\\\\

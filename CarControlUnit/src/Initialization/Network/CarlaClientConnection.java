@@ -116,7 +116,7 @@ public class CarlaClientConnection implements IConnectionClient {
                 e.printStackTrace();
             }
         } else{
-            System.err.println("MMS not connected - what a bummer.");
+            System.err.println("Carla not connected - what a bummer.");
         }
     }
 }
