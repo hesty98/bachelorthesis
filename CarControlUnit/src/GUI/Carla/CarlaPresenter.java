@@ -30,6 +30,13 @@ import java.util.ResourceBundle;
  */
 public class CarlaPresenter implements Initializable {
 
+
+    public static final String CAR_1_ID = "CAR-LA-1";
+    public static final String CAR_1_MANIFEST =
+            "software:\r\n" +
+                    "  DriveAutomaticBasic: 1.0\r\n" +
+                    "  DriveInMcDonalds: 1.2\r\n";
+
     //TODO: edit this according to your local Carla.exe/Carla.sh
     private static final String PATH =
             "D:\\Carla";

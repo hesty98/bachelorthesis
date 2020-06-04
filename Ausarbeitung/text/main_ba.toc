@@ -14,16 +14,16 @@
 \contentsline {subsubsection}{\numberline {2.4.1}Arbeitsmethodik: User-Centered-Design}{16}{subsubsection.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.4.2}Tech-Scouting}{19}{subsubsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.5}Ausblick und erstes Konzept der praktischen Umsetzung}{20}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Der Markt neuer Fahrumfänge}{24}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Business Model Canvas}{25}{subsection.3.1}%
+\contentsline {section}{\numberline {3}Das Business Model Canvas und Wertschöpfungskette}{24}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Business Model Canvas}{24}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Kundensegmente}{25}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Kundenbeziehungen}{26}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Marketingkanäle}{27}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.3}Marketingkanäle}{26}{subsubsection.3.1.3}%
 \contentsline {subsubsection}{\numberline {3.1.4}Nutzenversprechen}{27}{subsubsection.3.1.4}%
 \contentsline {subsubsection}{\numberline {3.1.5}Einnahmequellen}{28}{subsubsection.3.1.5}%
 \contentsline {subsubsection}{\numberline {3.1.6}Schlüsselressourcen}{28}{subsubsection.3.1.6}%
-\contentsline {subsubsection}{\numberline {3.1.7}Schlüsselaktivitäten}{29}{subsubsection.3.1.7}%
-\contentsline {subsubsection}{\numberline {3.1.8}Schlüsselpartner}{30}{subsubsection.3.1.8}%
+\contentsline {subsubsection}{\numberline {3.1.7}Schlüsselaktivitäten}{28}{subsubsection.3.1.7}%
+\contentsline {subsubsection}{\numberline {3.1.8}Schlüsselpartner}{29}{subsubsection.3.1.8}%
 \contentsline {subsubsection}{\numberline {3.1.9}Kostenstruktur}{30}{subsubsection.3.1.9}%
 \contentsline {subsection}{\numberline {3.2}Konzept einer Wertschöpfungskette}{31}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Primäre Aktivitäten}{31}{subsubsection.3.2.1}%
@@ -43,9 +43,11 @@
 \contentsline {subsubsection}{\numberline {5.1.1}Architektur der Software Applikation Managers (SAM)}{49}{subsubsection.5.1.1}%
 \contentsline {subsubsection}{\numberline {5.1.2}Architektur des OEM-Servers (Server)}{50}{subsubsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.2}Installation}{50}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Funktionen und Nutzung des Prototypen}{50}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Starten der Einzelsysteme}{50}{subsubsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.4}Analyse der Prototypen und Ausblicke der Weiterentwicklung}{50}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Resumé}{51}{section.6}%
-\contentsline {section}{\numberline {7}Ausblick}{51}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Konzept Individuelle Darstellung von Softwares im Shop}{51}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {5.2.1}Server und SAM Installation}{51}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}MMS Installation}{51}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Carla Installation}{52}{subsubsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.3}Nutzung des Prototypen}{53}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Analyse des Prototypen und Ausblick auf die Weiterentwicklung}{54}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Resumé}{56}{section.6}%
+\contentsline {section}{\numberline {7}Ausblick}{56}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Konzept Individuelle Darstellung von Softwares im Shop}{56}{subsection.7.1}%

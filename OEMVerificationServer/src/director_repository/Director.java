@@ -47,11 +47,31 @@ public class Director {
 
     @Subscribe
     public void handleSWInstallRequest(SoftwareInstallRequest softwareInstallRequest){
+        String manifest ="";
+        try{
+            manifest =InventoryDatabase.getInstance().getManifestByKey(InventoryDatabase.CAR_1_ID);
+
+            // Verification as described here: https://uptane.github.io/papers/uptane-standard.1.0.1.html#directing-installation-of-images-on-vehicles
+            if(!manifest.equals(softwareInstallRequest.getVehicleManifest())){
+                prepareSoftware(softwareInstallRequest, false);
+            }else{
+                prepareSoftware(softwareInstallRequest, true);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void prepareSoftware(SoftwareInstallRequest softwareInstallRequest, boolean verified) {
         try {
+            //Todo: Software verifizieren
             //Load the required Software from Database
             Software required = SoftwareDatabase.getInstance().getSoftwareByKey(softwareInstallRequest.getSoftwareID());
+
             String manifest = softwareInstallRequest.getVehicleManifest();
-            manifest += manifest+ "SW\r\n  id: "+required.getSoftwareID()+"\r\n  version: "+required.getVersion()+"\r\n \r\n";
+            if(verified) {
+                manifest += manifest + "  " + required.getSoftwareID() + ": " + required.getVersion() + "\r\n";
+            }
             SoftwareInstallationPackage pkg = new SoftwareInstallationPackage(required.getSoftwareID(), required, required.getProvider(), manifest);
             softwareInstallRequest.getCtx().writeAndFlush(pkg);
         }catch (Exception e){
