@@ -30,11 +30,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.46</version>
         </dependency>
-        <dependency>
-            <groupId>com.airhacks</groupId>
-            <artifactId>afterburner.fx</artifactId>
-            <version>1.7.0</version>
-        </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.goo gle.inject/guice -->
         <dependency>
             <groupId>com.google.inject</groupId>
@@ -55,5 +51,10 @@
             <version>20200518</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.airhacks</groupId>
+            <artifactId>afterburner.fx</artifactId>
+            <version>1.7.0</version>
+        </dependency>
     </dependencies>
 </project>
