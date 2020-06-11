@@ -25,29 +25,30 @@
 \BOOKMARK [3][-]{subsubsection.3.1.7}{Schl\374sselaktivit\344ten}{subsection.3.1}% 25
 \BOOKMARK [3][-]{subsubsection.3.1.8}{Schl\374sselpartner}{subsection.3.1}% 26
 \BOOKMARK [3][-]{subsubsection.3.1.9}{Kostenstruktur}{subsection.3.1}% 27
-\BOOKMARK [2][-]{subsection.3.2}{Konzept einer Wertsch\366pfungskette}{section.3}% 28
+\BOOKMARK [2][-]{subsection.3.2}{Die Supply Chain und die Wertsch\366pfungskette}{section.3}% 28
 \BOOKMARK [3][-]{subsubsection.3.2.1}{Prim\344re Aktivit\344ten}{subsection.3.2}% 29
 \BOOKMARK [3][-]{subsubsection.3.2.2}{Unterst\374tzende Aktivit\344ten}{subsection.3.2}% 30
 \BOOKMARK [2][-]{subsection.3.3}{Zusammenfassung}{section.3}% 31
 \BOOKMARK [1][-]{section.4}{Technische Konzepte}{}% 32
 \BOOKMARK [2][-]{subsection.4.1}{Klassifizierung von Software}{section.4}% 33
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Berechtigungen und Details}{subsection.4.1}% 34
-\BOOKMARK [3][-]{subsubsection.4.1.2}{Softwarekennzahlen}{subsection.4.1}% 35
-\BOOKMARK [2][-]{subsection.4.2}{Kommunikationsprotokoll}{section.4}% 36
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Kommunikationsprotokoll: Selbstst\344ndiger Softwarekauf}{subsection.4.2}% 37
-\BOOKMARK [3][-]{subsubsection.4.2.2}{Kommunikationsprotokoll: Installationsvorschlag von Service Provider}{subsection.4.2}% 38
-\BOOKMARK [3][-]{subsubsection.4.2.3}{Kommunikationsprotokoll: Nutzung eines Service}{subsection.4.2}% 39
-\BOOKMARK [2][-]{subsection.4.3}{Ausblick}{section.4}% 40
-\BOOKMARK [1][-]{section.5}{Vorstellung des Prototypen}{}% 41
-\BOOKMARK [2][-]{subsection.5.1}{Architektur des Prototypen}{section.5}% 42
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Architektur der Software Applikation Managers \(SAM\)}{subsection.5.1}% 43
-\BOOKMARK [3][-]{subsubsection.5.1.2}{Architektur des OEM-Servers \(Server\)}{subsection.5.1}% 44
-\BOOKMARK [2][-]{subsection.5.2}{Installation}{section.5}% 45
-\BOOKMARK [3][-]{subsubsection.5.2.1}{Server und SAM Installation}{subsection.5.2}% 46
-\BOOKMARK [3][-]{subsubsection.5.2.2}{MMS Installation}{subsection.5.2}% 47
-\BOOKMARK [3][-]{subsubsection.5.2.3}{Carla Installation}{subsection.5.2}% 48
-\BOOKMARK [2][-]{subsection.5.3}{Nutzung des Prototypen}{section.5}% 49
-\BOOKMARK [2][-]{subsection.5.4}{Analyse des Prototypen und Ausblick auf die Weiterentwicklung}{section.5}% 50
-\BOOKMARK [1][-]{section.6}{Resum\351}{}% 51
-\BOOKMARK [1][-]{section.7}{Ausblick}{}% 52
-\BOOKMARK [2][-]{subsection.7.1}{Konzept Individuelle Darstellung von Softwares im Shop}{section.7}% 53
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Berechtigungen}{subsection.4.1}% 34
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Abgeleitete Kennzahlen}{subsection.4.1}% 35
+\BOOKMARK [2][-]{subsection.4.2}{Umgebungsbedingte Softwaresuche}{section.4}% 36
+\BOOKMARK [2][-]{subsection.4.3}{Kommunikationsprotokolle}{section.4}% 37
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Kommunikationsprotokoll: Selbstst\344ndiger Softwarekauf}{subsection.4.3}% 38
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Kommunikationsprotokoll: Installationsvorschlag vom Service Provider}{subsection.4.3}% 39
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Kommunikationsprotokoll: Nutzung eines Service}{subsection.4.3}% 40
+\BOOKMARK [2][-]{subsection.4.4}{Ausblick}{section.4}% 41
+\BOOKMARK [1][-]{section.5}{Vorstellung des Prototypen}{}% 42
+\BOOKMARK [2][-]{subsection.5.1}{Architektur des Prototypen}{section.5}% 43
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Architektur des Software Applikation Managers \(SAM\)}{subsection.5.1}% 44
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Architektur des OEM-Servers \(Server\)}{subsection.5.1}% 45
+\BOOKMARK [2][-]{subsection.5.2}{Installation}{section.5}% 46
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Server und SAM Installation}{subsection.5.2}% 47
+\BOOKMARK [3][-]{subsubsection.5.2.2}{MMS Installation}{subsection.5.2}% 48
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Carla Installation}{subsection.5.2}% 49
+\BOOKMARK [2][-]{subsection.5.3}{Nutzung des Prototypen}{section.5}% 50
+\BOOKMARK [2][-]{subsection.5.4}{Analyse des Prototypen und Ausblick auf die Weiterentwicklung}{section.5}% 51
+\BOOKMARK [1][-]{section.6}{Resum\351}{}% 52
+\BOOKMARK [1][-]{section.7}{Ausblick}{}% 53
+\BOOKMARK [2][-]{subsection.7.1}{Konzept Individuelle Darstellung von Softwares im Shop}{section.7}% 54
