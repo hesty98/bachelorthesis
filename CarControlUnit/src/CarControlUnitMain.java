@@ -1,6 +1,9 @@
+package main.java;
+
 import GUI.Main.MainPresenter;
 import GUI.Main.MainView;
 import Car.MessageHandler;
+import Messages.CarlaMessage;
 import com.google.common.eventbus.EventBus;
 import com.airhacks.afterburner.injection.Injector;
 import javafx.application.Application;
@@ -36,6 +39,7 @@ public class CarControlUnitMain extends Application {
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
+                MessageHandler.getInstance().sendToCarla(new CarlaMessage(6));
                 Platform.exit();
                 System.exit(0);
             }

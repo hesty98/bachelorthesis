@@ -117,7 +117,7 @@ public class MessageHandler {
     @Subscribe
     public void waitForVerification(SoftwareContentMessage softwareContentMessage){
         messageHandlerPresenter.printToReceived(
-                     "\nReceived SoftwareContentMessage. " +
+                     "Received SoftwareContentMessage. " +
                         "\n     Providor: "+ softwareContentMessage.getProvider().getProviderName()+
                         "\n     Description: "+ softwareContentMessage.getDesc().getDescription());
 
@@ -140,8 +140,8 @@ public class MessageHandler {
 
     @Subscribe
     public void handleActionCommand(ServiceActionCommand cmd){
-        messageHandlerPresenter.printToReceived("\n"
-                + "Received ServiceActionCommand. Creating verified Message and forwarding to carla."
+        messageHandlerPresenter.printToReceived(
+                "Received ServiceActionCommand. Creating verified Message and forwarding to carla."
         );
         final String serviceSWID =cmd.getRequiredSWID();
         Software handlingSW = mgr.getSoftware(serviceSWID);
@@ -158,22 +158,22 @@ public class MessageHandler {
         Software handlingSW = mgr.getSoftware(serviceSoftwareID);
         if(handlingSW!=null) {
             //Todo: in handleMessage der Softwares muss die id des genutzten Angebots ausgewertet werden.
-            handlingSW.handleMessage(serviceDecisionMessage);
+            //handlingSW.handleMessage(serviceDecisionMessage);
         }else{
             System.err.println("No Software handling the message. -> MessageHandler");
         }
         if(serviceDecisionMessage.isAccepted()) {
             messageHandlerPresenter.printToReceived(
-                            "\nDriver accepted to use the Service! Forwarding message to Carla-Environment."
+                            "Driver accepted to use the Service! Forwarding message to Carla-Environment."
             );
             carlaPresenter.printToEnvironment(
-                    "\nDriver accepted to use the Service! Ready to send the ServiceActionCommand");
+                    "Driver accepted to use the Service! Ready to send the ServiceActionCommand");
 
             carlaPresenter.currentStage = CarlaPresenter.STAGE.CAR_ACCEPTED_SERVICE;
             carlaPresenter.setUpButtons();
         }else{
             messageHandlerPresenter.printToReceived(
-                            "\nDriver did not accept to use the Service! Forwarding message to Carla-Environment (TODO)."
+                            "Driver did not accept to use the Service! Forwarding message to Carla-Environment (TODO)."
             );
             carlaPresenter.currentStage = CarlaPresenter.STAGE.CAR_DECLINED_SERVICE;
             carlaPresenter.setUpButtons();
