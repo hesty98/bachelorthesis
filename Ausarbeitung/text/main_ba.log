@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.3.29)  11 JUN 2020 11:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.3.29)  14 JUN 2020 10:18
 entering extended mode
 **./main_ba.tex
 (main_ba.tex
@@ -820,18 +820,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = `main_ba.toc'.
 
  [4]
-(text/einleitung.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-
- []
-
-)
-Underfull \hbox (badness 10000) in paragraph at lines 7--107
+(text/einleitung.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 3--107
 
  []
 
@@ -886,7 +876,7 @@ l.1 \subsection
 
 LaTeX Warning: Citation `b35' on page 3 undefined on input line 4.
 
-<../text/forschungsseminar/../pictures/arichtecture_AV.png, id=324, 542.56757pt
+<../text/forschungsseminar/../pictures/arichtecture_AV.png, id=318, 542.56757pt
  x 188.8135pt>
 File: ../text/forschungsseminar/../pictures/arichtecture_AV.png Graphic file (t
 ype png)
@@ -915,7 +905,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
-<../text/forschungsseminar/../pictures/openscenario.jpg, id=330, 456.95718pt x 
+<../text/forschungsseminar/../pictures/openscenario.jpg, id=327, 456.95718pt x 
 487.8225pt>
 File: ../text/forschungsseminar/../pictures/openscenario.jpg Graphic file (type
  jpg)
@@ -956,7 +946,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--46
  []
 
 [6]
-<../text/forschungsseminar/../pictures/umweltanalyse.png, id=345, 720.6925pt x 
+<../text/forschungsseminar/../pictures/umweltanalyse.png, id=342, 720.6925pt x 
 380.42125pt>
 File: ../text/forschungsseminar/../pictures/umweltanalyse.png Graphic file (typ
 e png)
@@ -982,7 +972,7 @@ schungsseminar/../pictures/umweltanalyse.png>]
 LaTeX Warning: Citation `uptane' on page 8 undefined on input line 6.
 
 <../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png, id=35
-3, 616.3025pt x 302.12875pt>
+0, 616.3025pt x 302.12875pt>
 File: ../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png G
 raphic file (type png)
 <use ../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png>
@@ -1013,7 +1003,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
  []
 
 <../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png, id=36
-7, 792.9625pt x 422.57875pt>
+4, 792.9625pt x 422.57875pt>
 File: ../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png G
 raphic file (type png)
 <use ../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png>
@@ -1184,7 +1174,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
 LaTeX Warning: Citation `seibert2008' on page 17 undefined on input line 12.
 
-<../text/forschungsseminar/../pictures/persona1.jpg, id=411, 426.59375pt x 532.
+<../text/forschungsseminar/../pictures/persona1.jpg, id=408, 426.59375pt x 532.
 99126pt>
 File: ../text/forschungsseminar/../pictures/persona1.jpg Graphic file (type jpg
 )
@@ -1210,7 +1200,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--67
 []\T1/cmr/m/n/10 Führerschein seit 47
  []
 
-<../text/forschungsseminar/../pictures/persona2.jpg, id=412, 578.16pt x 722.7pt
+<../text/forschungsseminar/../pictures/persona2.jpg, id=409, 578.16pt x 722.7pt
 >
 File: ../text/forschungsseminar/../pictures/persona2.jpg Graphic file (type jpg
 )
@@ -1252,7 +1242,7 @@ Underfull \hbox (badness 3019) in paragraph at lines 102--103
  []
 
 [17]
-<../text/forschungsseminar/../pictures/persona3.jpg, id=417, 852.786pt x 1281.5
+<../text/forschungsseminar/../pictures/persona3.jpg, id=414, 852.786pt x 1281.5
 88pt>
 File: ../text/forschungsseminar/../pictures/persona3.jpg Graphic file (type jpg
 )
@@ -1316,7 +1306,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
  []
 
 [20]
-<../text/forschungsseminar/../pictures/konzept.png, id=443, 721.69624pt x 661.4
+<../text/forschungsseminar/../pictures/konzept.png, id=440, 721.69624pt x 661.4
 7125pt>
 File: ../text/forschungsseminar/../pictures/konzept.png Graphic file (type png)
 
@@ -1420,7 +1410,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--103
  []
 
 [29]) [30] (text/wsk.tex
-<pictures/konzept-supplychain.png, id=519, 624.3325pt x 151.56625pt>
+<pictures/konzept-supplychain.png, id=516, 624.3325pt x 151.56625pt>
 File: pictures/konzept-supplychain.png Graphic file (type png)
 <use pictures/konzept-supplychain.png>
 Package pdftex.def Info: pictures/konzept-supplychain.png  used on input line 5
@@ -1435,7 +1425,7 @@ s been already used, duplicate ignored
                                                   \fi \fi 
 l.17 	
        <./pictures/konzept-supplychain.png>]
-<pictures/konzept-wsk.png, id=537, 874.26625pt x 506.89375pt>
+<pictures/konzept-wsk.png, id=534, 874.26625pt x 506.89375pt>
 File: pictures/konzept-wsk.png Graphic file (type png)
 <use pictures/konzept-wsk.png>
 Package pdftex.def Info: pictures/konzept-wsk.png  used on input line 23.
@@ -1513,7 +1503,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
  []
 
 ) [38] (text/technische_konzepte.tex
-<pictures/arichtecture_AV.png, id=603, 542.56757pt x 188.8135pt>
+<pictures/arichtecture_AV.png, id=600, 542.56757pt x 188.8135pt>
 File: pictures/arichtecture_AV.png Graphic file (type png)
 <use pictures/arichtecture_AV.png>
 Package pdftex.def Info: pictures/arichtecture_AV.png  used on input line 10.
@@ -1552,7 +1542,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--38
  []
 
 [41]
-<pictures/konzept-Eigene-Installation.png, id=623, 301.125pt x 447.6725pt>
+<pictures/konzept-Eigene-Installation.png, id=620, 301.125pt x 447.6725pt>
 File: pictures/konzept-Eigene-Installation.png Graphic file (type png)
 <use pictures/konzept-Eigene-Installation.png>
 Package pdftex.def Info: pictures/konzept-Eigene-Installation.png  used on inpu
@@ -1565,7 +1555,7 @@ t line 47.
                                                   \fi \fi 
 l.51 \clearpage
                 <./pictures/konzept-Eigene-Installation.png>]
-<pictures/konzept-Installationsprozess.png, id=632, 785.93625pt x 846.16125pt>
+<pictures/konzept-Installationsprozess.png, id=629, 785.93625pt x 846.16125pt>
 File: pictures/konzept-Installationsprozess.png Graphic file (type png)
 <use pictures/konzept-Installationsprozess.png>
 Package pdftex.def Info: pictures/konzept-Installationsprozess.png  used on inp
@@ -1575,7 +1565,7 @@ ut line 57.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<pictures/konzept-Nutzungsprozess.png, id=634, 640.3925pt x 712.6625pt>
+<pictures/konzept-Nutzungsprozess.png, id=631, 640.3925pt x 712.6625pt>
 File: pictures/konzept-Nutzungsprozess.png Graphic file (type png)
 <use pictures/konzept-Nutzungsprozess.png>
 Package pdftex.def Info: pictures/konzept-Nutzungsprozess.png  used on input li
@@ -1655,7 +1645,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--10
  []
 
 (text/vorstellung_des_prototypen.tex
-<pictures/konzept-basic.png, id=654, 372.39125pt x 332.24126pt>
+<pictures/konzept-basic.png, id=651, 372.39125pt x 332.24126pt>
 File: pictures/konzept-basic.png Graphic file (type png)
 <use pictures/konzept-basic.png>
 Package pdftex.def Info: pictures/konzept-basic.png  used on input line 8.
@@ -1674,7 +1664,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
-<pictures/konzept-Common.png, id=660, 664.4825pt x 353.32pt>
+<pictures/konzept-Common.png, id=657, 664.4825pt x 353.32pt>
 File: pictures/konzept-Common.png Graphic file (type png)
 <use pictures/konzept-Common.png>
 Package pdftex.def Info: pictures/konzept-Common.png  used on input line 19.
@@ -1682,7 +1672,7 @@ Package pdftex.def Info: pictures/konzept-Common.png  used on input line 19.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<pictures/konzept-SAM.png, id=662, 584.1825pt x 201.75375pt>
+<pictures/konzept-SAM.png, id=659, 584.1825pt x 201.75375pt>
 File: pictures/konzept-SAM.png Graphic file (type png)
 <use pictures/konzept-SAM.png>
 Package pdftex.def Info: pictures/konzept-SAM.png  used on input line 30.
@@ -1694,7 +1684,7 @@ Package pdftex.def Info: pictures/konzept-SAM.png  used on input line 30.
                                                   \fi \fi 
 l.34 
       <./pictures/konzept-basic.png>]
-<pictures/konzept-OEM-vs.png, id=670, 351.3125pt x 220.825pt>
+<pictures/konzept-OEM-vs.png, id=667, 351.3125pt x 220.825pt>
 File: pictures/konzept-OEM-vs.png Graphic file (type png)
 <use pictures/konzept-OEM-vs.png>
 Package pdftex.def Info: pictures/konzept-OEM-vs.png  used on input line 39.
@@ -1844,22 +1834,22 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 113.
  ) 
 Here is how much of TeX's memory you used:
- 12762 strings out of 480932
- 200344 string characters out of 2909670
+ 12760 strings out of 480932
+ 200327 string characters out of 2909670
  702033 words of memory out of 3000000
- 28061 multiletter control sequences out of 15000+200000
+ 28062 multiletter control sequences out of 15000+200000
  551029 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 50i,15n,57p,1930b,459s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,15n,57p,1930b,458s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 ectt1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\tcti1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
 /jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts
 /pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\linus\AppData\Local\MiKTeX
-\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\linus\AppData\Lo
-cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\linus\
-AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Us
-ers\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.
+\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\linus\AppData\Lo
+cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\linus\
+AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Us
+ers\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.
 pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
 \ecbx1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen
 /ec/dpi600\ecbx1440.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfou
@@ -1868,9 +1858,9 @@ s/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\linus\AppData\Local\MiKTe
 X\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\linus\AppData\L
 ocal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\linus
 \AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on main_ba.pdf (62 pages, 6264093 bytes).
+Output written on main_ba.pdf (62 pages, 6263386 bytes).
 PDF statistics:
- 1455 PDF objects out of 1728 (max. 8388607)
- 209 named destinations out of 1000 (max. 500000)
+ 1450 PDF objects out of 1728 (max. 8388607)
+ 206 named destinations out of 1000 (max. 500000)
  533 words of extra memory for PDF output out of 10000 (max. 10000000)
 
