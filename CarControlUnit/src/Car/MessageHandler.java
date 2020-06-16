@@ -1,8 +1,5 @@
 package Car;
 
-import Actions.GoAwayAction;
-import Actions.TargetAction;
-import EnvironmentObjects.IConnectionClient;
 import EnvironmentObjects.Software.Software;
 import GUI.CCUMessageHandler.MessageHandlerPresenter;
 import GUI.Carla.CarlaPresenter;
@@ -11,7 +8,6 @@ import Initialization.Network.MMSClientConnection;
 import Initialization.Network.NetworkConfig;
 import Initialization.Network.OEMVerificationServerConnection.NettyClientInitializer;
 import Initialization.Network.OEMVerificationServerConnection.NettyConnectionClient;
-import Messages.*;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 import Messages.*;

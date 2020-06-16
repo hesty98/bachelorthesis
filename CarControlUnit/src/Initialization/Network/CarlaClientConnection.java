@@ -1,8 +1,5 @@
 package Initialization.Network;
 
-import EnvironmentObjects.IConnectionClient;
-import Messages.CarlaMessage;
-import Messages.IMessage;
 import com.google.common.eventbus.EventBus;
 import org.json.JSONObject;
 

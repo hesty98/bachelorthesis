@@ -1,9 +1,5 @@
 package EnvironmentObjects.Software;
 
-import EnvironmentObjects.IConnectionClient;
-import EnvironmentObjects.Description;
-import EnvironmentObjects.Provider;
-
 import java.util.ArrayList;
 
 public abstract class Software implements ISoftware {

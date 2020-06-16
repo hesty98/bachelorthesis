@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.3.29)  14 JUN 2020 10:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.3.29)  14 JUN 2020 16:00
 entering extended mode
 **./main_ba.tex
 (main_ba.tex
@@ -616,11 +616,52 @@ File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\babel.sty"
+Package: babel 2020/03/22 3.42 The Babel package
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\switch.def"
+File: switch.def 2020/03/22 3.42 Babel switching mechanism
 )
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex/latex/arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/babel-english\english.ldf"
+Language: english 2017/06/06 v3.3r English support from the babel system
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\babel.def"
+File: babel.def 2020/03/22 3.42 Babel common definitions
+\babel@savecnt=\count328
+\U@D=\dimen186
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\txtbabel.def")
+\bbl@readstream=\read2
+\bbl@dirlevel=\count329
+)
+Package babel Info: \l@canadian = using hyphenrules for english
+(babel)             (\language0) on input line 102.
+Package babel Info: \l@australian = using hyphenrules for ukenglish
+(babel)             (\language72) on input line 105.
+Package babel Info: \l@newzealand = using hyphenrules for ukenglish
+(babel)             (\language72) on input line 108.
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/babel-german\ngerman.ldf"
+Language: ngerman 2018/12/08 v2.11 German support for babel (post-1996 orthogra
+phy)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/babel-german\ngermanb.ldf"
+Language: ngermanb 2018/12/08 v2.11 German support for babel (post-1996 orthogr
+aphy)
+Package babel Info: Making " an active character on input line 121.
+))))
 ("C:\Program Files\MiKTeX 2.9\tex/latex/wrapfig\wrapfig.sty"
-\wrapoverhang=\dimen186
-\WF@size=\dimen187
-\c@WF@wrappedlines=\count328
+\wrapoverhang=\dimen187
+\WF@size=\dimen188
+\c@WF@wrappedlines=\count330
 \WF@box=\box64
 \WF@everypar=\toks31
 Package: wrapfig 2003/01/31  v 3.6
@@ -651,16 +692,16 @@ LaTeX Font Info:    ... okay on input line 52.
 
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count329
-\scratchdimen=\dimen188
+\scratchcounter=\count331
+\scratchdimen=\dimen189
 \scratchbox=\box66
-\nofMPsegments=\count330
-\nofMParguments=\count331
+\nofMPsegments=\count332
+\nofMParguments=\count333
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count332
-\MPscratchDim=\dimen189
-\MPnumerator=\count333
-\makeMPintoPDFobject=\count334
+\MPscratchCnt=\count334
+\MPscratchDim=\dimen190
+\MPnumerator=\count335
+\makeMPintoPDFobject=\count336
 \everyMPtoPDFconversion=\toks33
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -713,7 +754,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/gettitlestring\gettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count335
+\c@section@level=\count337
 )
 LaTeX Info: Redefining \ref on input line 52.
 LaTeX Info: Redefining \pageref on input line 52.
@@ -723,8 +764,8 @@ LaTeX Info: Redefining \nameref on input line 52.
 \@outlinefile=\write3
 \openout3 = `main_ba.out'.
 
-\c@lstlisting=\count336
-<pictures/uol_logo.png, id=219, 198.7425pt x 126.4725pt>
+\c@lstlisting=\count338
+<pictures/uol_logo.png, id=215, 198.7425pt x 126.4725pt>
 File: pictures/uol_logo.png Graphic file (type png)
 <use pictures/uol_logo.png>
 Package pdftex.def Info: pictures/uol_logo.png  used on input line 59.
@@ -805,11 +846,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 94--101
  []
 
 [2] (main_ba.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -820,8 +861,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = `main_ba.toc'.
 
  [4]
-(text/einleitung.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 3--107
+(main_ba.lof)
+\tf@lof=\write5
+\openout5 = `main_ba.lof'.
+
+ [5
+
+] (text/einleitung.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 3--111
 
  []
 
@@ -829,35 +876,19 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.107 \clearpage
+l.111 \clearpage
                  [1
 
 ] (forschungsseminar/main_fs/main_fs_short.tex
 (../text/forschungsseminar/einleitung_neu.tex
-
-LaTeX Warning: Citation `uniStuttgart' on page 2 undefined on input line 3.
-
-
-LaTeX Warning: Citation `vda' on page 2 undefined on input line 3.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 2--4
 
  []
 
 
-LaTeX Warning: Citation `vda' on page 2 undefined on input line 5.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
-
-
-LaTeX Warning: Citation `vda' on page 2 undefined on input line 7.
-
-
-LaTeX Warning: Citation `bmd' on page 2 undefined on input line 7.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 7--8
@@ -873,10 +904,7 @@ l.1 \subsection
                {Bedarfserkennung von Software}\label{bedarfserkennung} [2
 
 ]
-
-LaTeX Warning: Citation `b35' on page 3 undefined on input line 4.
-
-<../text/forschungsseminar/../pictures/arichtecture_AV.png, id=318, 542.56757pt
+<../text/forschungsseminar/../pictures/arichtecture_AV.png, id=365, 542.56757pt
  x 188.8135pt>
 File: ../text/forschungsseminar/../pictures/arichtecture_AV.png Graphic file (t
 ype png)
@@ -884,9 +912,6 @@ ype png)
 Package pdftex.def Info: ../text/forschungsseminar/../pictures/arichtecture_AV.
 png  used on input line 9.
 (pdftex.def)             Requested size: 448.42824pt x 156.0525pt.
-
-LaTeX Warning: Citation `jschneider' on page 3 undefined on input line 10.
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -894,18 +919,11 @@ been already used, duplicate ignored
 l.12 D
       er Fahrer gibt dem Auto initial ein \textit{Ziel}, mit Hilfe dessen da...
 [3]
-
-LaTeX Warning: Citation `b35' on page 4 undefined on input line 16.
-
-
-LaTeX Warning: Citation `b35' on page 4 undefined on input line 17.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
-<../text/forschungsseminar/../pictures/openscenario.jpg, id=327, 456.95718pt x 
+<../text/forschungsseminar/../pictures/openscenario.jpg, id=377, 456.95718pt x 
 487.8225pt>
 File: ../text/forschungsseminar/../pictures/openscenario.jpg Graphic file (type
  jpg)
@@ -913,9 +931,6 @@ File: ../text/forschungsseminar/../pictures/openscenario.jpg Graphic file (type
 Package pdftex.def Info: ../text/forschungsseminar/../pictures/openscenario.jpg
   used on input line 22.
 (pdftex.def)             Requested size: 472.03125pt x 503.92917pt.
-
-LaTeX Warning: Citation `b35' on page 4 undefined on input line 23.
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -929,24 +944,25 @@ has been already used, duplicate ignored
                                                   \fi \fi 
 l.25 O
       penScenario ist aus mehreren GrÃ¼nden gut geeignet um als Kommunikatio...
- <../text/forschungsseminar/../pictures/arichtecture_AV.png>] [5pdfTeX warning 
-(ext4): destination with the same identifier (name{figure.2}) has been already 
-used, duplicate ignored
+ <../text/forschungsseminar/../pictures/arichtecture_AV.png>]pdfTeX warning (ex
+t4): destination with the same identifier (name{page.5}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.27 
+      [5pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.27 
       <../text/forschungsseminar/../pictures/openscenario.jpg>]
-
-LaTeX Warning: Citation `stelter' on page 6 undefined on input line 40.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 44--46
 
  []
 
 [6]
-<../text/forschungsseminar/../pictures/umweltanalyse.png, id=342, 720.6925pt x 
+<../text/forschungsseminar/../pictures/umweltanalyse.png, id=392, 720.6925pt x 
 380.42125pt>
 File: ../text/forschungsseminar/../pictures/umweltanalyse.png Graphic file (typ
 e png)
@@ -968,23 +984,14 @@ e ignored
 l.1 \subsection
                {Bereitstellung von Software}\label{bereitstellung} <../text/for
 schungsseminar/../pictures/umweltanalyse.png>]
-
-LaTeX Warning: Citation `uptane' on page 8 undefined on input line 6.
-
-<../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png, id=35
-0, 616.3025pt x 302.12875pt>
+<../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png, id=40
+1, 616.3025pt x 302.12875pt>
 File: ../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png G
 raphic file (type png)
 <use ../text/forschungsseminar/../pictures/meta_model_fs-uptane-original.png>
 Package pdftex.def Info: ../text/forschungsseminar/../pictures/meta_model_fs-up
 tane-original.png  used on input line 10.
 (pdftex.def)             Requested size: 448.42824pt x 219.83759pt.
-
-LaTeX Warning: Citation `uptane' on page 8 undefined on input line 12.
-
-
-LaTeX Warning: Citation `uptane' on page 8 undefined on input line 17.
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 15--18
 
@@ -1002,20 +1009,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-<../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png, id=36
-4, 792.9625pt x 422.57875pt>
+<../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png, id=41
+5, 792.9625pt x 422.57875pt>
 File: ../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png G
 raphic file (type png)
 <use ../text/forschungsseminar/../pictures/meta_model_fs-uptane-adjusted.png>
 Package pdftex.def Info: ../text/forschungsseminar/../pictures/meta_model_fs-up
 tane-adjusted.png  used on input line 25.
 (pdftex.def)             Requested size: 448.42824pt x 238.97667pt.
-
-Overfull \hbox (6.897pt too wide) in paragraph at lines 23--27
-\T1/cmr/m/n/10 geeignete Kom-mu-nika-tion-s-grund-lage. Hi-erzu soll das zu-vor
- vorgestellte Open-SCE-NARIO XML-Speicherformat
- []
-
 [9]
 Underfull \hbox (badness 10000) in paragraph at lines 28--30
 
@@ -1044,21 +1045,9 @@ Overfull \hbox (1.89561pt too wide) in paragraph at lines 93--93
  []
 
 
-LaTeX Warning: Citation `Spindler2016' on page 12 undefined on input line 98.
-
-
-LaTeX Warning: Citation `b5' on page 12 undefined on input line 99.
-
-
-LaTeX Warning: Citation `b5' on page 12 undefined on input line 99.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 95--100
 
  []
-
-
-LaTeX Warning: Citation `b5' on page 12 undefined on input line 101.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 101--102
@@ -1066,27 +1055,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--102
  []
 
 [12]
-
-LaTeX Warning: Citation `vkPsy' on page 13 undefined on input line 103.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
 
-LaTeX Warning: Citation `vkPsy' on page 13 undefined on input line 106.
-
-
-LaTeX Warning: Citation `vkPsy' on page 13 undefined on input line 109.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 105--113
 
  []
-
-
-LaTeX Warning: Citation `vkPsy' on page 13 undefined on input line 115.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 115--119
@@ -1099,18 +1075,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 121--125
  []
 
 
-LaTeX Warning: Citation `vkPsy' on page 14 undefined on input line 127.
-
-
-LaTeX Warning: Citation `vkPsy' on page 14 undefined on input line 130.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
-
-
-LaTeX Warning: Citation `meetolli' on page 14 undefined on input line 134.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 134--135
@@ -1127,43 +1094,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
-
-LaTeX Warning: Citation `b16' on page 15 undefined on input line 146.
-
-
-LaTeX Warning: Citation `meetolli' on page 15 undefined on input line 149.
-
 ) (../text/forschungsseminar/technologie_scouting_und_methodik.tex [15]
-
-LaTeX Warning: Citation `bainbridge2004berkshire' on page 16 undefined on input
- line 4.
-
-
-LaTeX Warning: Citation `rosenbusch' on page 16 undefined on input line 4.
-
-
-LaTeX Warning: Citation `weisgerber' on page 16 undefined on input line 4.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
-
-
-LaTeX Warning: Citation `seobility' on page 16 undefined on input line 6.
-
-
-LaTeX Warning: Citation `usability-toolkit' on page 16 undefined on input line 
-7.
-
-
-LaTeX Warning: Citation `seobility' on page 16 undefined on input line 7.
-
-
-LaTeX Warning: Citation `seobility' on page 16 undefined on input line 7.
-
-
-LaTeX Warning: Citation `seobility' on page 16 undefined on input line 7.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 6--8
@@ -1171,10 +1105,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
  []
 
 [16]
-
-LaTeX Warning: Citation `seibert2008' on page 17 undefined on input line 12.
-
-<../text/forschungsseminar/../pictures/persona1.jpg, id=408, 426.59375pt x 532.
+<../text/forschungsseminar/../pictures/persona1.jpg, id=490, 426.59375pt x 532.
 99126pt>
 File: ../text/forschungsseminar/../pictures/persona1.jpg Graphic file (type jpg
 )
@@ -1183,11 +1114,8 @@ Package pdftex.def Info: ../text/forschungsseminar/../pictures/persona1.jpg  us
 ed on input line 46.
 (pdftex.def)             Requested size: 94.4048pt x 117.94972pt.
 
-LaTeX Warning: Citation `persona1' on page 17 undefined on input line 49.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 57--58
-[]\T1/cmr/m/n/10 Rentner; Tax-i-un-
+[]\T1/cmr/m/n/10 Rentner; Ta-xi-un-ter-neh-
  []
 
 
@@ -1195,12 +1123,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--60
 []\T1/cmr/m/n/10 Handwerklich be-gabt,
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
-[]\T1/cmr/m/n/10 Führerschein seit 47
- []
-
-<../text/forschungsseminar/../pictures/persona2.jpg, id=409, 578.16pt x 722.7pt
+<../text/forschungsseminar/../pictures/persona2.jpg, id=492, 578.16pt x 722.7pt
 >
 File: ../text/forschungsseminar/../pictures/persona2.jpg Graphic file (type jpg
 )
@@ -1209,40 +1132,22 @@ Package pdftex.def Info: ../text/forschungsseminar/../pictures/persona2.jpg  us
 ed on input line 78.
 (pdftex.def)             Requested size: 94.4048pt x 118.00526pt.
 
-LaTeX Warning: Citation `persona2' on page 17 undefined on input line 81.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 83--84
 []\T1/cmr/m/n/10 Englisch, Rus-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 84--85
-[]\T1/cmr/m/n/10 Ausgebildeter Cy-ber-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-[]\T1/cmr/m/n/10 Geschieden, ein Kind
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
-[]\T1/cmr/m/n/10 Führerschein seit 27
+[]\T1/cmr/m/n/10 Ausgebildeter Cy-ber-ha-
  []
 
 
 Underfull \hbox (badness 1975) in paragraph at lines 101--102
-[]\T1/cmr/m/n/10 Hat gerne die Kon-trolle
- []
-
-
-Underfull \hbox (badness 3019) in paragraph at lines 102--103
-[]\T1/cmr/m/n/10 Fährt einen Wa-gen des
+[]\T1/cmr/m/n/10 Hat ger-ne die Kon-trol-le
  []
 
 [17]
-<../text/forschungsseminar/../pictures/persona3.jpg, id=414, 852.786pt x 1281.5
+<../text/forschungsseminar/../pictures/persona3.jpg, id=499, 852.786pt x 1281.5
 88pt>
 File: ../text/forschungsseminar/../pictures/persona3.jpg Graphic file (type jpg
 )
@@ -1251,27 +1156,23 @@ Package pdftex.def Info: ../text/forschungsseminar/../pictures/persona3.jpg  us
 ed on input line 115.
 (pdftex.def)             Requested size: 94.4048pt x 141.8551pt.
 
-
-LaTeX Warning: Citation `persona3' on page 18 undefined on input line 118.
-
-
-Underfull \hbox (badness 5985) in paragraph at lines 118--119
-[]\T1/cmr/m/n/10 Chi Nguyen, 24 Jahre
+Underfull \hbox (badness 7595) in paragraph at lines 118--119
+[]\T1/cmr/m/n/10 Chi Nguy-en, 24 Jah-re
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 120--121
-[]\T1/cmr/m/n/10 Vietnamesisch, Ital-
+[]\T1/cmr/m/n/10 Vietnamesisch, Ita-lie-
+ []
+
+
+Underfull \hbox (badness 7649) in paragraph at lines 120--121
+\T1/cmr/m/n/10 nisch(Flieÿend), Eng-lisch
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 126--127
-[]\T1/cmr/m/n/10 Studentin, Stadt-führerin
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
-[]\T1/cmr/m/n/10 Ist mit viel Tech-nik
+[]\T1/cmr/m/n/10 Studentin, Stadt-füh-re-rin
  []
 
 
@@ -1306,7 +1207,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
  []
 
 [20]
-<../text/forschungsseminar/../pictures/konzept.png, id=440, 721.69624pt x 661.4
+<../text/forschungsseminar/../pictures/konzept.png, id=529, 721.69624pt x 661.4
 7125pt>
 File: ../text/forschungsseminar/../pictures/konzept.png Graphic file (type png)
 
@@ -1347,19 +1248,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
 ) (text/bmc.tex [24
 
-]
-Overfull \hbox (4.43573pt too wide) in paragraph at lines 6--8
-\T1/cmr/m/n/10 ternehmen die ihren Mi-tar-beit-ern Leas-ing-wa-gen bere-it-stel
-len, aber auch weit-ere wie Car-Sharing Un-ternehmen.
- []
-
-
-Overfull \hbox (2.47012pt too wide) in paragraph at lines 11--12
-[]\T1/cmr/m/n/10 Die 18-25 Jähri-gen sind mit mod-er-nen Tech-nolo-gien wie dem
- Com-puter und dem Smart-phone aufgewach-
- []
-
-[25]
+] [25]
 Underfull \hbox (badness 10000) in paragraph at lines 39--55
 
  []
@@ -1409,8 +1298,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
  []
 
-[29]) [30] (text/wsk.tex
-<pictures/konzept-supplychain.png, id=516, 624.3325pt x 151.56625pt>
+) [29] [30] (text/wsk.tex
+<pictures/konzept-supplychain.png, id=591, 624.3325pt x 151.56625pt>
 File: pictures/konzept-supplychain.png Graphic file (type png)
 <use pictures/konzept-supplychain.png>
 Package pdftex.def Info: pictures/konzept-supplychain.png  used on input line 5
@@ -1423,13 +1312,14 @@ s been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.17 	
-       <./pictures/konzept-supplychain.png>]
-<pictures/konzept-wsk.png, id=534, 874.26625pt x 506.89375pt>
+l.18 	\item[]
+              \hspace{-0.6cm} \textbf{Klassifizierung von Software}\\ <./pictur
+es/konzept-supplychain.png>]
+<pictures/konzept-wsk.png, id=607, 860.21375pt x 506.89375pt>
 File: pictures/konzept-wsk.png Graphic file (type png)
 <use pictures/konzept-wsk.png>
 Package pdftex.def Info: pictures/konzept-wsk.png  used on input line 23.
-(pdftex.def)             Requested size: 566.43605pt x 328.4174pt.
+(pdftex.def)             Requested size: 566.43605pt x 333.78519pt.
 
 Overfull \hbox (25.4946pt too wide) in paragraph at lines 22--25
 []  []
@@ -1442,44 +1332,20 @@ Overfull \hbox (25.4946pt too wide) in paragraph at lines 22--25
                                                   \fi \fi 
 l.32 
       <./pictures/konzept-wsk.png>]
-Overfull \hbox (0.66501pt too wide) in paragraph at lines 44--46
-\T1/cmr/m/n/10 Um Fahrzeughal-ter beim Kauf von Soft-ware zu un-ter-stützen sol
-l sichergestellt wer-den, dass die gekauften
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 44--46
 
  []
 
 [33]
-Overfull \hbox (5.93773pt too wide) in paragraph at lines 55--57
-\T1/cmr/m/it/10 Fahrten-his-to-rie. \T1/cmr/m/n/10 Die Idee hin-ter der Umgebun
-gs-Suche ist, dass dem Fahrzeughal-ter Soft-wares vorgeschla-
- []
-
-
-Overfull \hbox (6.83017pt too wide) in paragraph at lines 58--59
-\T1/cmr/m/n/10 ter Soft-warevorschläge un-ter-bre-iten, kön-nen Ser-vice Provid
-er einem Fahrzeug auch eine Soft-ware vorschla-
- []
-
-
-Overfull \hbox (11.70862pt too wide) in paragraph at lines 63--65
-\T1/cmr/m/n/10 elek-tro-n-is-che Zahlungss-chnittstelle bezahlen kön-nen. Hi-er
-zu soll-ten besten-falls mehrere gängige Zahlungss-
- []
-
-[34] [35]
-Overfull \hbox (16.14723pt too wide) in paragraph at lines 95--96
-\T1/cmr/m/n/10 Es gibt vier Un-ter-stützende Ak-tiv-itäten. Ange-fan-gen bei de
-r Schaf-fung einer gut aufge-bauten \T1/cmr/bx/n/10 Un-ternehmensin-
- []
-
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6
+7.
+ ("C:\Program Files\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+) [34] [35]
 [36]
 Overfull \hbox (1.69254pt too wide) in paragraph at lines 108--110
-\T1/cmr/m/n/10 Die En-twick-lung von Soft-ware wird zusät-zlich durch die Bere-
-it-stel-lung einer aus-führlichen API-Reference
+\T1/cmr/m/n/10 Die Ent-wick-lung von Soft-wa-re wird zu-sätz-lich durch die Be-
+reit-stel-lung ei-ner aus-führ-li-chen API-Reference
  []
 
 ) (text/abs_prozess.tex
@@ -1492,18 +1358,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 119--1
 
  []
 
-[37]
+
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
-
+[37]
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
 
 ) [38] (text/technische_konzepte.tex
-<pictures/arichtecture_AV.png, id=600, 542.56757pt x 188.8135pt>
+<pictures/arichtecture_AV.png, id=666, 542.56757pt x 188.8135pt>
 File: pictures/arichtecture_AV.png Graphic file (type png)
 <use pictures/arichtecture_AV.png>
 Package pdftex.def Info: pictures/arichtecture_AV.png  used on input line 10.
@@ -1542,7 +1408,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--38
  []
 
 [41]
-<pictures/konzept-Eigene-Installation.png, id=620, 301.125pt x 447.6725pt>
+<pictures/konzept-Eigene-Installation.png, id=685, 301.125pt x 447.6725pt>
 File: pictures/konzept-Eigene-Installation.png Graphic file (type png)
 <use pictures/konzept-Eigene-Installation.png>
 Package pdftex.def Info: pictures/konzept-Eigene-Installation.png  used on inpu
@@ -1555,7 +1421,7 @@ t line 47.
                                                   \fi \fi 
 l.51 \clearpage
                 <./pictures/konzept-Eigene-Installation.png>]
-<pictures/konzept-Installationsprozess.png, id=629, 785.93625pt x 846.16125pt>
+<pictures/konzept-Installationsprozess.png, id=693, 785.93625pt x 846.16125pt>
 File: pictures/konzept-Installationsprozess.png Graphic file (type png)
 <use pictures/konzept-Installationsprozess.png>
 Package pdftex.def Info: pictures/konzept-Installationsprozess.png  used on inp
@@ -1565,7 +1431,7 @@ ut line 57.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<pictures/konzept-Nutzungsprozess.png, id=631, 640.3925pt x 712.6625pt>
+<pictures/konzept-Nutzungsprozess.png, id=695, 640.3925pt x 712.6625pt>
 File: pictures/konzept-Nutzungsprozess.png Graphic file (type png)
 <use pictures/konzept-Nutzungsprozess.png>
 Package pdftex.def Info: pictures/konzept-Nutzungsprozess.png  used on input li
@@ -1645,7 +1511,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--10
  []
 
 (text/vorstellung_des_prototypen.tex
-<pictures/konzept-basic.png, id=651, 372.39125pt x 332.24126pt>
+<pictures/konzept-basic.png, id=713, 372.39125pt x 332.24126pt>
 File: pictures/konzept-basic.png Graphic file (type png)
 <use pictures/konzept-basic.png>
 Package pdftex.def Info: pictures/konzept-basic.png  used on input line 8.
@@ -1653,18 +1519,11 @@ Package pdftex.def Info: pictures/konzept-basic.png  used on input line 8.
  [46
 
 ]
-Overfull \hbox (0.57855pt too wide) in paragraph at lines 13--14
-\T1/cmr/m/n/10 bekannt sein muss. Sie en-thal-ten Prim-i-tive Werte \T1/cmr/m/i
-t/10 (In-te-ger, String, Long, etc.) \T1/cmr/m/n/10 und leiten alle vom Seriali
-zable-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
-<pictures/konzept-Common.png, id=657, 664.4825pt x 353.32pt>
+<pictures/konzept-Common.png, id=719, 664.4825pt x 353.32pt>
 File: pictures/konzept-Common.png Graphic file (type png)
 <use pictures/konzept-Common.png>
 Package pdftex.def Info: pictures/konzept-Common.png  used on input line 19.
@@ -1672,7 +1531,7 @@ Package pdftex.def Info: pictures/konzept-Common.png  used on input line 19.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<pictures/konzept-SAM.png, id=659, 584.1825pt x 201.75375pt>
+<pictures/konzept-SAM.png, id=721, 584.1825pt x 201.75375pt>
 File: pictures/konzept-SAM.png Graphic file (type png)
 <use pictures/konzept-SAM.png>
 Package pdftex.def Info: pictures/konzept-SAM.png  used on input line 30.
@@ -1684,7 +1543,7 @@ Package pdftex.def Info: pictures/konzept-SAM.png  used on input line 30.
                                                   \fi \fi 
 l.34 
       <./pictures/konzept-basic.png>]
-<pictures/konzept-OEM-vs.png, id=667, 351.3125pt x 220.825pt>
+<pictures/konzept-OEM-vs.png, id=728, 351.3125pt x 220.825pt>
 File: pictures/konzept-OEM-vs.png Graphic file (type png)
 <use pictures/konzept-OEM-vs.png>
 Package pdftex.def Info: pictures/konzept-OEM-vs.png  used on input line 39.
@@ -1705,57 +1564,45 @@ l.43
 
 LaTeX Warning: Hyper reference `fs' on page 49 undefined on input line 45.
 
-
-Overfull \hbox (5.73062pt too wide) in paragraph at lines 45--46
-\T1/cmr/m/n/10 welcher in Kapi-tel zwei vorgestellt wurde. Der SUPR ist dafür z
-uständig, den Software-Bedarf von Fahrzeughal-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--51
-
- []
-
 [49pdfTeX warning (ext4): destination with the same identifier (name{figure.16}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.51 
+l.49 
       <./pictures/konzept-OEM-vs.png>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
-6.
-
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-Underfull \hbox (badness 10000) in paragraph at lines 69--71
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
 
  []
 
 [50] [51]
-Underfull \hbox (badness 10000) in paragraph at lines 108--111
+Underfull \hbox (badness 10000) in paragraph at lines 106--109
 
  []
 
 
-Overfull \hbox (22.60806pt too wide) in paragraph at lines 112--113
-\T1/cmr/m/n/10 wech-seln sie in den Ord-ner \T1/cmr/m/it/10 PythonAPI/Python-Sc
-ript-s-The-sis \T1/cmr/m/n/10 und edi-tieren Sie die in-stall_sw_use_service.py
-.
+Overfull \hbox (22.60806pt too wide) in paragraph at lines 110--111
+\T1/cmr/m/n/10 wech-seln sie in den Ord-ner \T1/cmr/m/it/10 Py-tho-nA-PI/-Py-th
+on-S-cripts-The-sis \T1/cmr/m/n/10 und edi-tie-ren Sie die in-stall_sw_use_serv
+ice.py.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--134
+Underfull \hbox (badness 10000) in paragraph at lines 128--132
 
  []
 
 [52]
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
@@ -1765,102 +1612,98 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--141
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--143
-
- []
-
-[53]) [54] (text/ausblick.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 18--16
+[53]) [54] (text/ausblick.tex
+Underfull \hbox (badness 10000) in paragraph at lines 2--4
 
  []
 
-) (quellen.tex
-Underfull \hbox (badness 10000) in paragraph at lines 4--6
-\T1/cmr/m/n/10 https://www.ericsson.com/en/blog/2017/11/the-automotive-industry
--in-transformation--business-
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+
  []
 
 [55
 
-]
-Underfull \hbox (badness 2846) in paragraph at lines 35--39
-[]\T1/cmr/m/n/10 Alex Davies. 2015. Oh Look, More Ev-i-dence Hu-mans Shouldn't 
-Be Driv-ing. (May 2015).
+])) (main_ba.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 11--16
+[]\T1/cmr/m/n/10 (Aufgerufen am 10. Ja-nu-ar 2020) Di-v-ya Kris-hnan.  Ui/ux fo
+r au-to-no-mous ve-
  []
 
 
-Underfull \hbox (badness 6842) in paragraph at lines 35--39
-\T1/cmr/m/n/10 https://www.wired.com/2015/05/ oh-look-evidence-humans-shouldnt-
-driving/ [9] Ter-rence Fong,
+Underfull \hbox (badness 10000) in paragraph at lines 11--16
+\T1/cmr/m/n/10 hic-le in-ter-face to build trust.  []$\T1/cmtt/m/n/10 https : /
+ / medium . com / divya-[]krishnan-[]design /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
-[]\T1/cmr/m/n/10 ADAC: https://www.adac.de/rund-ums-fahrzeug/ausstattung-techni
-k-zubehoer/autonomes-
+Underfull \hbox (badness 4699) in paragraph at lines 35--40
+[]\T1/cmr/m/n/10 (Aufgerufen am 10. Ja-nu-ar 2020) Ju-er-gen Dau-nis.  The au-t
+o-mo-ti-ve in-dus-try in trans-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
-[]\T1/cmr/m/n/10 https://www.focus.de/auto/autoentwicklung/bellbergs-auto-klart
-ext-sorgen-autonome-autos-fuer-das-
+Underfull \hbox (badness 10000) in paragraph at lines 35--40
+\T1/cmr/m/n/10 for-ma-ti-on  busi-ness mo-del dis-rup-ti-on.  []$\T1/cmtt/m/n/
+10 https : / / www . ericsson . com / en / blog / 2017 / 11 /
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-[]\T1/cmr/m/n/10 https://www.manager-magazin.de/unternehmen/autoindustrie/selbs
-tfahrendes-kfz-mensch-vs-
- []
-
-[56]
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
-
+[56] [57]
+Underfull \hbox (badness 10000) in paragraph at lines 153--156
+[]\T1/cmr/m/n/10 Startplatz.  Busi-ness mo-del can-vas.  []$\T1/cmtt/m/n/10 htt
+ps : / / www . startplatz . de / startup-[]wiki /
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 113.
- [57]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 113.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 119.
+ [58]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
  (main_ba.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 113.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 113.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 119.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 119.
 Package rerunfilecheck Info: File `main_ba.out' has not changed.
-(rerunfilecheck)             Checksum: 25CCC48B7047E4A1253B2F8CE6594915;4495.
+(rerunfilecheck)             Checksum: 0D40715D6FB580FB05276E77404EAE8A;4406.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 113.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 119.
  ) 
 Here is how much of TeX's memory you used:
- 12760 strings out of 480932
- 200327 string characters out of 2909670
- 702033 words of memory out of 3000000
- 28062 multiletter control sequences out of 15000+200000
- 551029 words of font info for 64 fonts, out of 3000000 for 9000
+ 13444 strings out of 480932
+ 210855 string characters out of 2909670
+ 724093 words of memory out of 3000000
+ 28741 multiletter control sequences out of 15000+200000
+ 551342 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 50i,15n,57p,1930b,458s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,15n,57p,1936b,535s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 ectt1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
-ec/dpi600\tcti1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
-/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts
-/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\linus\AppData\Local\MiKTeX
-\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\linus\AppData\Lo
-cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\linus\
-AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Us
-ers\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.
+ec/dpi600\ectt0800.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
+/jknappen/ec/dpi600\tcti1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts
+/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\linus\AppData\Local\MiKTeX
+\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\linus\AppData\Lo
+cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\linus\
+AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Us
+ers\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.
 pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
-\ecbx1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen
-/ec/dpi600\ecbx1440.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfou
-r/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\font
-s/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\linus\AppData\Local\MiKTe
-X\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\linus\AppData\L
-ocal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\linus
-\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on main_ba.pdf (62 pages, 6263386 bytes).
+\ecti1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen
+/ec/dpi600\ecbx1000.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfou
+r/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\linus\AppData\Local\MiKTeX\2.9\font
+s/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\linus\AppData\Local\MiKTe
+X\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\linus\AppData\L
+ocal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\linus
+\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\U
+sers\linus\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200
+.pk>
+Output written on main_ba.pdf (64 pages, 6296842 bytes).
 PDF statistics:
- 1450 PDF objects out of 1728 (max. 8388607)
- 206 named destinations out of 1000 (max. 500000)
- 533 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1569 PDF objects out of 1728 (max. 8388607)
+ 181 named destinations out of 1000 (max. 500000)
+ 525 words of extra memory for PDF output out of 10000 (max. 10000000)
 

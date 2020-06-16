@@ -4,7 +4,6 @@ import EnvironmentObjects.Software.Software;
 import Messages.*;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-import databases.SoftwareDatabase;
 
 /**
  * Listens on messages regarding a service handles the content.
