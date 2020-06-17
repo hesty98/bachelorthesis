@@ -4,7 +4,6 @@ import Actions.GoAwayAction;
 import Actions.IAction;
 import Actions.TargetAction;
 import Car.MessageHandler;
-import EnvironmentObjects.Software.ParkingServiceSoftware;
 import EnvironmentObjects.Angebot;
 import EnvironmentObjects.Description;
 import EnvironmentObjects.Provider;
@@ -15,9 +14,13 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.paint.Color;
+import Messages.CarlaMessage;
+import Messages.ServiceActionCommand;
+import Messages.ServiceRegistrationMessage;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -40,17 +43,15 @@ public class CarlaPresenter implements Initializable {
     //TODO: edit this according to your local Carla.exe/Carla.sh
     private static final String PATH =
             "D:\\Carla";
-    @FXML
-    public ScrollPane carLog;
 
     @FXML
     public ScrollPane environmentlog;
 
     @FXML
-    public Button useCarla; //start the engine
+    public Button startScenario; //start the engine
 
     @FXML
-    public Button startScenarioButton;
+    public Button driveAround;
 
     @FXML
     public Button driveIntoPerceptionAreaButton;
@@ -64,7 +65,19 @@ public class CarlaPresenter implements Initializable {
     @FXML
     public Button sayGoodbye;
 
+    @FXML
+    public Button hack;
+
+    @FXML
+    public Label hackLabel;
+
     private boolean messageSent =false;
+
+    private ScrollPane carLog;
+
+    public void setCarLogRefference(ScrollPane carLog) {
+        this.carLog=carLog;
+    }
 
     public enum STAGE {
         NO_CAR_STARTED,
@@ -84,31 +97,20 @@ public class CarlaPresenter implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setUpButtons();
-        useCarla.setOnAction(new EventHandler<ActionEvent>() {
+        startScenario.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 MessageHandler.getInstance().sendToCarla(new CarlaMessage(1));
-                try {
-                    final ProcessBuilder pb = new ProcessBuilder("D:\\Carla\\CarlaUE4.exe");
-                    pb.directory(new File(PATH));
-                    final Process p = pb.start();
-                    System.err.println("Starting Carla.... This could take a while.");
-                    currentStage=STAGE.NO_RUNNING_SCENARIO;
-                    setUpButtons();
-                }catch (Exception e){
-                    currentStage=STAGE.NO_RUNNING_SCENARIO;
-                    setUpButtons();
-                    LogPrinter.displayInView(carLog,"Carla Failed to run. Please correct the carla directory in config file. Running Without Carla in GUI.");
-
-//                    e.printStackTrace();
-
-                }
+                LogPrinter.displayInView(carLog, "Fahrzeug wurde in Carla gespawned.");
+                currentStage=STAGE.NO_RUNNING_SCENARIO;
+                setUpButtons();
             }
         });
-        startScenarioButton.setOnAction(new EventHandler<ActionEvent>() {
+        driveAround.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 MessageHandler.getInstance().sendToCarla(new CarlaMessage(2));
+                LogPrinter.displayInView(carLog, "Fahrzeug fährt zum Parkplatz.");
                 currentStage = STAGE.NO_REGISTERED_CAR;
                 setUpButtons();
             }
@@ -118,15 +120,14 @@ public class CarlaPresenter implements Initializable {
             public void handle(ActionEvent event) {
                 MessageHandler.getInstance().sendToCarla(new CarlaMessage(3));
                 currentStage = STAGE.CAR_IN_PERCEPTION_AREA;
-                LogPrinter.displayInView(environmentlog, "Percepted a Car within area. I could register to that car by clicking the Button below.");
+                LogPrinter.displayInView(carLog, "Fahrzeug fährt in Registrierungszone des Parkplatzes.");
+                LogPrinter.displayInView(environmentlog, "Fahrzeug in Registrierungszone erkannt. Registrierung möglich.");
                 setUpButtons();
             }
         });
         sendServiceRegistrationMessage.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //BUILD of a ServiceRegistrationMessage for the ParkingServiceSoftware
-
                 ArrayList<IAction> list = new ArrayList<>();
                 list.add(new TargetAction());
                 provider = new Provider(
@@ -147,7 +148,7 @@ public class CarlaPresenter implements Initializable {
                         angebotTitel,
                         list
                 );
-                //TODO: von Carla aus tun.
+
                 ServiceRegistrationMessage msg = new ServiceRegistrationMessage(
                         desc, 992120, provider, "PARKING_SERVICE_GERMAN_CITIES"
                 );
@@ -182,6 +183,21 @@ public class CarlaPresenter implements Initializable {
                 setUpButtons();
             }
         });
+        hack.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if(MessageHandler.getInstance().hacked){
+                    //nicht mehr gehackt
+                    hackLabel.setText("Nicht gehackt");
+                    hackLabel.setTextFill(Color.web("#21a810"));
+                } else{
+                    hackLabel.setText("Gehackt");
+                    hackLabel.setTextFill(Color.web("#f50000"));
+                }
+                MessageHandler.getInstance().hack();
+            }
+        });
+
     }
 
     /**
@@ -221,8 +237,8 @@ public class CarlaPresenter implements Initializable {
 
     private void setButtonVisibility(boolean[] b) {
         System.err.println("Setting visibility...");
-        useCarla.setDisable(!b[0]);
-        startScenarioButton.setDisable(!b[1]);
+        startScenario.setDisable(!b[0]);
+        driveAround.setDisable(!b[1]);
         driveIntoPerceptionAreaButton.setDisable(!b[2]);
         sendServiceRegistrationMessage.setDisable(!b[3]);
         sendServiceActionButton.setDisable(!b[4]);
@@ -231,9 +247,5 @@ public class CarlaPresenter implements Initializable {
 
     public void printToEnvironment(String s) {
         LogPrinter.displayInView(environmentlog, s);
-    }
-
-    public void printToCar(String s) {
-        LogPrinter.displayInView(carLog, s);
     }
 }

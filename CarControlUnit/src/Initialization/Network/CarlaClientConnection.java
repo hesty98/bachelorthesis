@@ -3,8 +3,6 @@ package Initialization.Network;
 import EnvironmentObjects.IConnectionClient;
 import Messages.CarlaMessage;
 import Messages.IMessage;
-import Messages.ServiceDecisionMessage;
-import Messages.ServiceRegistrationMessage;
 import com.google.common.eventbus.EventBus;
 import org.json.JSONObject;
 

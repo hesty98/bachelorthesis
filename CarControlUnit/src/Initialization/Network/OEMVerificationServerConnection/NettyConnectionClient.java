@@ -3,7 +3,6 @@ package Initialization.Network.OEMVerificationServerConnection;
 import Initialization.Network.Events.NoConnectionEvent;
 import Messages.IMessage;
 import com.google.common.eventbus.EventBus;
-import com.google.inject.Inject;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;

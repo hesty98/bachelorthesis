@@ -1,8 +1,5 @@
 package databases;
 
-import EnvironmentObjects.Software.ParkingServiceSoftware;
-import EnvironmentObjects.Software.Software;
-
 import java.util.HashMap;
 
 public class ScenarioDatabase {

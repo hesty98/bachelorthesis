@@ -4,11 +4,6 @@ import setup.init.EventBusModule;
 import setup.init.MainDependencies;
 import setup.network.NettyServerModule;
 
-/**
- * Injector der MainDependencies für die View.Main Klasse
- * @author Markus Reinke
- */
-
 public class ServerMain {
     private static final Injector injector = Guice.createInjector(
             new NettyServerModule(),

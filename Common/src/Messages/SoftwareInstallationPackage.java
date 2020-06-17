@@ -7,7 +7,7 @@ public class SoftwareInstallationPackage extends SoftwareMessage {
     private Software software;
     private String updatedManifest;
 
-    public SoftwareInstallationPackage(String softwareID, Software software, Provider provider,String updatedManifest){
+    public SoftwareInstallationPackage(String softwareID, Software software, Provider provider, String updatedManifest){
         super(softwareID, provider);
         this.software=software;
         this.updatedManifest=updatedManifest;

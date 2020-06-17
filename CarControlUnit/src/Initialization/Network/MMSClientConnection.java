@@ -2,9 +2,6 @@ package Initialization.Network;
 
 import EnvironmentObjects.IConnectionClient;
 import Messages.IMessage;
-import Messages.ServiceActionCommand;
-import Messages.ServiceDecisionMessage;
-import Messages.ServiceRegistrationMessage;
 import com.google.common.eventbus.EventBus;
 
 import java.io.IOException;

@@ -4,9 +4,7 @@ import Actions.GoAwayAction;
 import Actions.IAction;
 import Actions.MovementHintAction;
 import Actions.TargetAction;
-import EnvironmentObjects.Angebot;
-import EnvironmentObjects.Description;
-import EnvironmentObjects.Provider;
+import EnvironmentObjects.*;
 import Messages.*;
 
 import java.util.ArrayList;

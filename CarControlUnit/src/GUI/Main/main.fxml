@@ -7,8 +7,8 @@
    <children>
       <SplitPane dividerPositions="0.5" prefHeight="1000.0" prefWidth="1920.0">
         <items>
-          <BorderPane fx:id="leftPane" minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="900.0" />
-          <BorderPane fx:id="rightPane" minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="900.0" />
+          <BorderPane fx:id="leftPane" minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="760.0" />
+          <BorderPane fx:id="rightPane" minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="760.0" />
         </items>
       </SplitPane>
    </children>

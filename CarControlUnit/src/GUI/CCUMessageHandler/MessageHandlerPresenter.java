@@ -26,19 +26,13 @@ public class MessageHandlerPresenter implements Initializable {
     @FXML
     public ScrollPane logReceivedMessages;
 
-    @FXML
-    public ScrollPane logForwardedMessages;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void printToReceived(String s) {
+    public void printToLog(String s) {
         LogPrinter.displayInView(logReceivedMessages, s);
     }
 
-    public void printToSent(String s) {
-        LogPrinter.displayInView(logForwardedMessages, s);
-    }
 }

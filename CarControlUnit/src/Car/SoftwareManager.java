@@ -1,10 +1,7 @@
 package Car;
 
 import EnvironmentObjects.Software.Software;
-import Initialization.Network.CarlaClientConnection;
-import Initialization.Network.MMSClientConnection;
 import Messages.ServiceRegistrationMessage;
-import com.google.inject.Inject;
 
 import java.util.ArrayList;
 
