@@ -31,16 +31,19 @@ public class MMSClientConnection implements IConnectionClient {
     @Override
     public void startConnection() {
         Thread t = new Thread(() -> {
-            while(true) {
-                System.err.println("Trying to read");
+            while(isRunning()) {
+                //System.err.println("Trying to read");
                 try {
                     Object o = in.readObject();
-                    System.out.println("Read object: " + o);
+                    System.out.println("Read Message from MMS: " + o);
                     bus.post(o);
                 } catch (IOException | ClassNotFoundException e) {
+                    running=false;
                     e.printStackTrace();
                 }
             }
+            //stopConnection();
+            //startConnection();
         });
         t.start();
     }
@@ -83,6 +86,7 @@ public class MMSClientConnection implements IConnectionClient {
                         startConnection();
                     } catch (IOException e) {
                         e.printStackTrace();
+                        running=false;
                     }
                 }
             }
@@ -96,7 +100,8 @@ public class MMSClientConnection implements IConnectionClient {
             try {
                 this.out.writeObject(out);
                 this.out.flush();
-                System.err.println(out);
+                System.err.println("Sent to MMS: "+out);;
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

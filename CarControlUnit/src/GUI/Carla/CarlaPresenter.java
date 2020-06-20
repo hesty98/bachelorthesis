@@ -7,8 +7,9 @@ import Car.MessageHandler;
 import EnvironmentObjects.Angebot;
 import EnvironmentObjects.Description;
 import EnvironmentObjects.Provider;
-import Messages.*;
+import EnvironmentObjects.Software.ParkingServiceSoftware;
 import GUI.LogPrinter;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -71,6 +72,21 @@ public class CarlaPresenter implements Initializable {
     @FXML
     public Label hackLabel;
 
+    @FXML
+    public Button svProviderVerified;
+
+    @FXML
+    public Label svProviderVerifiedLabel;
+
+    @FXML
+    public Button suggestionReady;
+
+    @FXML
+    public Label suggestionReadyLabel;
+
+    @FXML
+    public Label swInstalled;
+
     private boolean messageSent =false;
 
     private ScrollPane carLog;
@@ -84,7 +100,7 @@ public class CarlaPresenter implements Initializable {
         NO_RUNNING_SCENARIO,
         NO_REGISTERED_CAR,
         CAR_IN_PERCEPTION_AREA,
-        CAR_DECLINED_SERVICE,
+        CAR_DECLINED_SERVICE_OR_SOFTWARE,
         CAR_INSTALLING_SW,
         CAR_ACCEPTED_SERVICE,
         CAR_PARKED
@@ -131,9 +147,9 @@ public class CarlaPresenter implements Initializable {
                 ArrayList<IAction> list = new ArrayList<>();
                 list.add(new TargetAction());
                 provider = new Provider(
-                      "GER_PARK_28",
-                        "Hestermeyer Parking and partying",
-                        "linushestermeyer.de"
+                        "ger_park_328_nds",
+                        "Parken in Oldenburg",
+                        "parken.stadt-oldenburg.de"
                 );
                 ArrayList<String> angebotTitel = new ArrayList<>();
                 angebotTitel.add("Preis pro Stunde");
@@ -150,7 +166,7 @@ public class CarlaPresenter implements Initializable {
                 );
 
                 ServiceRegistrationMessage msg = new ServiceRegistrationMessage(
-                        desc, 992120, provider, "PARKING_SERVICE_GERMAN_CITIES"
+                        desc, 992120, provider, ParkingServiceSoftware.SOFTWARE_ID
                 );
 
                 MessageHandler.getInstance().post(msg);
@@ -165,7 +181,7 @@ public class CarlaPresenter implements Initializable {
                             new TargetAction(), provider, "PARKING_SERVICE_GERMAN_CITIES"
                     );
                     MessageHandler.getInstance().post(cmd);
-                }else if(currentStage== STAGE.CAR_DECLINED_SERVICE){
+                }else if(currentStage== STAGE.CAR_DECLINED_SERVICE_OR_SOFTWARE){
                     ServiceActionCommand cmd = new ServiceActionCommand(
                             new GoAwayAction(), provider, "PARKING_SERVICE_GERMAN_CITIES"
                     );
@@ -197,6 +213,32 @@ public class CarlaPresenter implements Initializable {
                 MessageHandler.getInstance().hack();
             }
         });
+        svProviderVerified.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if(MessageHandler.getInstance().providerVerified){
+                    svProviderVerifiedLabel.setText("Nicht Verifiziert");
+                    svProviderVerifiedLabel.setTextFill(Color.web("#f50000"));
+                } else{
+                    svProviderVerifiedLabel.setText("Verifiziert");
+                    svProviderVerifiedLabel.setTextFill(Color.web("#21a810"));
+                }
+                MessageHandler.getInstance().verifyProvider();
+            }
+        });
+        suggestionReady.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if(!MessageHandler.getInstance().suggestionReady){
+                    suggestionReadyLabel.setText("Werden angezeigt");
+                    suggestionReadyLabel.setTextFill(Color.web("#21a810"));
+                } else{
+                    suggestionReadyLabel.setText("Werden nicht angezeigt");
+                    suggestionReadyLabel.setTextFill(Color.web("#f50000"));
+                }
+                MessageHandler.getInstance().showSWSuggestions();
+            }
+        });
 
     }
 
@@ -220,7 +262,7 @@ public class CarlaPresenter implements Initializable {
             case CAR_INSTALLING_SW:
                 setButtonVisibility(new boolean[]{false,false,false,false,false,false});
                 break;
-            case CAR_DECLINED_SERVICE:
+            case CAR_DECLINED_SERVICE_OR_SOFTWARE:
                 setButtonVisibility(new boolean[]{false,false,false, false,true,false});
                 break;
             case CAR_ACCEPTED_SERVICE:
@@ -236,7 +278,7 @@ public class CarlaPresenter implements Initializable {
     }
 
     private void setButtonVisibility(boolean[] b) {
-        System.err.println("Setting visibility...");
+        //System.err.println("Setting visibility...");
         startScenario.setDisable(!b[0]);
         driveAround.setDisable(!b[1]);
         driveIntoPerceptionAreaButton.setDisable(!b[2]);
@@ -247,5 +289,15 @@ public class CarlaPresenter implements Initializable {
 
     public void printToEnvironment(String s) {
         LogPrinter.displayInView(environmentlog, s);
+    }
+
+    public void setSwInstalled(){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                swInstalled.setText("Software Installiert");
+                swInstalled.setTextFill(Color.web("#21a810"));
+            }
+        });
     }
 }

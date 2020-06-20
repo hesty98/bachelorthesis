@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="1000.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Carla.CarlaPresenter">
@@ -21,8 +22,19 @@
       <Button fx:id="sendServiceActionButton" layoutX="360.0" layoutY="800.0" mnemonicParsing="false" text="Dem Fahrzeug Anweisungen geben" />
       <Button fx:id="sayGoodbye" layoutX="750.0" layoutY="800.0" mnemonicParsing="false" text="Neustart!" />
 
-      <Button fx:id="hack" layoutX="350.0" layoutY="900.0" mnemonicParsing="false" text="Fahrzeug hacken!" />
-      <Label fx:id="hackLabel" layoutX="530.0" layoutY="905.0" mnemonicParsing="false" text="Nicht gehackt." textFill="#21a810" />
+      <Button fx:id="hack" layoutX="20.0" layoutY="910.0" mnemonicParsing="false" text="Fahrzeug gehackt (true/false)" />
+      <Label fx:id="hackLabel" layoutX="70.0" layoutY="950.0" mnemonicParsing="false" text="Nicht gehackt" textFill="#21a810" />
+
+      <Button fx:id="suggestionReady" layoutX="400.0" layoutY="910.0" mnemonicParsing="false" text="SW-Vorschläge (true/false) " />
+      <Label fx:id="suggestionReadyLabel" layoutX="435.0" layoutY="950.0" mnemonicParsing="false" text="Werden angezeigt" textFill="#21a810" />
+
+      <Button fx:id="svProviderVerified" layoutX="650.0" layoutY="910.0" mnemonicParsing="false" text="Service Provider verifiziert(true/false) " />
+      <Label fx:id="svProviderVerifiedLabel" layoutX="735.0" layoutY="950.0" mnemonicParsing="false" text="Verifiziert" textFill="#21a810" />
+
+      <Label fx:id="swInstalled" layoutX="412.5" layoutY="850.0" mnemonicParsing="false" text="Software nicht installiert." textFill="#f50000" />
+
+      <Line endX="794.8928833007812" endY="-23.20001220703125" layoutX="106.0" layoutY="864.0" startX="-106.0" startY="-23.20001220703125" />
+
 
    </children>
 </AnchorPane>

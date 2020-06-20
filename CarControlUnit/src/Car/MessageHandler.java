@@ -3,6 +3,7 @@ package Car;
 import Actions.GoAwayAction;
 import Actions.TargetAction;
 import EnvironmentObjects.IConnectionClient;
+import EnvironmentObjects.Provider;
 import EnvironmentObjects.Software.Software;
 import GUI.CCUMessageHandler.MessageHandlerPresenter;
 import GUI.Carla.CarlaPresenter;
@@ -32,6 +33,8 @@ public class MessageHandler {
                     "hacked muhahahaha";
 
     public boolean hacked = false;
+    public boolean suggestionReady = true;
+    public boolean providerVerified = true;
 
     private IConnectionClient carlaConnection;
     private IConnectionClient mmsConnection;
@@ -101,14 +104,30 @@ public class MessageHandler {
         final String serviceSoftwareID= msg.getRequiredSWID();
         Software handlingSW = mgr.getSoftware(serviceSoftwareID);
         if(handlingSW != null && handlingSW.isUpTpDate()){
+            boolean found = false;
+            for(Provider provider : handlingSW.getVerifiedServiceProviders()){
+                if(provider.getPublicProviderID() == msg.getProvider().getPublicProviderID())
+                    found= true;
+            }
+            if(!found && !providerVerified){//todo: verschönern, damit der boolean nicht weiter benötigt wird.
+                messageHandlerPresenter.printToLog(
+                        "Service wird nicht vorgeschlagen, da der Service Provider nicht verifiziert ist:"+ msg.getDescription().getTitle());
+
+                carlaPresenter.currentStage = CarlaPresenter.STAGE.CAR_DECLINED_SERVICE_OR_SOFTWARE;
+                carlaPresenter.setUpButtons();
+                return;
+            }
             messageHandlerPresenter.printToLog(
-                     "Service möchte sich registrieren"
-                       +"\nNotwendige Software bereits installiert, schlage den Service vor...");
+                    "Service wird zur Nutzung vorgeschlagen! "+ msg.getDescription().getTitle());
+
             mmsConnection.sendMessage(msg);
+
+            carlaPresenter.currentStage = CarlaPresenter.STAGE.CAR_INSTALLING_SW;
+            carlaPresenter.setUpButtons();
         } else{
             messageHandlerPresenter.printToLog(
-                    "Service möchte sich registrieren"
-                    +"\nService Provider benötigt neue Software! InquiryID: "+ msg.getInquiryID()
+                    "Service möchte sich registrieren!"
+                    +"\n   Für den Service wird eine neue Software benötigt! Speichere Anfrage... InquiryID: "+ msg.getInquiryID()
                     +"\n     Provider name: "+msg.getProvider().getProviderName()
                     +"\n     Service: "+msg.getDescription().getTitle()
                     +"\n     Beschreibung: "+msg.getDescription().getDescription()
@@ -120,6 +139,9 @@ public class MessageHandler {
             SoftwareContentRequest cmd = new SoftwareContentRequest(msg.getDescription(), msg.getProvider(),msg.getInquiryID(), msg.getRequiredSWID());
             swsConnection.sendMessage(cmd);
             messageHandlerPresenter.printToLog("Software Beschreibung wird heruntergeladen.");
+
+            carlaPresenter.currentStage = CarlaPresenter.STAGE.CAR_INSTALLING_SW;
+            carlaPresenter.setUpButtons();
         }
     }
 
@@ -138,7 +160,19 @@ public class MessageHandler {
                             softwareContentMessage.getSoftwareID(),
                             softwareContentMessage.getProvider()
                     );
-                    MessageHandler.getInstance().sendToMMS(swRegistration);
+                    new Thread(){
+                        @Override
+                        public void run() {
+                            while(true) {
+                                System.err.println(suggestionReady);
+                                if(suggestionReady) {
+                                    sendToMMS(swRegistration);
+                                    break;
+                                }
+                            }
+
+                        }
+                    }.start();
                 }
             }
         } else{
@@ -148,18 +182,21 @@ public class MessageHandler {
 
     @Subscribe
     public void handleActionCommand(ServiceActionCommand cmd){
-
         if(cmd.getAction() instanceof GoAwayAction){
             messageHandlerPresenter.printToLog("Fahranweisung vom Parkautomaten erhalten, ich entferne mich.");
         }else if (cmd.getAction() instanceof TargetAction){
             messageHandlerPresenter.printToLog("Parkticket gebucht und Parkplatz zugewiesen bekommen, ich parke!");
 
         }
-
+        if(cmd.getAction() instanceof GoAwayAction)
+            sendToCarla(new CarlaMessage(5));
+        else
+            sendToCarla(new CarlaMessage(4));
 
         final String serviceSWID =cmd.getRequiredSWID();
         Software handlingSW = mgr.getSoftware(serviceSWID);
-        handlingSW.handleMessage(cmd);
+        if(handlingSW != null)
+            handlingSW.handleMessage(cmd);
 
     }
 
@@ -169,7 +206,8 @@ public class MessageHandler {
         Software handlingSW = mgr.getSoftware(serviceSoftwareID);
         if(handlingSW!=null) {
             //Todo: in handleMessage der Softwares muss die id des genutzten Angebots ausgewertet werden.
-            handlingSW.handleMessage(serviceDecisionMessage);
+            //handleMessage wird nicht genutzt, da nicht notwendig für Prototypen
+            //handlingSW.handleMessage(serviceDecisionMessage);
         }else{
             System.err.println("Die notwendige Software konnte nicht gestartet werden...");
         }
@@ -188,7 +226,7 @@ public class MessageHandler {
             );
             carlaPresenter.printToEnvironment(
                     "Anfrage "+ serviceDecisionMessage.getInquiryID() +" wurde abgelehnt, Fahrzeug kann verabschiedet werden.");
-            carlaPresenter.currentStage = CarlaPresenter.STAGE.CAR_DECLINED_SERVICE;
+            carlaPresenter.currentStage = CarlaPresenter.STAGE.CAR_DECLINED_SERVICE_OR_SOFTWARE;
             carlaPresenter.setUpButtons();
         }
     }
@@ -209,10 +247,17 @@ public class MessageHandler {
             messageHandlerPresenter.printToLog("Fahrer möchte neue Software installieren. Fordere diese vom Server an...");
             sendToSWS(req);
         } else{
+            ServiceRegistrationMessage registrationMessage = null;
+            for(ServiceRegistrationMessage msg : registeringServices){
+                if(msg.getRequiredSWID().equals(softwareDecisionMessage.getSoftwareID())){
+                    registrationMessage= msg;
+                }
+            }
+            registeringServices.remove(registrationMessage);
+
             messageHandlerPresenter.printToLog("Fahrer möchte keine Software installieren, ich entferne mich!");
-            carlaPresenter.currentStage= CarlaPresenter.STAGE.NO_RUNNING_SCENARIO;
+            carlaPresenter.currentStage= CarlaPresenter.STAGE.CAR_DECLINED_SERVICE_OR_SOFTWARE;
             carlaPresenter.setUpButtons();
-            carlaConnection.sendMessage(new CarlaMessage(5));//Drive Away
         }
     }
 
@@ -248,6 +293,7 @@ public class MessageHandler {
             //Software hinzufügen
             mgr.installSoftware(toBeInstalled);
             MANIFEST =installationPackage.getUpdatedManifest();
+            carlaPresenter.setSwInstalled();
 
             System.err.println(getManifest());
             //Now that Software is installed, if a Sevrice is waiting for this to be installed the Process must continue
@@ -279,6 +325,20 @@ public class MessageHandler {
             hacked = false;
         } else{
             hacked=true;
+        }
+    }
+    public void verifyProvider() {
+        if(providerVerified){
+            providerVerified = false;
+        } else{
+            providerVerified=true;
+        }
+    }
+    public void showSWSuggestions() {
+        if(suggestionReady){
+            suggestionReady = false;
+        } else{
+            suggestionReady=true;
         }
     }
 }

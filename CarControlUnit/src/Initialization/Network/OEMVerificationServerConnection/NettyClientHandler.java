@@ -42,7 +42,7 @@ public class NettyClientHandler extends ChannelHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
-        System.out.println("Recieved a Message! "+msg);
+        //System.out.println("Recieved a Message! "+msg);
         this.nettyClient.receivedMessage((IMessage)msg);
     }
 

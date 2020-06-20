@@ -33,6 +33,8 @@ Wie zuvor erwähnt, wird über den Software Applikation Manager das Geschehen de
 \end{figure}
 
 \subsubsection{Architektur des OEM-Servers (Server)}
+ENTNOMMEN AUS KAPITEL 4: \\
+Die Kommunikation zwischen dem Fahrzeug und dem Server kann durch das einbinden der Uptane-Architektur (\ref{3.1}) und einhergehender Lösungsansätze sicher aufgebaut werden. So enthält jede Nachricht die ein Fahrzeug an den Server schickt das jeweilige Manifest des Fahrzeugs, durch welches der Server das Fahrzeug verifizieren kann und diesem anschließend neue Softwares hinzufügen kann.\\\\
 Die Architektur und auch die Funktionalität des Servers wurden unter der Beachtung des Uptane Standards geplant und implementiert. Die Architektur ist in Abbildung \hyperref[img:server]{16} dargestellt. Der Kern des Servers ist der \textbf{Director}, welcher eingehende Anfragen für Softwares abarbeitet. Der Director ist mit dem\textbf{ Image Repository} verbunden, in welchem sich die Softwares befinden, welche im Shop bereits bereitgestellt werden. Uptane gibt vor, eine \textbf{Inventory Database} zu führen, in welcher die Manifeste aller im Shop registrierter Fahrzeuge in der Form gespeichert sind, in welcher sie zuletzt von dem Director verifiziert wurden. Wird eine Anfrage an den Server geschickt, enthält diese das aktuelle Manifest des Fahrzeugs. Der Director vergleicht dieses mit dem Manifest, welches in der Inventory Database gespeichert ist. Durch den Vergleich des ByteCodes beider kann festgestellt werden, ob am Fahrzeug Änderungen von einer externen Instanz getätigt wurden oder nicht.
 \begin{figure}[!h]
 	\centering

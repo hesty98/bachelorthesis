@@ -33,10 +33,10 @@ public class CarlaClientConnection implements IConnectionClient {
     public void startConnection() {
         Thread t = new Thread(() -> {
             while(true) {
-                System.err.println("Trying to read");
+//                System.err.println("Trying to read");
                 try {
                     Object o = in.readObject();
-                    System.out.println("Read object carla: " + o);
+                    System.out.println("Read object from carla: " + o);
                     bus.post(o);
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
@@ -106,7 +106,7 @@ public class CarlaClientConnection implements IConnectionClient {
             obj.write(writer);
 
             try {
-                System.err.println("Trying to send an JSON Object.");
+                //System.err.println("Trying to send an JSON Object.");
                 this.out.writeObject(writer.toString());
                 this.out.flush();
                 System.err.println("Sent to Carla: "+writer.toString());

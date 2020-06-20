@@ -139,9 +139,9 @@ public class NettyConnectionClient implements INettyClient {
     public void sendMessage(IMessage out)
     {
         try {
-            System.err.println("trying to send message " + out);
+            //System.err.println("trying to send message " + out);
             this.future.channel().writeAndFlush(out);
-            System.err.println("SUCCESS");
+            //System.err.println("SUCCESS");
         }
         catch (Exception e)
         {

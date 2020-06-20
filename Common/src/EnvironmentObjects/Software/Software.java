@@ -13,14 +13,14 @@ public abstract class Software implements ISoftware {
     private IConnectionClient mmsConnection;
     private IConnectionClient carlaConnection;
     private IConnectionClient swsConnection;
-    private ArrayList<Provider> verifiedProviders;
+    private ArrayList<Provider> verifiedServiceProviders;
     private int version;
 
-    public Software(String softwareID,Provider provider, Description description, ArrayList<Provider> verifiedProviders, int version) {
+    public Software(String softwareID, Provider provider, Description description, ArrayList<Provider> verifiedServiceProviders, int version) {
         this.softwareID = softwareID;
         this.description= description;
         this.provider=provider;
-        this.verifiedProviders=verifiedProviders;
+        this.verifiedServiceProviders = verifiedServiceProviders;
         this.version=version;
     }
 
@@ -75,12 +75,12 @@ public abstract class Software implements ISoftware {
         this.provider = provider;
     }
 
-    public ArrayList<Provider> getVerifiedProviders() {
-        return verifiedProviders;
+    public ArrayList<Provider> getVerifiedServiceProviders() {
+        return verifiedServiceProviders;
     }
 
-    public void setVerifiedProviders(ArrayList<Provider> verifiedProviders) {
-        this.verifiedProviders = verifiedProviders;
+    public void setVerifiedServiceProviders(ArrayList<Provider> verifiedServiceProviders) {
+        this.verifiedServiceProviders = verifiedServiceProviders;
     }
 
     public int getVersion() {

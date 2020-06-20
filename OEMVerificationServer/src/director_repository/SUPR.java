@@ -13,4 +13,11 @@ public class SUPR {
     public static ArrayList<Software> findBestSoftware(SoftwareSearchRequest request){
         return null;
     }
+
+    public static void determineIfSoftwareIsNeeded(){
+        System.err.println("------------------------------------- SUPR -------------------------------------");
+        System.err.println("Server bestimmt die Mehrwerte der Software für das Fahrzeug.");
+        System.err.println("Funktionalität nicht implementiert, soll lediglich den Ablauf verdeutlichen.");
+        System.err.println("--------------------------------------------------------------------------------");
+    }
 }

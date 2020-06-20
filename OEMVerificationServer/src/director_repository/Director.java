@@ -24,12 +24,13 @@ public class Director {
      */
     @Subscribe
     public void incomingContentRequest (SoftwareContentRequest softwareContentRequest){
-        System.err.println("Received SoftwareContentRequest. InquiryID: "+ softwareContentRequest.getInquiryID()
-                + "\nProvider: "+ softwareContentRequest.getProvider().getProviderName()
+        System.err.println("Anfrage für Softwarebeschreibung erhalten, InquiryID: "+ softwareContentRequest.getInquiryID()
+                + "\n   Service Provider: "+ softwareContentRequest.getProvider().getProviderName()
         );
-
-
-        if(verified(softwareContentRequest.getSoftwareID())){
+        System.err.println("");
+        SUPR.determineIfSoftwareIsNeeded();
+        System.err.println("");
+        if(exists(softwareContentRequest.getSoftwareID())){
             Software sw = SoftwareDatabase.getInstance().getSoftwareByKey(softwareContentRequest.getSoftwareID());
 
             SoftwareContentMessage msg = new SoftwareContentMessage(
@@ -38,8 +39,10 @@ public class Director {
                     softwareContentRequest.getInquiryID(),
                     sw.getProvider(),
                     sw.getSoftwareID(),
-                    sw.getVerifiedProviders()
+                    sw.getVerifiedServiceProviders()    
             );
+            System.err.println("Beschreibung wurde erstellt.");
+            System.err.println("Beschreibung wird verschickt!");
             softwareContentRequest.getCtx().writeAndFlush(msg);
         }
 
@@ -47,10 +50,17 @@ public class Director {
 
     @Subscribe
     public void handleSWInstallRequest(SoftwareInstallRequest softwareInstallRequest){
+        System.err.println("Installationsanfrage für Software erhalten."
+                + "\n   Software_ID: "+ softwareInstallRequest.getSoftwareID()
+        );
+
         String manifest ="";
         try{
             manifest =InventoryDatabase.getInstance().getManifestByKey(InventoryDatabase.CAR_1_ID);
 
+            System.err.println("Vom Fahrzeug geschicktes Manifest: \n"+softwareInstallRequest.getVehicleManifest());
+            System.err.println("Auf Server gespeichertes Manifest: \n"+manifest);
+            System.err.println("");
             // Verification as described here: https://uptane.github.io/papers/uptane-standard.1.0.1.html#directing-installation-of-images-on-vehicles
             if(!manifest.equals(softwareInstallRequest.getVehicleManifest())){
                 prepareSoftware(softwareInstallRequest, false);
@@ -63,19 +73,30 @@ public class Director {
     }
 
     private void prepareSoftware(SoftwareInstallRequest softwareInstallRequest, boolean verified) {
-        try {
-            //Todo: Software verifizieren
-            //Load the required Software from Database
-            Software required = SoftwareDatabase.getInstance().getSoftwareByKey(softwareInstallRequest.getSoftwareID());
+        if(verified) {
+            System.err.println("Fahrzeugsicherheit garantiert!");
+            try {
+                //Load the required Software from Database
+                Software required = SoftwareDatabase.getInstance().getSoftwareByKey(softwareInstallRequest.getSoftwareID());
 
-            String manifest = softwareInstallRequest.getVehicleManifest();
-            if(verified) {
+                String manifest = softwareInstallRequest.getVehicleManifest();
                 manifest += manifest + "  " + required.getSoftwareID() + ": " + required.getVersion() + "\r\n";
+
+                SoftwareInstallationPackage pkg = new SoftwareInstallationPackage(required.getSoftwareID(), required, required.getProvider(), manifest);
+                softwareInstallRequest.getCtx().writeAndFlush(pkg);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            SoftwareInstallationPackage pkg = new SoftwareInstallationPackage(required.getSoftwareID(), required, required.getProvider(), manifest);
-            softwareInstallRequest.getCtx().writeAndFlush(pkg);
-        }catch (Exception e){
-            e.printStackTrace();
+        } else{
+            try{
+                Software required = SoftwareDatabase.getInstance().getSoftwareByKey(softwareInstallRequest.getSoftwareID());
+
+                System.err.println("Fahrzeugsicherheit nicht garantiert!");
+                SoftwareInstallationPackage pkg = new SoftwareInstallationPackage(required.getSoftwareID(), null, null, softwareInstallRequest.getVehicleManifest());
+                softwareInstallRequest.getCtx().writeAndFlush(pkg);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -87,7 +108,7 @@ public class Director {
          */
     }
 
-    private boolean verified(String requiredSWID) {
+    private boolean exists(String requiredSWID) {
         Software sw = SoftwareDatabase.getInstance().getSoftwareByKey(requiredSWID);
         if(sw != null)
             return true;

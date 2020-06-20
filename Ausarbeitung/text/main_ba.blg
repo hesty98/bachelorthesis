@@ -20,51 +20,47 @@ Too many commas in name 1 of "S. Debernard, C. Chauvin, R. Pokam, S. Langlois" f
 while executing---line 1049 of file plain.bst
 Warning--empty publisher in android
 Warning--empty year in android
-Warning--empty journal in b101
-Warning--empty year in b101
 Too many commas in name 1 of "S. Debernard, C. Chauvin, R. Pokam, S. Langlois" for entry b16
 while executing---line 1090 of file plain.bst
-Warning--empty journal in b102
-Warning--empty year in b102
-You've used 30 entries,
+You've used 29 entries,
             2118 wiz_defined-function locations,
-            628 strings with 8020 characters,
-and the built_in function-call counts, 6286 in all, are:
-= -- 591
-> -- 210
+            626 strings with 8216 characters,
+and the built_in function-call counts, 6108 in all, are:
+= -- 576
+> -- 203
 < -- 2
-+ -- 91
-- -- 60
-* -- 220
-:= -- 1092
-add.period$ -- 82
-call.type$ -- 30
-change.case$ -- 119
++ -- 88
+- -- 58
+* -- 203
+:= -- 1050
+add.period$ -- 81
+call.type$ -- 29
+change.case$ -- 114
 chr.to.int$ -- 0
-cite$ -- 36
-duplicate$ -- 252
-empty$ -- 623
-format.name$ -- 60
-if$ -- 1342
+cite$ -- 31
+duplicate$ -- 238
+empty$ -- 618
+format.name$ -- 58
+if$ -- 1319
 int.to.chr$ -- 0
-int.to.str$ -- 30
-missing$ -- 11
-newline$ -- 145
-num.names$ -- 60
-pop$ -- 214
+int.to.str$ -- 29
+missing$ -- 9
+newline$ -- 142
+num.names$ -- 58
+pop$ -- 211
 preamble$ -- 1
-purify$ -- 90
+purify$ -- 87
 quote$ -- 0
-skip$ -- 219
+skip$ -- 216
 stack$ -- 0
-substring$ -- 175
-swap$ -- 32
+substring$ -- 170
+swap$ -- 34
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 112
-warning$ -- 6
-while$ -- 63
-width$ -- 32
-write$ -- 284
+type$ -- 108
+warning$ -- 2
+while$ -- 61
+width$ -- 31
+write$ -- 279
 (There were 3 error messages)

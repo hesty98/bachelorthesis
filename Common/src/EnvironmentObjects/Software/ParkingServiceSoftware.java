@@ -17,9 +17,11 @@ import java.util.ArrayList;
  */
 public class ParkingServiceSoftware extends Software {
     public static final String SOFTWARE_ID = "PARKING_SERVICE_GERMAN_CITIES";
-    private static final Provider PROVIDER = new Provider("GER_PARK_28", "Hestermeyer Parking and partying", "linushestermeyer.de");
-    private static final String NAME = "Parking in Germany";
-    private static final String DESCRIPTION = "Mit dieser Software kann in jeder Stadt Deutschlands auf städtischen Parkplätzen geparkt werden.";
+    private static final Provider PROVIDER = new Provider("GER_PARK", "Parken in Deutschland GmbH", "linushestermeyer.de");
+    private static final String NAME = "Parken in Deutschland";
+    private static final String DESCRIPTION = "Mit dieser Software kann in jeder Stadt Deutschlands auf städtischen Parkplätzen geparkt werden." +
+            "\n    Berechtigungen: Zieleingabe, V2X-Kommunikation" +
+            "\n    Kennzahlen:     5000 tägliche Verwendungen im Umkreis von 10km der aktuellen Position.";
 
     private static final ArrayList<String> ANGEBOT_TITEL=new ArrayList<String>(){
         {
@@ -109,10 +111,6 @@ public class ParkingServiceSoftware extends Software {
      */
     private void handleServiceActionCommand(ServiceActionCommand msg){
         getMmsConnection().sendMessage(msg);
-        if(msg.getAction() instanceof GoAwayAction)
-            getCarlaConnection().sendMessage(new CarlaMessage(5));
-        else
-            getCarlaConnection().sendMessage(new CarlaMessage(4));
 
     }
 }
