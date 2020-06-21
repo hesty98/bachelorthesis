@@ -31,6 +31,7 @@ public class LogPrinter {
                     @Override
                     public void run() {
                         Date date = new Date(System.currentTimeMillis());
+
                         DateFormat formatter = new SimpleDateFormat("ss.SSS");
                         formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
                         VBox root = new VBox();

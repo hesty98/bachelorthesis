@@ -4,7 +4,8 @@ import EnvironmentObjects.Software.Software;
 import Messages.*;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-import databases.SoftwareDatabase;
+import network.NettyServer;
+import repos.ImageRepository;
 
 /**
  * Listens on messages regarding a service handles the content.
@@ -12,11 +13,14 @@ import databases.SoftwareDatabase;
  */
 public class Director {
     private EventBus eventBus;
-    private SoftwareDatabase database;
+    private ImageRepository database;
 
-    public Director(EventBus eventBus) {
-        this.eventBus=eventBus;
+    public Director() {
+        this.eventBus = new EventBus();
+        eventBus.register(this);
+        NettyServer nettyServer = new NettyServer(eventBus);
     }
+
 
     /**
      * This method is needed for filling getting all the information needed for a software.
@@ -31,7 +35,7 @@ public class Director {
         SUPR.determineIfSoftwareIsNeeded();
         System.err.println("");
         if(exists(softwareContentRequest.getSoftwareID())){
-            Software sw = SoftwareDatabase.getInstance().getSoftwareByKey(softwareContentRequest.getSoftwareID());
+            Software sw = ImageRepository.getInstance().getSoftwareByKey(softwareContentRequest.getSoftwareID());
 
             SoftwareContentMessage msg = new SoftwareContentMessage(
                     sw.getDescription(),
@@ -77,7 +81,7 @@ public class Director {
             System.err.println("Fahrzeugsicherheit garantiert!");
             try {
                 //Load the required Software from Database
-                Software required = SoftwareDatabase.getInstance().getSoftwareByKey(softwareInstallRequest.getSoftwareID());
+                Software required = ImageRepository.getInstance().getSoftwareByKey(softwareInstallRequest.getSoftwareID());
 
                 String manifest = softwareInstallRequest.getVehicleManifest();
                 manifest += manifest + "  " + required.getSoftwareID() + ": " + required.getVersion() + "\r\n";
@@ -89,7 +93,7 @@ public class Director {
             }
         } else{
             try{
-                Software required = SoftwareDatabase.getInstance().getSoftwareByKey(softwareInstallRequest.getSoftwareID());
+                Software required = ImageRepository.getInstance().getSoftwareByKey(softwareInstallRequest.getSoftwareID());
 
                 System.err.println("Fahrzeugsicherheit nicht garantiert!");
                 SoftwareInstallationPackage pkg = new SoftwareInstallationPackage(required.getSoftwareID(), null, null, softwareInstallRequest.getVehicleManifest());
@@ -109,7 +113,7 @@ public class Director {
     }
 
     private boolean exists(String requiredSWID) {
-        Software sw = SoftwareDatabase.getInstance().getSoftwareByKey(requiredSWID);
+        Software sw = ImageRepository.getInstance().getSoftwareByKey(requiredSWID);
         if(sw != null)
             return true;
         return false;

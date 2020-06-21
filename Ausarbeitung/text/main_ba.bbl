@@ -102,14 +102,51 @@
   https://ut11.net/de/blog/dein-geschaftsmodell-kompakt-der-business-model-canvas/},
   2019.
 
+\bibitem{socialmedia}
+(Aufgerufen am~21. Juni 2020) L.~Rabe.
+\newblock Durchschnittliche tägliche nutzungsdauer von sozialen medien
+  weltweit in den jahren 2012 bis 2018.
+\newblock
+  \url{https://de.statista.com/statistik/daten/studie/475072/umfrage/taegliche-nutzungdauer-von-sozialen-medien/}.
+
+\bibitem{wsk2}
+(Aufgerufen am~21. Juni 2020) Manager-Wiki.
+\newblock Wertkette (nach porter).
+\newblock \url{http://www.manager-wiki.com/unternehmensanalyse/12-wertkette}.
+
+\bibitem{b103}
+(Aufgerufen am~21. Juni 2020) Rilind~Elezaj.
+\newblock Autonomous cars: Safety oppertunity or cybersecurity threat?
+\newblock
+  \url{https://www.machinedesign.com/mechanical-motion-systems/article/21837958/autonomous-cars-safety-opportunity-or-cybersecurity-threat}.
+
+\bibitem{bmc}
+(Aufgerufen am~21. Juni 2020)~Startplatz.
+\newblock Business model canvas.
+\newblock \url{https://www.startplatz.de/startup-wiki/business-model-canvas/}.
+
+\bibitem{wsk}
+(Aufgerufen am~21. Juni 2020) Torsten~Klanitz.
+\newblock Wertschöpfungskette.
+\newblock \url{https://refa.de/service/refa-lexikon/wertschoepfungskette}.
+
+\bibitem{uptaneDoc}
+(Aufgerufen am~21. Juni 2020) Uptane~Alliance.
+\newblock Uptane standard for design and implementation.
+\newblock \url{https://uptane.github.io/papers/uptane-standard.1.0.1.html}.
+
+\bibitem{wlb}
+Frauen und~Jugend (Aufgerufen am 21. Juni 2020) Bundesministerium~für Familie,
+  Senioren.
+\newblock Work life balance.
+\newblock
+  \url{https://www.bmfsfj.de/blob/95550/eb8fab22f858838abd0b8dad47cbe95d/work-life-balance-data.pdf},
+  August 2005.
+
 \bibitem{bainbridge2004berkshire}
 William~Sims Bainbridge.
 \newblock {\em Berkshire encyclopedia of human-computer interaction}, volume~1.
 \newblock Berkshire Publishing Group LLC, 2004.
-
-\bibitem{wlb}
-Frauen und~Jugend Bundesministerium~für Familie, Senioren.
-\newblock Work life balance, August 2005.
 
 \bibitem{vda}
 Verband der Automobilindustrie.
@@ -117,27 +154,15 @@ Verband der Automobilindustrie.
   fahren.
 \newblock {\em VDA Magazin - Automatisierung}, 2015.
 
-\bibitem{b103}
-Rilind Elezaj.
-\newblock Autonomous cars: Safety oppertunity or cybersecurity threat?
-
 \bibitem{b5}
 Lex Fridman.
 \newblock 'human-centered autonomous vehicle systems: Principles of effective
   shared autonomy'.
 \newblock Technical report, Massachusetts Institute of Technology (MIT), 2018.
 
-\bibitem{wsk}
-Torsten Klanitz.
-\newblock Wertschöpfungskette.
-
 \bibitem{android}
 Thomas Künneth.
 \newblock {\em Android 8 - Das Praxisbuch für Java-Entwickler}.
-
-\bibitem{wsk2}
-Manager-Wiki.
-\newblock Wertkette (nach porter).
 
 \bibitem{vkPsy}
 Markus Reinke.
@@ -154,11 +179,6 @@ R.~Pokam S.~Langlois S.~Debernard, C.~Chauvin.
 Gerd-Inno Spindler.
 \newblock {\em Kaufverhalten und Kaufentscheidung}, pages 39--48.
 \newblock Springer Fachmedien Wiesbaden, Wiesbaden, 2016.
-
-\bibitem{bmc}
-Startplatz.
-\newblock Business model canvas.
-\newblock \url{https://www.startplatz.de/startup-wiki/business-model-canvas/}.
 
 \bibitem{stelter}
 Niklas Stelter.

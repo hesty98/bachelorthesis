@@ -24,6 +24,7 @@ public class CarControlUnitMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        //Teile entnommen von: https://docs.oracle.com/javafx/2/get_started/hello_world.htm
         MainView mainView = new MainView();
 
         /**

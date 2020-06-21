@@ -24,32 +24,33 @@
 \contentsline {subsubsection}{\numberline {3.1.4}Nutzenversprechen}{26}{subsubsection.3.1.4}%
 \contentsline {subsubsection}{\numberline {3.1.5}Einnahmequellen}{27}{subsubsection.3.1.5}%
 \contentsline {subsubsection}{\numberline {3.1.6}Schlüsselressourcen}{27}{subsubsection.3.1.6}%
-\contentsline {subsubsection}{\numberline {3.1.7}Schlüsselaktivitäten}{28}{subsubsection.3.1.7}%
+\contentsline {subsubsection}{\numberline {3.1.7}Schlüsselaktivitäten}{27}{subsubsection.3.1.7}%
 \contentsline {subsubsection}{\numberline {3.1.8}Schlüsselpartner}{28}{subsubsection.3.1.8}%
 \contentsline {subsubsection}{\numberline {3.1.9}Kostenstruktur}{29}{subsubsection.3.1.9}%
 \contentsline {subsection}{\numberline {3.2}Die Wertschöpfungskette}{30}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Primäre Aktivitäten}{30}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Unterstützende Aktivitäten}{35}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}Zusammenfassung}{36}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}Zusammenfassung}{37}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Technische Konzepte}{38}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Klassifizierung von Software}{38}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}Berechtigungen}{38}{subsubsection.4.1.1}%
 \contentsline {subsubsection}{\numberline {4.1.2}Softwarekennzahlen}{39}{subsubsection.4.1.2}%
 \contentsline {subsection}{\numberline {4.2}Umgebungsbedingte Softwaresuche}{40}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Kommunikationsprotokolle}{40}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Kommunikationsprotokoll: Selbstständiger Softwarekauf}{41}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Kommunikationsprotokoll: Installationsvorschlag vom Service Provider}{42}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Kommunikationsprotokoll: Nutzung eines Service}{42}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Selbstständiger Softwarekauf}{41}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Installationsvorschlag vom Service Provider}{42}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Nutzung eines Service}{42}{subsubsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.4}Ausblick}{45}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Vorstellung des Prototypen}{45}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Architektur des Prototypen}{45}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Architektur des Software Applikation Managers (SAM)}{46}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Architektur des OEM-Servers (Server)}{47}{subsubsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.2}Installation}{48}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Server und SAM Installation}{48}{subsubsection.5.2.1}%
+\contentsline {section}{\numberline {5}Vorstellung des Prototypen}{46}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Architektur des Prototypen}{46}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Architektur des Software Applikation Managers (SAM)}{47}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Architektur des OEM-Servers (Server)}{48}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Installation}{49}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Server und SAM Installation}{49}{subsubsection.5.2.1}%
 \contentsline {subsubsection}{\numberline {5.2.2}MMS Installation}{49}{subsubsection.5.2.2}%
 \contentsline {subsubsection}{\numberline {5.2.3}Carla Installation}{50}{subsubsection.5.2.3}%
 \contentsline {subsection}{\numberline {5.3}Nutzung des Prototypen}{51}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Analyse des Prototypen und Ausblick auf die Weiterentwicklung}{52}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Reflexion der Ergebnisse}{53}{section.6}%
-\contentsline {section}{\numberline {7}Ausblick}{53}{section.7}%
+\contentsline {subsection}{\numberline {5.4}Analyse des Prototypen und Ausblick auf die Weiterentwicklung}{53}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Reflexion der Ergebnisse}{55}{section.6}%
+\contentsline {section}{\numberline {7}Ausblick}{55}{section.7}%
+\contentsline {section}{\numberline {8}Codeentnahmen}{59}{section.8}%

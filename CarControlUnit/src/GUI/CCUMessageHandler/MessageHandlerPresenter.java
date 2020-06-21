@@ -1,14 +1,11 @@
 package GUI.CCUMessageHandler;
 
-import Initialization.Network.OEMVerificationServerConnection.NettyConnectionClient;
 import GUI.LogPrinter;
-import com.google.common.eventbus.EventBus;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
-import javax.inject.Inject;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 

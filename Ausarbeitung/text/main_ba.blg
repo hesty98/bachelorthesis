@@ -22,45 +22,45 @@ Warning--empty publisher in android
 Warning--empty year in android
 Too many commas in name 1 of "S. Debernard, C. Chauvin, R. Pokam, S. Langlois" for entry b16
 while executing---line 1090 of file plain.bst
-You've used 29 entries,
+You've used 31 entries,
             2118 wiz_defined-function locations,
-            626 strings with 8216 characters,
-and the built_in function-call counts, 6108 in all, are:
-= -- 576
-> -- 203
+            639 strings with 9159 characters,
+and the built_in function-call counts, 6560 in all, are:
+= -- 626
+> -- 217
 < -- 2
-+ -- 88
-- -- 58
-* -- 203
-:= -- 1050
-add.period$ -- 81
-call.type$ -- 29
-change.case$ -- 114
++ -- 94
+- -- 62
+* -- 213
+:= -- 1130
+add.period$ -- 91
+call.type$ -- 31
+change.case$ -- 122
 chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 238
-empty$ -- 618
-format.name$ -- 58
-if$ -- 1319
+cite$ -- 33
+duplicate$ -- 252
+empty$ -- 662
+format.name$ -- 62
+if$ -- 1421
 int.to.chr$ -- 0
-int.to.str$ -- 29
+int.to.str$ -- 31
 missing$ -- 9
-newline$ -- 142
-num.names$ -- 58
-pop$ -- 211
+newline$ -- 156
+num.names$ -- 62
+pop$ -- 227
 preamble$ -- 1
-purify$ -- 87
+purify$ -- 93
 quote$ -- 0
-skip$ -- 216
+skip$ -- 224
 stack$ -- 0
-substring$ -- 170
-swap$ -- 34
+substring$ -- 180
+swap$ -- 36
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 108
+type$ -- 116
 warning$ -- 2
-while$ -- 61
-width$ -- 31
-write$ -- 279
+while$ -- 65
+width$ -- 33
+write$ -- 305
 (There were 3 error messages)

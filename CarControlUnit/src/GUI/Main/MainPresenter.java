@@ -2,18 +2,15 @@ package GUI.Main;
 
 import GUI.CCUMessageHandler.MessageHandlerPresenter;
 import GUI.Carla.CarlaPresenter;
-import Initialization.Network.OEMVerificationServerConnection.NettyConnectionClient;
 import GUI.Carla.CarlaView;
 import GUI.CCUMessageHandler.MessageHandlerView;
 
-import com.google.common.eventbus.EventBus;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import javax.inject.Inject;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -38,6 +35,7 @@ public class MainPresenter implements Initializable {
         leftPane.setCenter(messageHandlerView.getView());
         rightPane.setCenter(carlaView.getView());
 
+        //  entnommen von: https://www.programcreek.com/java-api-examples/?class=javafx.application.Platform&method=runLater (21.6.2020)
         Platform.runLater(() -> {
             primaryStage.setOnCloseRequest(e -> {
                 Platform.exit();

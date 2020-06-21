@@ -36,9 +36,9 @@
 \BOOKMARK [3][-]{subsubsection.4.1.2}{Softwarekennzahlen}{subsection.4.1}% 36
 \BOOKMARK [2][-]{subsection.4.2}{Umgebungsbedingte Softwaresuche}{section.4}% 37
 \BOOKMARK [2][-]{subsection.4.3}{Kommunikationsprotokolle}{section.4}% 38
-\BOOKMARK [3][-]{subsubsection.4.3.1}{Kommunikationsprotokoll: Selbstst\344ndiger Softwarekauf}{subsection.4.3}% 39
-\BOOKMARK [3][-]{subsubsection.4.3.2}{Kommunikationsprotokoll: Installationsvorschlag vom Service Provider}{subsection.4.3}% 40
-\BOOKMARK [3][-]{subsubsection.4.3.3}{Kommunikationsprotokoll: Nutzung eines Service}{subsection.4.3}% 41
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Selbstst\344ndiger Softwarekauf}{subsection.4.3}% 39
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Installationsvorschlag vom Service Provider}{subsection.4.3}% 40
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Nutzung eines Service}{subsection.4.3}% 41
 \BOOKMARK [2][-]{subsection.4.4}{Ausblick}{section.4}% 42
 \BOOKMARK [1][-]{section.5}{Vorstellung des Prototypen}{}% 43
 \BOOKMARK [2][-]{subsection.5.1}{Architektur des Prototypen}{section.5}% 44
@@ -52,3 +52,4 @@
 \BOOKMARK [2][-]{subsection.5.4}{Analyse des Prototypen und Ausblick auf die Weiterentwicklung}{section.5}% 52
 \BOOKMARK [1][-]{section.6}{Reflexion der Ergebnisse}{}% 53
 \BOOKMARK [1][-]{section.7}{Ausblick}{}% 54
+\BOOKMARK [1][-]{section.8}{Codeentnahmen}{}% 55
